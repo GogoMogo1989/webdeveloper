@@ -2,7 +2,7 @@ import React from "react";
 import WorkImg1 from "../assets/Website.png";
 import WorkImg2 from "../assets/Chat_Angular.png";
 import WorkImg3 from "../assets/Pizza_MERN.png";
-import WorkImg5 from "../assets/Blog.jpg";
+import WorkImg4 from "../assets/Blog.jpg";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -12,6 +12,28 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 
 const Work = () => {
+  const cont = [
+    {
+      title: "Személyes weboldalam",
+      picture: WorkImg1,
+      href: "https://gogomogo1989.github.io/website/",
+    },
+    {
+      title: "Chat",
+      picture: WorkImg2,
+      href: "https://chatkfd.netlify.app/login",
+    },
+    {
+      title: "Pizzérei",
+      picture: WorkImg3,
+      href: "https://bestpizzakfd.netlify.app/",
+    },
+    {
+      title: "Blog",
+      picture: WorkImg4,
+      href: "https://github.com/GogoMogo1989/blog2",
+    },
+  ];
   return (
     <div>
       <div className="w-full lg:max-w-[20%] px-6 sm:px-12 pt-20">
@@ -53,82 +75,30 @@ const Work = () => {
               },
             }}
           >
-            <SwiperSlide>
-              <div
-                style={{ backgroundImage: `url(${WorkImg1})` }}
-                className="w-full h-[400px] bg-cover bg-center rounded-md"
-              ></div>
-              <div className="p-2 mt-2">
-                <span className="text-sm text-gray-400 tracking-wide">
-                  Személyes weboldalam
-                </span>
-                <div className="pt-1">
-                  <a
-                    href="https://gogomogo1989.github.io/website/"
-                    className="text-sm text-gray-400 font-medium underline pl-1"
-                  >
-                    Demo
-                  </a>
+            {cont.map((project, index) => (
+              <SwiperSlide key={index}>
+                <div
+                  style={{ backgroundImage: `url(${project.picture})` }}
+                  className="w-full h-[400px] bg-cover bg-center rounded-md"
+                ></div>
+
+                <div className="p-2 mt-2">
+                  <span className="text-sm text-gray-400 tracking-wide">
+                    {project.title}
+                  </span>
+                  <div className="pt-1">
+                    <a
+                      href={project.href}
+                      className="text-sm text-gray-400 font-medium underline pl-1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Demo
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div
-                style={{ backgroundImage: `url(${WorkImg2})` }}
-                className="w-full h-[400px] bg-cover bg-center rounded-md"
-              ></div>
-              <div className="p-2 mt-2">
-                <span className="text-sm text-gray-400 tracking-wide">
-                  Chat
-                </span>
-                <div className="pt-1">
-                  <a
-                    href="https://chatkfd.netlify.app/login"
-                    className="text-sm text-gray-400 font-medium underline pl-1"
-                  >
-                    Demo
-                  </a>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div
-                style={{ backgroundImage: `url(${WorkImg3})` }}
-                className="w-full h-[400px] bg-cover bg-center rounded-md"
-              ></div>
-              <div className="p-2 mt-2">
-                <span className="text-sm text-gray-400 tracking-wide">
-                  Pizzeria
-                </span>
-                <div className="pt-1">
-                  <a
-                    href="https://bestpizzakfd.netlify.app/"
-                    className="text-sm text-gray-400 font-medium underline pl-1"
-                  >
-                    Demo
-                  </a>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div
-                style={{ backgroundImage: `url(${WorkImg5})` }}
-                className="w-full h-[400px] bg-cover bg-center rounded-md"
-              ></div>
-              <div className="p-2 mt-2">
-                <span className="text-sm text-gray-400 tracking-wide">
-                  Blog
-                </span>
-                <div className="pt-1">
-                  <a
-                    href="https://github.com/GogoMogo1989/blog2"
-                    className="text-sm text-gray-400 underline"
-                  >
-                    Code
-                  </a>
-                </div>
-              </div>
-            </SwiperSlide>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
 

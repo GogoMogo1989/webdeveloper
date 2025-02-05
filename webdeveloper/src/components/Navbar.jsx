@@ -8,93 +8,54 @@ const Navbar = () => {
 
   const handleClick = () => setNav(!nav);
 
+  const menu = [
+    { title: "Főoldal", to: "home" },
+    { title: "Rólam", to: "about" },
+    { title: "Szolgáltatások", to: "services" },
+    { title: "Technológiák", to: "technologies" },
+    { title: "Munkáim", to: "work" },
+    { title: "Kapcsolat", to: "contact" },
+  ];
+
   return (
     <div className="fixed w-full h-[80px] flex justify-between items-center text-gray-400 z-10">
-      <ul className="hidden md:flex space-x-6 justify-center w-full">
-        <li className="text-gray-400 hover:text-[#1659c9] cursor-pointer">
-          <Link to="home" smooth={true} duration={500}>
-            Főoldal
-          </Link>
-        </li>
-        <li className="text-black-gray-400 hover:text-[#1659c9] cursor-pointer">
-          <Link to="about" smooth={true} duration={500}>
-            Rólam
-          </Link>
-        </li>
-        <li className="text-gray-400 hover:text-[#1659c9] cursor-pointer">
-          <Link to="services" smooth={true} duration={500}>
-            Szolgáltatások
-          </Link>
-        </li>
-        <li className="text-gray-400 hover:text-[#1659c9] cursor-pointer">
-          <Link to="technologies" smooth={true} duration={500}>
-            Technológiák
-          </Link>
-        </li>
-        <li className="text-gray-400 hover:text-[#1659c9] cursor-pointer">
-          <Link to="work" smooth={true} duration={500}>
-            Munkáim
-          </Link>
-        </li>
-      </ul>
-
-      <div className="absolute top-4 right-4">
-        <Link to="contact" smooth={true} duration={500}>
-          <button className="button-33">Kapcsolat</button>
-        </Link>
+      <div className="fixed w-full h-[80px] flex justify-between items-center text-gray-400 z-10">
+        <ul className="hidden md:flex space-x-6 justify-center w-full">
+          {menu.map((menuItem, index) => (
+            <li
+              key={index}
+              className="text-gray-400 hover:text-[#1659c9] cursor-pointer"
+            >
+              <Link to={menuItem.to} smooth={true} duration={500}>
+                {menuItem.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-
       <div onClick={handleClick} className="md:hidden z-10">
         {nav ? <FaTimes /> : <FaBars />}
       </div>
-
-      <ul
-        className={`absolute top-0 left-0 w-full h-screen bg-[rgb(11,9,9)] flex flex-col justify-center items-center text-gray-400 transition-all duration-500 ease-in-out transform ${
-          nav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
-        }`}
-      >
-        <li className="py-6 text-4xl text-black-gray-400">
-          <Link onClick={handleClick} to="home" smooth={true} duration={500}>
-            Főoldal
-          </Link>
-        </li>
-        <li className="py-6 text-4xl text-black-gray-400">
-          <Link onClick={handleClick} to="about" smooth={true} duration={500}>
-            Rólam
-          </Link>
-        </li>
-        <li className="py-6 text-4xl text-black-gray-400">
-          <Link
-            onClick={handleClick}
-            to="services"
-            smooth={true}
-            duration={500}
-          >
-            Szolgáltatások
-          </Link>
-        </li>
-        <li className="py-6 text-4xl text-black-gray-400">
-          <Link
-            onClick={handleClick}
-            to="technologies"
-            smooth={true}
-            duration={500}
-          >
-            Technológiák
-          </Link>
-        </li>
-        <li className="py-6 text-4xl text-black-gray-400">
-          <Link onClick={handleClick} to="work" smooth={true} duration={500}>
-            Munkáim
-          </Link>
-        </li>
-        <li className="py-6 text-4xl text-black-gray-400">
-          <Link onClick={handleClick} to="contact" smooth={true} duration={500}>
-            Kapcsolat
-          </Link>
-        </li>
-      </ul>
-
+      <div>
+        <ul
+          className={`absolute top-0 left-0 w-full h-screen bg-[rgb(11,9,9)] flex flex-col justify-center items-center text-gray-400 transition-all duration-500 ease-in-out transform ${
+            nav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
+          }`}
+        >
+          {menu.map((menuItem, index) => (
+            <li kex={index} className="py-6 text-4xl text-black-gray-400">
+              <Link
+                onClick={handleClick}
+                to={menuItem.to}
+                smooth={true}
+                duration={500}
+              >
+                {menuItem.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
       <div className="hidden lg:flex fixed flex-col top-[35%] left-0">
         <ul>
           <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-blue-600">
