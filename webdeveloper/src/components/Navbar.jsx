@@ -43,7 +43,7 @@ const Navbar = () => {
           }`}
         >
           {menu.map((menuItem, index) => (
-            <li kex={index} className="py-6 text-4xl text-black-gray-400">
+            <li key={index} className="py-6 text-4xl text-black-gray-400">
               <Link
                 onClick={handleClick}
                 to={menuItem.to}
@@ -58,7 +58,10 @@ const Navbar = () => {
       </div>
       <div className="hidden lg:flex fixed flex-col top-[35%] left-0">
         <ul>
-          <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-blue-600">
+          <li
+            key="a"
+            className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-blue-600"
+          >
             <a
               className="flex justify-around items-center w-full text-white pl-1"
               href="https://www.linkedin.com/in/d%C3%A1vid-kov%C3%A1cs-farkas-733732241/"
@@ -67,16 +70,18 @@ const Navbar = () => {
               <FaLinkedin size={30} />
             </a>
           </li>
-          <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#6fc2b0]">
+          <li
+            key="b"
+            className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#6fc2b0]"
+          >
             <Link to="contact" smooth="true" duration={500}>
-              <a
+              <p
                 className="flex justify-around items-center w-full text-white
                ml-10"
-                href="/"
               >
                 <span className="ml-2">Email</span>
                 <HiOutlineMail size={30} />
-              </a>
+              </p>
             </Link>
           </li>
         </ul>
