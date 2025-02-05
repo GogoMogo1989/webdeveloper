@@ -7,6 +7,25 @@ gsap.registerPlugin(ScrollTrigger);
 const Services = () => {
   const serviceRefs = useRef([]);
 
+  const cont = [
+    {
+      title: "Webfejlesztés-",
+      desc: "Egyedi vállalati weboldalak és webshopok készítése, modern dizájnnal és reszponzív kialakítással. Felhasználóbarát felületek, gyors betöltési sebesség és optimalizált kódszerkezet biztosítása.",
+    },
+    {
+      title: "Mobilapplikáció fejlesztés-",
+      desc: "Android és iOS alkalmazások fejlesztése modern technológiával, natív és cross-platform megoldásokkal. Gyors, stabil és skálázható mobilalkalmazások, amelyek megfelelnek a legújabb UI/UX trendeknek.",
+    },
+    {
+      title: "SEO és teljesítményoptimalizálás-",
+      desc: "Jobb helyezés a Google keresési találatai között, gyorsabb betöltési idők és hatékonyabb felhasználói élmény. Keresőoptimalizált tartalmak, mobilbarát megoldások és sebességoptimalizálás.",
+    },
+    {
+      title: "Karbantartás és támogatás-",
+      desc: "Folyamatos frissítések, hibajavítások és technikai támogatás a zavartalan működés érdekében. Biztonsági mentések, szerverkarbantartás és gyors reakcióidő az esetleges problémák kezelésére.",
+    },
+  ];
+
   const splitText = (text) => {
     return text.split("").map((char, index) => (
       <span key={index} className="char">
@@ -57,24 +76,7 @@ const Services = () => {
       </div>
 
       <div className="w-full lg:w-[60%] flex flex-col lg:grid-cols-2 gap-8">
-        {[
-          {
-            title: "Webfejlesztés-",
-            desc: "Egyedi vállalati weboldalak és webshopok készítése, modern dizájnnal és reszponzív kialakítással. Felhasználóbarát felületek, gyors betöltési sebesség és optimalizált kódszerkezet biztosítása.",
-          },
-          {
-            title: "Mobilapplikáció fejlesztés-",
-            desc: "Android és iOS alkalmazások fejlesztése modern technológiával, natív és cross-platform megoldásokkal. Gyors, stabil és skálázható mobilalkalmazások, amelyek megfelelnek a legújabb UI/UX trendeknek.",
-          },
-          {
-            title: "SEO és teljesítményoptimalizálás-",
-            desc: "Jobb helyezés a Google keresési találatai között, gyorsabb betöltési idők és hatékonyabb felhasználói élmény. Keresőoptimalizált tartalmak, mobilbarát megoldások és sebességoptimalizálás.",
-          },
-          {
-            title: "Karbantartás és támogatás-",
-            desc: "Folyamatos frissítések, hibajavítások és technikai támogatás a zavartalan működés érdekében. Biztonsági mentések, szerverkarbantartás és gyors reakcióidő az esetleges problémák kezelésére.",
-          },
-        ].map((service, index) => (
+        {cont.map((service, index) => (
           <div key={index} className="flex flex-col">
             <h3
               className="service-text text-xl sm:text-2xl font-semibold text-white"
