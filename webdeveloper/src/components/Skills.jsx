@@ -54,10 +54,7 @@ const Skills = () => {
       <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center relative">
         <div className="w-full grid grid-cols-3 sm:grid-cols-4 gap-4 text-center py-8">
           {skillsData.map((skill, index) => (
-            <div
-              key={index}
-              className=" shadow-md shadow-[#040c16] hover:scale-110 duration-500 p-2"
-            >
+            <div key={index} className="hover:scale-110 duration-500 p-2">
               <img
                 className="skill-card w-20 mx-auto mt-2.5"
                 src={skill.src}
