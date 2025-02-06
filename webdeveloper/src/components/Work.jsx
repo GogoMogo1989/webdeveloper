@@ -1,8 +1,8 @@
 import React from "react";
-import WorkImg1 from "../assets/Website.png";
-import WorkImg2 from "../assets/Chat_Angular.png";
-import WorkImg3 from "../assets/Pizza_MERN.png";
-import WorkImg4 from "../assets/Blog.jpg";
+import WorkImg1 from "../assets/Website.webp";
+import WorkImg2 from "../assets/Chat_Angular.webp";
+import WorkImg3 from "../assets/Pizza_MERN.webp";
+import WorkImg4 from "../assets/Blog.webp";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";

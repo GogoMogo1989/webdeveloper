@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Designed from "../assets/designed.png";
-import Seo from "../assets/seo.png";
-import Maintenance from "../assets/maintenance.png";
-import Development from "../assets/development.png";
+import Designed from "../assets/designed.webp";
+import Seo from "../assets/seo.webp";
+import Maintenance from "../assets/maintenance.webp";
+import Development from "../assets/development.webp";
 import { Link } from "react-scroll";
 
 gsap.registerPlugin(ScrollTrigger);
