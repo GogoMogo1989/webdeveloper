@@ -45,7 +45,7 @@ const UserFooter = () => {
               duration={500}
               className="transition duration-200 cursor-pointer"
             >
-              <li className="hover:text-[#1659c9]">Elérhetőségeim</li>
+              <li className="hover:text-[#1659c9]">Kapcsolat</li>
             </Link>
           </ul>
         </div>
@@ -62,14 +62,6 @@ const UserFooter = () => {
               <li className="hover:text-[#1659c9]">Főoldal</li>
             </Link>
             <Link
-              to="about"
-              smooth={true}
-              duration={500}
-              className="transition duration-200 cursor-pointer"
-            >
-              <li className="hover:text-[#1659c9]">Rólam</li>
-            </Link>
-            <Link
               to="services"
               smooth={true}
               duration={500}
@@ -77,6 +69,15 @@ const UserFooter = () => {
             >
               <li className="hover:text-[#1659c9]">Szolgáltatások</li>
             </Link>
+            <Link
+              to="about"
+              smooth={true}
+              duration={500}
+              className="transition duration-200 cursor-pointer"
+            >
+              <li className="hover:text-[#1659c9]">Rólam</li>
+            </Link>
+
             <Link
               to="technologies"
               smooth={true}
@@ -99,7 +100,7 @@ const UserFooter = () => {
               duration={500}
               className=" transition duration-200 cursor-pointer"
             >
-              <li className="hover:text-[#1659c9]">Elérhetőségeim</li>
+              <li className="hover:text-[#1659c9]">Kapcsolat</li>
             </Link>
           </ul>
         </div>
