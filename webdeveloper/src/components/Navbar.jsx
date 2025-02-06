@@ -10,8 +10,8 @@ const Navbar = () => {
 
   const menu = [
     { title: "Főoldal", to: "home" },
-    { title: "Rólam", to: "about" },
     { title: "Szolgáltatások", to: "services" },
+    { title: "Rólam", to: "about" },
     { title: "Technológiák", to: "technologies" },
     { title: "Munkáim", to: "work" },
     { title: "Kapcsolat", to: "contact" },
