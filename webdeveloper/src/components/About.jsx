@@ -15,21 +15,25 @@ const About = () => {
       img: Designed,
       title: "Egyedi dizájn és funkcionalitás",
       desc: "Minden projekt egyedi és személyre szabott!",
+      to: "work",
     },
     {
       img: Development,
       title: "Gyors, rezponzív weboldalak/appok",
       desc: "Mobilon és asztali gépen is tökéletes az élmény!",
+      to: "work",
     },
     {
       img: Seo,
       title: "SEO-optimalizált kód",
       desc: "Segítek, hogy a Google is megtalálja az oldaladat!",
+      to: "contact",
     },
     {
       img: Maintenance,
       title: "Biztonság és karbantartás",
       desc: "Az oldalad mindig naprakész és védett lesz!",
+      to: "contact",
     },
   ];
 
@@ -97,7 +101,7 @@ const About = () => {
               <p className="text-center text-gray-600 flex-grow text-xs sm:text-sm">
                 {card.desc}
               </p>
-              <Link to="contact" smooth={true} duration={500}>
+              <Link to={card.to} smooth={true} duration={500}>
                 <button className="button-33 px-1 py-[2px] sm:px-4 sm:py-2 text-[10px] sm:text-sm">
                   Bővebben!
                 </button>
