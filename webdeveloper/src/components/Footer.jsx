@@ -1,11 +1,30 @@
 import React from "react";
 import { Link } from "react-scroll";
+import { FaLinkedin, FaFacebook } from "react-icons/fa";
 
 const UserFooter = () => {
   return (
     <div className="w-full bg-black text-white p-8 relative">
       <div className="text-center mb-6">
         <p className="text-sm">&copy; 2025 KFD Co. Minden jog fenntartva.</p>
+        <div className="flex justify-center">
+          <ul>
+            <li className="flex space-x-4 pt-4">
+              <a
+                className="text-white text-2xl"
+                href="https://www.linkedin.com/in/d%C3%A1vid-kov%C3%A1cs-farkas-733732241/"
+              >
+                <FaLinkedin />
+              </a>
+              <a
+                className="text-white text-2xl"
+                href="https://www.linkedin.com/in/d%C3%A1vid-kov%C3%A1cs-farkas-733732241/"
+              >
+                <FaFacebook />
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">

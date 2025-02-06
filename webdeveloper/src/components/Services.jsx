@@ -60,7 +60,7 @@ const Services = () => {
       name="services"
       className="services-section w-full h-[140vh] min-h-screen bg-black text-black flex flex-col lg:flex-row items-start pt-10 px-6 sm:px-12 relative pt-50"
     >
-      <div className="section-title w-full text-left lg:w-[40%] text-left mb-8 lg:mb-0">
+      <div className="section-title w-full text-left lg:w-[40%] text-left mb-8 lg:mb-0 pl-10">
         <h2
           className="service-title text-2xl sm:text-5xl font-bold text-white"
           ref={(el) => (serviceRefs.current[0] = el)}
@@ -75,7 +75,7 @@ const Services = () => {
         </h2>
       </div>
 
-      <div className="w-full lg:w-[60%] flex flex-col lg:grid-cols-2 gap-8">
+      <div className="w-full lg:w-[60%] flex flex-col lg:grid-cols-2 gap-8 pr-10">
         {cont.map((service, index) => (
           <div key={index} className="flex flex-col">
             <h3

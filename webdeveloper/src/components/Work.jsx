@@ -37,10 +37,10 @@ const Work = () => {
   return (
     <div>
       <div className="w-full lg:max-w-[20%] px-6 sm:px-12 pt-20">
-        <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-black">
+        <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-black pl-10">
           Eddigi
         </h1>
-        <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-[#1659c9]">
+        <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-[#1659c9] pl-10">
           munkáim:
         </h1>
       </div>
