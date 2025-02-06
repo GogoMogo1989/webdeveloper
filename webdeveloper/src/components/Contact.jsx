@@ -1,4 +1,5 @@
 import React from "react";
+import { FaLinkedin, FaFacebook } from "react-icons/fa";
 
 const Contact = () => {
   return (
@@ -33,6 +34,20 @@ const Contact = () => {
                 📞{" "}
                 <a href="tel:+3670632060" className="text-[#1659c9]">
                   +36 70 632 0602
+                </a>
+              </li>
+              <li className="flex space-x-4 pt-4">
+                <a
+                  className="text-white text-4xl"
+                  href="https://www.linkedin.com/in/d%C3%A1vid-kov%C3%A1cs-farkas-733732241/"
+                >
+                  <FaLinkedin />
+                </a>
+                <a
+                  className="text-white text-4xl"
+                  href="https://www.linkedin.com/in/d%C3%A1vid-kov%C3%A1cs-farkas-733732241/"
+                >
+                  <FaFacebook />
                 </a>
               </li>
             </ul>

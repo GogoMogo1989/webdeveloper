@@ -8,19 +8,22 @@ import Work from "./components/Work";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import "./index.css";
+import { HelmetProvider } from "react-helmet-async";
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <Home />
-      <Services />
-      <About />
-      <Skills />
-      <Work />
-      <Contact />
-      <Footer />
-    </div>
+    <HelmetProvider>
+      <div>
+        <Navbar />
+        <Home />
+        <Services />
+        <About />
+        <Skills />
+        <Work />
+        <Contact />
+        <Footer />
+      </div>
+    </HelmetProvider>
   );
 }
 

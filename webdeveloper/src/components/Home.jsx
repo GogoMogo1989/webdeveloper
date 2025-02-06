@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-scroll";
+import { Helmet } from "react-helmet-async";
 import videoBackground from "../assets/background.mp4";
 
 const Home = () => {
@@ -45,6 +46,20 @@ const Home = () => {
 
   return (
     <div name="home" className="w-full h-[100vh] relative">
+      <Helmet>
+        <title>Főoldal | Kovács-Farkas Dávid</title>
+        <meta
+          name="description"
+          content="Modern és gyors weboldalak kis- és középvállalkozásoknak! Egyedi weboldal készítés, olcsó, ingyen, webáruház fejlesztés, olcsó weboldal, profi honlap, Google-barát SEO, mobilbarát design, reszponzív weboldal, WordPress, webshop készítés, céges weboldal, biztonságos és gyors weboldalak, app fejlesztés, applikáció fejlesztés, mobil applikáció fejlesztés, mobil app fejelsztés, react, node.js, express.js, react-native, react native, mongodb, postman, angular, typescript."
+        />
+        <meta property="og:title" content="Főoldal | Kovács-Farkas Dávid" />
+        <meta
+          property="og:description"
+          content="Szükséged van egy modern, gyors és mobilbarát weboldalra? Egyedi honlapok és webáruházak készítése kis- és középvállalkozások számára!"
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       <video
         autoPlay
         loop
