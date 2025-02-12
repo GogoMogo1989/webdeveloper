@@ -42,17 +42,17 @@ const About = () => {
       gsap.fromTo(
         card,
         {
-          x: 200, // Kezdetben jobbról indul
+          y: 80, // Kezdetben jobbról indul
           opacity: 0, // Kezdetben átlátszó
         },
         {
-          x: 0, // Végállapot balra húzva
+          y: 0, // Végállapot balra húzva
           opacity: 1, // Végállapot teljesen látható
           duration: 1, // Animáció hossza
           stagger: 0.2, // Az animáció minden kártyánál eltolva történik
           scrollTrigger: {
             trigger: card, // A trigger az adott card lesz
-            start: "top 80%", // Amikor a kártya elérte a viewport alsó 80%-át
+            start: "top 100%", // Amikor a kártya elérte a viewport alsó 80%-át
             end: "top 30%", // Az animáció akkor fejeződik be, amikor a kártya teteje eléri a viewport tetejét
             scrub: true, // Az animáció a scroll irányával összhangban történik
             markers: false, // A markereket eltüntetheted, ha nem szükségesek
