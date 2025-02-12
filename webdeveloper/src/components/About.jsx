@@ -48,12 +48,12 @@ const About = () => {
         {
           y: 0, // Végállapot balra húzva
           opacity: 1, // Végállapot teljesen látható
-          duration: 1, // Animáció hossza
+          duration: 0.2, // Animáció hossza
           stagger: 0.2, // Az animáció minden kártyánál eltolva történik
           scrollTrigger: {
             trigger: card, // A trigger az adott card lesz
             start: "top 100%", // Amikor a kártya elérte a viewport alsó 80%-át
-            end: "top 30%", // Az animáció akkor fejeződik be, amikor a kártya teteje eléri a viewport tetejét
+            end: "top 50%", // Az animáció akkor fejeződik be, amikor a kártya teteje eléri a viewport tetejét
             scrub: true, // Az animáció a scroll irányával összhangban történik
             markers: false, // A markereket eltüntetheted, ha nem szükségesek
           },
