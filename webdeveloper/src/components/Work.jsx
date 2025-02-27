@@ -12,33 +12,33 @@ const Work = () => {
   const cont = [
     {
       title: "Zsandi Beauty",
-      iframeSrc: "https://www.youtube.com/embed/fmZzmdhABos?autoplay=1",
+      iframeSrc: "https://www.youtube.com/embed/fmZzmdhABos?autoplay=1&mute=1",
       href: "https://zsandi.netlify.app/",
       description:
         "A weboldalt egy kedves ismerősömnek készítettem, aki régóta szeretett volna egy weboldalt ahol az ügyfelei tudnak időpontot foglalni és ami nem utolsó sorban mutatós is!",
     },
     {
       title: "Program Budapest App",
-      iframeSrc: "https://www.youtube.com/embed/BXY-2ML3JVc?autoplay=1",
+      iframeSrc: "https://www.youtube.com/embed/BXY-2ML3JVc?autoplay=1&mute=1",
       description: `Ez a projekt nagyon közel áll a hozzám, életem első önálló mobilapplikációja amit felkérésre készítettem el. Az applikáció feladata a különböző programok, éttermek, kávézók, pubok, közötti szűrés, név, típus, konyha és még sok más kritérium alapján. Továbbá üzleti igényként megfogalmazódott a QR code olvasás különböző akciókhoz, és a "közelben" funkció ami megmutatja a Google Maps által a közelünkben lévő eseményeket, helyeket.`,
     },
     {
       title: "Italian Pizza Customer",
-      iframeSrc: "https://www.youtube.com/embed/Wu0I6sEoDZQ?autoplay=1",
+      iframeSrc: "https://www.youtube.com/embed/Wu0I6sEoDZQ?autoplay=1&mute=1",
       href: "https://italianpizzabudapest.netlify.app/",
       description:
         "Ez az oldal egy bemutató platform azok számára, akik szeretnének termékeket online vásárolni, akár készpénzben, akár bankkártyával. A vásárlást könnyedén és gyorsan intézheted, ráadásul minden tranzakcióról email visszaigazolást küldünk, hogy biztos lehess a rendelésed státuszában. Az oldal lehetőséget biztosít arra is, hogy regisztrálj, így könnyebb és gyorsabban vásárolhatsz legközelebb. Ha nem szeretnél regisztrálni, semmi gond! Az oldal lehetőséget biztosít vendég vásárlásra is, így bárki könnyedén rendelhet anélkül, hogy fiókot kellene létrehoznia. Ez a bemutató oldal célja, hogy bemutassa, hogyan lehet egyszerűsíteni az online vásárlást, és elérhetővé tegye a termékek gyors rendelését mindenki számára.",
     },
     {
       title: "Italian Pizza Admin",
-      iframeSrc: "https://www.youtube.com/embed/u8j23NNbW8s?autoplay=1",
+      iframeSrc: "https://www.youtube.com/embed/u8j23NNbW8s?autoplay=1&mute=1",
       href: "https://italianpizzabudapest.netlify.app/adminlogin",
       description:
         "Ez az adminisztrációs felület a Italian Pizza oldal kezelésére szolgál, ahol könnyedén módosíthatod, törölheted vagy hozzáadhatod a termékeket. Az admin felületen a pizzák és egyéb termékek listáját bármikor frissítheted, így mindig naprakész és változatos kínálatot biztosíthatsz vásárlóidnak. Az adminisztrátorok ezen a felületen követhetik a beérkezett rendeléseket, módosíthatják azokat, törölhetik, vagy akár új státuszt rendelhetnek hozzájuk. Ha egy rendelés valamilyen okból módosításra szorul, az admin felületen ezt gyorsan és egyszerűen intézheted. Ez a felület biztosítja a teljes kontrollt az oldal működtetése felett, így lehetőséget ad arra, hogy gördülékenyen és hatékonyan kezeld az online rendeléseket és termékkínálatot.",
     },
     {
       title: "Italian Pizza App",
-      iframeSrc: "https://www.youtube.com/embed/yoVXrvB-f4Y?autoplay=1",
+      iframeSrc: "https://www.youtube.com/embed/yoVXrvB-f4Y?autoplay=1&mute=1",
       description:
         "A Italian Pizza mobilalkalmazás egy kényelmes és gyors módja annak, hogy bárhol és bármikor rendelhess pizzát és egyéb finomságokat közvetlenül a telefonodról. Az alkalmazás felhasználóbarát felülete lehetővé teszi, hogy könnyedén böngéssz a kínálatunkban, válaszd ki kedvenc ételidet, és tedd meg a rendelésedet mindössze pár kattintással. Ráadásul lehetőséged van gyors, kényelmes vásárlásra akár bankkártyával, akár készpénzes fizetéssel, és minden rendelésről email visszaigazolást kapsz. Ha szeretnél regisztrálni, akkor könnyedén mentheted a kedvenc rendeléseidet és gyorsíthatod a jövőbeli vásárlásokat. Az alkalmazás felhasználói fiókkal vagy anélkül is működik, így akkor is vásárolhatsz, ha nem szeretnél fiókot létrehozni.",
     },
