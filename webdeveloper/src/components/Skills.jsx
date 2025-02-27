@@ -11,7 +11,7 @@ import MongoDB from "../assets/MongoDB.webp";
 import Postman from "../assets/Postman.webp";
 import Angular from "../assets/Angular.webp";
 import Typescript from "../assets/typescript.webp";
-import videoBackground2 from "../assets/background2.mp4";
+import videoBackground2 from "../assets/background2.webm";
 
 const Skills = () => {
   const skillsData = [

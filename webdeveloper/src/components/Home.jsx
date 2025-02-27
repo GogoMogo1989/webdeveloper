@@ -2,27 +2,25 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-scroll";
 import { Helmet } from "react-helmet-async";
-import videoBackground from "../assets/background.mp4";
+import videoBackground from "../assets/background.webm";
 
 const Home = () => {
   const containerRef = useRef();
 
   useEffect(() => {
-    if (window.innerWidth > 768) {
-      const ctx = gsap.context(() => {
-        gsap.from(".fade-in", {
-          y: -50,
-          opacity: 0,
-          duration: 2,
-          stagger: 0.4,
-          force3D: true,
-        });
-      }, containerRef);
+    const ctx = gsap.context(() => {
+      gsap.from(".fade-in", {
+        y: -50,
+        opacity: 0,
+        duration: 2,
+        stagger: 0.4,
+        force3D: true,
+      });
+    }, containerRef);
 
-      return () => {
-        ctx.revert();
-      };
-    }
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -52,7 +50,7 @@ const Home = () => {
         autoPlay
         loop
         muted
-        className="fixed top-0 left-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 w-full h-full object-cover"
       >
         <source src={videoBackground} type="video/mp4" />
         Böngésződ nem támogatja a videó lejátszását.
