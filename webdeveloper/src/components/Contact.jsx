@@ -11,17 +11,17 @@ const Contact = () => {
         <div className="w-full lg:max-w-[50%] px-8 pt-20 space-y-8">
           <div className="text-left">
             <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-white">
-              Elérhetőségeink:
+              Elérhetőségeim:
             </h1>
           </div>
           <div className="pb-8">
             <p className="text-sm sm:text-lg text-white">
-              Ha bárminemű kérdése van és szeretne kapcsolatba lépni velünk,
-              vagy együttműködni, bátran küldjön egy e-mailt az alábbi címre, de
-              telefonon is kereshet!
+              Ha bárminemű kérdésed van és szeretnél kapcsolatba lépni velem,
+              vagy együttműködni, bátran küldj egy e-mailt az alábbi címre, de
+              telefonon is kereshetsz!
             </p>
             <ul className="list-none">
-              <li className="text-lg">
+              <li className="text-lg sm:text-base">
                 📧{" "}
                 <a
                   href="mailto:kovacsfarkasdavid@gmail.com"
@@ -30,7 +30,7 @@ const Contact = () => {
                   kovacsfarkasdavid@gmail.com
                 </a>
               </li>
-              <li className="text-lg">
+              <li className="text-lg sm:text-base">
                 📞{" "}
                 <a href="tel:+3670632060" className="text-[#1659c9]">
                   +36 70 632 0602

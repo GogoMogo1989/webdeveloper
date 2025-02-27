@@ -70,10 +70,10 @@ const About = () => {
     >
       <div className="max-w-[100%] w-full text-center flex flex-col">
         <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-black">
-          Miért minket
+          Miért engem
         </h1>
         <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-[#1659c9]">
-          válasszon?
+          válassz?
         </h1>
         <p className="mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-black py-4 max-w-[700px] font-bold text-center">
           A mai digitális világban egy weboldal vagy egy mobil applikáció nem

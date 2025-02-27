@@ -20,7 +20,7 @@ const Work = () => {
     {
       title: "Program Budapest App",
       iframeSrc: "https://www.youtube.com/embed/BXY-2ML3JVc?autoplay=1",
-      description: `Ez a munka nagyon közel áll a szívemhez, életem első önálló mobilapplikációja amit felkérésre készítettem el. Az applikáció feladata a különböző programok, éttermek, kávézók, pubok, közötti szűrés, név, típus, konyha és még sok más alapján, mellette üzleit igény volt a QR code olvasás különböző akciókhoz, és a "közelben" funkció ami megmutatja a közelünkben lévő eseményeket, helyeket.`,
+      description: `Ez a projekt nagyon közel áll a hozzám, életem első önálló mobilapplikációja amit felkérésre készítettem el. Az applikáció feladata a különböző programok, éttermek, kávézók, pubok, közötti szűrés, név, típus, konyha és még sok más kritérium alapján. Továbbá üzleti igényként megfogalmazódott a QR code olvasás különböző akciókhoz, és a "közelben" funkció ami megmutatja a Google Maps által a közelünkben lévő eseményeket, helyeket.`,
     },
     {
       title: "Italian Pizza Customer",
@@ -66,7 +66,7 @@ const Work = () => {
           Eddigi
         </h1>
         <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-[#1659c9] mb-20">
-          munkáink:
+          munkáim:
         </h1>
       </div>
       <div
