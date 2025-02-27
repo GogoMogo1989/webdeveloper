@@ -7,8 +7,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 
 const Work = () => {
-  const swiperRef = useRef(null);
-
   const cont = [
     {
       title: "Zsandi Beauty",
@@ -44,21 +42,6 @@ const Work = () => {
     },
   ];
 
-  useEffect(() => {
-    if (swiperRef.current) {
-      swiperRef.current.swiper.on("slideChange", () => {
-        const activeSlide =
-          swiperRef.current.swiper.slides[swiperRef.current.swiper.activeIndex];
-        const iframe = activeSlide.querySelector("iframe");
-        if (iframe) {
-          const src = iframe.src;
-          iframe.src = "";
-          iframe.src = src;
-        }
-      });
-    }
-  }, []);
-
   return (
     <div className="h-[210vh] relative">
       <div className="w-full  lg:max-w-[20%] px-6 sm:px-12 pt-20">
@@ -75,7 +58,6 @@ const Work = () => {
       >
         <div className="w-full max-w-[80%] lg:max-w-[80%] px-6 py-10">
           <Swiper
-            ref={swiperRef}
             spaceBetween={30}
             loop={true}
             pagination={{ clickable: true }}
