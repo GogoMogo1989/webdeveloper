@@ -47,10 +47,10 @@ const Home = () => {
   return (
     <div name="home" className="w-full h-[100vh] relative">
       <Helmet>
-        <title>Főoldal | Kovács-Farkas Dávid</title>
+        <title>Főoldal | KFD Solutions</title>
         <meta
           name="description"
-          content="Modern és gyors weboldalak kis- és középvállalkozásoknak! Egyedi weboldal készítés, olcsó, ingyen, webáruház fejlesztés, olcsó weboldal, profi honlap, Google-barát SEO, mobilbarát design, reszponzív weboldal, WordPress, webshop készítés, céges weboldal, biztonságos és gyors weboldalak, app fejlesztés, applikáció fejlesztés, mobil applikáció fejlesztés, mobil app fejelsztés, react, node.js, express.js, react-native, react native, mongodb, postman, angular, typescript."
+          content="KFD solutions Modern és gyors weboldalak mobil appok mobilapp kis- és középvállalkozásoknak! Egyedi weboldal készítés, olcsó, ingyen, webáruház fejlesztés, olcsó weboldal, profi honlap, Google-barát SEO, mobilbarát design, reszponzív weboldal, WordPress, webshop készítés, céges weboldal, biztonságos és gyors weboldalak, app fejlesztés, applikáció fejlesztés, mobil applikáció fejlesztés, mobil app fejelsztés, react, node.js, express.js, react-native, react native, mongodb, postman, angular, typescript."
         />
         <meta property="og:title" content="Főoldal | Kovács-Farkas Dávid" />
         <meta
@@ -75,13 +75,14 @@ const Home = () => {
         className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full relative"
       >
         <h1 className="first-class text-2xl sm:text-5xl md:text-6xl font-bold text-white">
-          Helló!
+          Üdvözlünk a
         </h1>
         <h1 className="second-class text-2xl sm:text-5xl md:text-6xl font-bold text-white">
-          Kovács-Farkas Dávid vagyok
+          KFD Solution-nál!
         </h1>
         <p className="third-class text-xs sm:text-sm md:text-base lg:text-lg text-white py-4 max-w-[700px] font-bold">
-          Egyedi weboldalak kis- és középvállalkozások számára!
+          Egyedi weboldalak és mobilapplikációk kis- és középvállalkozások
+          számára!
         </p>
 
         <Link to="contact" smooth={true} duration={500}>

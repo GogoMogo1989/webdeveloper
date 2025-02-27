@@ -70,16 +70,16 @@ const About = () => {
     >
       <div className="max-w-[100%] w-full text-center flex flex-col">
         <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-black">
-          Miért engem
+          Miért minket
         </h1>
         <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-[#1659c9]">
-          válassz?
+          válasszon?
         </h1>
         <p className="mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-black py-4 max-w-[700px] font-bold text-center">
           A mai digitális világban egy weboldal vagy egy mobil applikáció nem
-          csupán egy online névjegy – ez az első benyomásod az ügyfelek felé. Én
-          pedig abban hiszek, hogy minden vállalkozás egyedi, ezért nálam nincs
-          helye sablonmegoldásoknak!
+          csupán egy online névjegy – ez az első benyomásod az ügyfelek felé. Mi
+          pedig abban hiszünkk, hogy minden vállalkozás egyedi, ezért nálunk
+          nincs helye sablonmegoldásoknak!
         </p>
       </div>
 

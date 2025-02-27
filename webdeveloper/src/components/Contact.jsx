@@ -11,14 +11,14 @@ const Contact = () => {
         <div className="w-full lg:max-w-[50%] px-8 pt-20 space-y-8">
           <div className="text-left">
             <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-white">
-              Elérhetőségeim:
+              Elérhetőségeink:
             </h1>
           </div>
           <div className="pb-8">
             <p className="text-sm sm:text-lg text-white">
-              Ha bárminemű kérdésed van és szeretnél velem kapcsolatba lépni,
-              vagy együttműködni, bátran küldj egy e-mailt az alábbi címre, de
-              telefonon is kereshetsz!
+              Ha bárminemű kérdése van és szeretne kapcsolatba lépni velünk,
+              vagy együttműködni, bátran küldjön egy e-mailt az alábbi címre, de
+              telefonon is kereshet!
             </p>
             <ul className="list-none">
               <li className="text-lg">

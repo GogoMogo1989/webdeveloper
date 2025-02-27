@@ -71,7 +71,7 @@ const Services = () => {
           className="service-text about-title text-2xl sm:text-5xl font-bold text-[#1659c9]"
           ref={(el) => (serviceRefs.current[1] = el)}
         >
-          {splitText("amiket nyújtok")}
+          {splitText("amiket nyújtunk")}
         </h2>
       </div>
 
