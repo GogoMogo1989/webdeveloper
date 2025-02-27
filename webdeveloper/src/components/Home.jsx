@@ -8,19 +8,20 @@ const Home = () => {
   const containerRef = useRef();
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".fade-in", {
-        y: -50,
-        opacity: 0,
-        duration: 2,
-        stagger: 0.4,
-        force3D: true,
-      });
-    }, containerRef);
+    if (window.innerWidth > 768) {
+      // Csak ha desktop nézet
+      const ctx = gsap.context(() => {
+        gsap.from(".fade-in", {
+          y: -50,
+          opacity: 0,
+          duration: 2,
+          stagger: 0.4,
+          force3D: true,
+        });
+      }, containerRef);
 
-    return () => {
-      ctx.revert();
-    };
+      return () => ctx.revert();
+    }
   }, []);
 
   return (
