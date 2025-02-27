@@ -42,12 +42,12 @@ const Skills = () => {
       </video>
 
       <div className="w-full lg:max-w-[50%] pt-20 px-6 sm:px-12 relative">
-        <div className="text-left pl-10">
+        <div className="text-left">
           <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-white">
             Használt
           </h1>
           <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-[#1659c9]">
-            technológiák:
+            technológák:
           </h1>
         </div>
       </div>

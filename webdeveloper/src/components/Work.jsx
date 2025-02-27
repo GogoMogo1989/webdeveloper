@@ -62,10 +62,10 @@ const Work = () => {
   return (
     <div className="h-[210vh] relative">
       <div className="w-full  lg:max-w-[20%] px-6 sm:px-12 pt-20">
-        <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-black pl-10">
+        <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-black">
           Eddigi
         </h1>
-        <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-[#1659c9] pl-10 mb-20">
+        <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-[#1659c9] mb-20">
           munkáink:
         </h1>
       </div>
