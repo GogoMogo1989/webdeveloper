@@ -14,6 +14,7 @@ const Home = () => {
         opacity: 0,
         duration: 2,
         stagger: 0.4,
+        force3D: true,
       });
     }, containerRef);
 
@@ -49,7 +50,7 @@ const Home = () => {
         autoPlay
         loop
         muted
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="fixed top-0 left-0 w-full h-full object-cover"
       >
         <source src={videoBackground} type="video/mp4" />
         Böngésződ nem támogatja a videó lejátszását.
