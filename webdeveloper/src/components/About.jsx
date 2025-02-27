@@ -78,7 +78,7 @@ const About = () => {
         <p className="mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-black py-4 max-w-[700px] font-bold text-center">
           A mai digitális világban egy weboldal vagy egy mobil applikáció nem
           csupán egy online névjegy – ez az első benyomásod az ügyfelek felé. Mi
-          pedig abban hiszünkk, hogy minden vállalkozás egyedi, ezért nálunk
+          pedig abban hiszünk, hogy minden vállalkozás egyedi, ezért nálunk
           nincs helye sablonmegoldásoknak!
         </p>
       </div>

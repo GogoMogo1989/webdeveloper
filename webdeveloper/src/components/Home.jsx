@@ -9,34 +9,12 @@ const Home = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".first-class", {
+      gsap.from(".fade-in", {
         y: -50,
         opacity: 0,
-        duration: 3,
-        stagger: 0.5,
+        duration: 2,
+        stagger: 0.4,
       });
-
-      gsap.from(
-        ".second-class",
-        {
-          y: -50,
-          opacity: 0,
-          duration: 3,
-          stagger: 0.5,
-        },
-        "-=2"
-      );
-
-      gsap.from(
-        ".third-class",
-        {
-          y: -50,
-          opacity: 0,
-          duration: 3,
-          stagger: 0.5,
-        },
-        "-=2"
-      );
     }, containerRef);
 
     return () => {
@@ -47,15 +25,22 @@ const Home = () => {
   return (
     <div name="home" className="w-full h-[100vh] relative">
       <Helmet>
-        <title>KFD Solutions</title>
+        <title>KFD Solutions - Egyedi Weboldalak és Mobilalkalmazások</title>
         <meta
           name="description"
-          content="KFD solutions Modern és gyors weboldalak mobil appok mobilapp kis- és középvállalkozásoknak! Egyedi weboldal készítés, olcsó, ingyen, webáruház fejlesztés, olcsó weboldal, profi honlap, Google-barát SEO, mobilbarát design, reszponzív weboldal, WordPress, webshop készítés, céges weboldal, biztonságos és gyors weboldalak, app fejlesztés, applikáció fejlesztés, mobil applikáció fejlesztés, mobil app fejelsztés, react, node.js, express.js, react-native, react native, mongodb, postman, angular, typescript."
+          content="Egyedi weboldalak és mobilalkalmazások fejlesztése kis- és középvállalkozások számára. SEO-barát, gyors és reszponzív megoldások."
         />
-        <meta property="og:title" content="Főoldal | Kovács-Farkas Dávid" />
+        <meta
+          name="keywords"
+          content="weboldal készítés, mobil applikáció fejlesztés, reszponzív design, egyedi honlap, webáruház fejlesztés, SEO, gyors weboldal, KFD Solutions, kfdsolutions.hu, kfdsolutions, applikáció, fejlesztés, web, weblap, weboldal, készítés"
+        />
+        <meta
+          property="og:title"
+          content="KFD Solutions - Profi Weboldalak és Applikációk"
+        />
         <meta
           property="og:description"
-          content="Szükséged van egy modern, gyors és mobilbarát weboldalra? Egyedi honlapok és webáruházak készítése kis- és középvállalkozások számára!"
+          content="Modern és gyors weboldalak, mobilalkalmazások kis- és középvállalkozásoknak. Egyedi megoldások és SEO-optimalizált fejlesztés."
         />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -67,33 +52,30 @@ const Home = () => {
         className="absolute top-0 left-0 w-full h-full object-cover"
       >
         <source src={videoBackground} type="video/mp4" />
-        Your browser does not support the video tag.
+        Böngésződ nem támogatja a videó lejátszását.
       </video>
 
       <div
         ref={containerRef}
         className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full relative"
       >
-        <h1 className="first-class text-2xl sm:text-5xl md:text-6xl font-bold text-white">
-          Üdvözlünk a
+        <h1 className="fade-in text-2xl sm:text-5xl md:text-6xl font-bold text-white">
+          Üdvözlünk a KFD Solutions-nál!
         </h1>
-        <h1 className="second-class text-2xl sm:text-5xl md:text-6xl font-bold text-white">
-          KFD Solution-nál!
-        </h1>
-        <p className="third-class text-xs sm:text-sm md:text-base lg:text-lg text-white py-4 max-w-[700px] font-bold">
-          Egyedi weboldalak és mobilapplikációk kis- és középvállalkozások
-          számára!
+        <p className="fade-in text-xs sm:text-sm md:text-base lg:text-lg text-white py-4 max-w-[700px] font-bold">
+          Professzionális weboldalak és mobilalkalmazások fejlesztése gyors és
+          hatékony megoldásokkal!
         </p>
 
         <Link to="contact" smooth={true} duration={500}>
-          <button className="button-33 px-1 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-xl">
-            Kérj árajánlatot!
+          <button className="button-33 px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-xl">
+            Kérj ajánlatot most!
           </button>
         </Link>
       </div>
 
       <p className="absolute bottom-4 right-4 text-lg font-semibold text-gray-400 opacity-60">
-        Főoldal
+        KFD Solutions - Egyedi weboldalak és applikációk
       </p>
     </div>
   );
