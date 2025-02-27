@@ -73,10 +73,6 @@ const Home = () => {
           </button>
         </Link>
       </div>
-
-      <p className="absolute bottom-4 right-4 text-lg font-semibold text-gray-400 opacity-60">
-        KFD Solutions - Egyedi weboldalak és applikációk
-      </p>
     </div>
   );
 };
