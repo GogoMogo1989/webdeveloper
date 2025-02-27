@@ -47,7 +47,7 @@ const Home = () => {
   return (
     <div name="home" className="w-full h-[100vh] relative">
       <Helmet>
-        <title>Főoldal | KFD Solutions</title>
+        <title>KFD Solutions</title>
         <meta
           name="description"
           content="KFD solutions Modern és gyors weboldalak mobil appok mobilapp kis- és középvállalkozásoknak! Egyedi weboldal készítés, olcsó, ingyen, webáruház fejlesztés, olcsó weboldal, profi honlap, Google-barát SEO, mobilbarát design, reszponzív weboldal, WordPress, webshop készítés, céges weboldal, biztonságos és gyors weboldalak, app fejlesztés, applikáció fejlesztés, mobil applikáció fejlesztés, mobil app fejelsztés, react, node.js, express.js, react-native, react native, mongodb, postman, angular, typescript."
