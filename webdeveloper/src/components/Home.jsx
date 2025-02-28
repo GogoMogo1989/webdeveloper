@@ -34,7 +34,7 @@ const Home = () => {
         />
         <meta
           name="keywords"
-          content="weboldal készítés, mobil applikáció fejlesztés, reszponzív design, egyedi honlap, webáruház fejlesztés, SEO, gyors weboldal, KFD Solutions, kfdsolutions.hu, kfdsolutions, applikáció, fejlesztés, web, weblap, weboldal, készítés"
+          content="weboldal készítés, webshop készítés, webáruház készítés, mobil applikáció fejlesztés, reszponzív design, egyedi honlap, webáruház fejlesztés, SEO, gyors weboldal, KFD Solutions, kfdsolutions.hu, kfdsolutions, applikáció, fejlesztés, web, weblap, weboldal, készítés"
         />
         <meta
           property="og:title"
@@ -65,8 +65,8 @@ const Home = () => {
           Üdvözlünk a KFD Solutions-nál!
         </h1>
         <p className="fade-in text-xs sm:text-sm md:text-base lg:text-lg text-white py-4 max-w-[700px] font-bold">
-          Professzionális weboldalak és mobilalkalmazások fejlesztése gyors és
-          hatékony megoldásokkal!
+          Professzionális weboldalak, webáruházak és mobilalkalmazások
+          fejlesztése gyors és hatékony megoldásokkal!
         </p>
 
         <Link to="contact" smooth={true} duration={500}>
