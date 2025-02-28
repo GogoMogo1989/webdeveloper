@@ -10,10 +10,10 @@ const Work = () => {
   const cont = [
     {
       title: "Zsandi Beauty",
-      iframeSrc: "https://www.youtube.com/embed/fmZzmdhABos?autoplay=1&mute=1",
+      iframeSrc: "https://www.youtube.com/embed/eLr0_iJfrfw?autoplay=1&mute=1",
       href: "https://zsandi.netlify.app/",
       description:
-        "A weboldalt egy kedves ismerősömnek készítettem, aki régóta szeretett volna egy weboldalt ahol az ügyfelei tudnak időpontot foglalni és ami nem utolsó sorban mutatós is!",
+        "Egy kedves ismerősömnek készítettem ezt a weboldalt, aki régóta szeretett volna egy olyan platformot, ahol blogolhat a legújabb kozmetikai technológiákról és eszközökről, valamint ahol az ügyfelei könnyedén időpontot foglalhatnak.",
     },
     {
       title: "Program Budapest App",
