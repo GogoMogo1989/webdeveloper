@@ -4,9 +4,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
-import Lottie from "react-lottie";
-import animationData from "../assets/Animation - 1741014121079.json";
+import { Autoplay, Navigation } from "swiper";
 
 const Work = () => {
   const cont = [
@@ -55,18 +53,6 @@ const Work = () => {
         </h1>
       </div>
 
-      <div className="absolute top-23 sm:top-35 left-0 right-0 bottom-0">
-        <Lottie
-          options={{
-            animationData: animationData,
-            loop: true,
-            autoplay: true,
-          }}
-          height={200}
-          width={200}
-        />
-      </div>
-
       <div
         name="work"
         className="w-full min-h-screen text-black bg-white relative flex flex-col lg:flex-row items-center justify-center"
@@ -78,13 +64,14 @@ const Work = () => {
             pagination={{ clickable: true }}
             grabCursor={true}
             centeredSlides={true}
-            modules={[Autoplay]}
+            modules={[Autoplay, Navigation]}
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
               waitForTransition: true,
             }}
             speed={1500}
+            navigation={true}
             className="w-full"
             breakpoints={{
               640: {
