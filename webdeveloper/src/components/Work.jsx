@@ -1,10 +1,12 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
+import Lottie from "react-lottie";
+import animationData from "../assets/Animation - 1741014121079.json";
 
 const Work = () => {
   const cont = [
@@ -44,7 +46,7 @@ const Work = () => {
 
   return (
     <div className="h-[210vh] relative">
-      <div className="w-full  lg:max-w-[20%] px-6 sm:px-12 pt-20">
+      <div className="w-full lg:max-w-[20%] px-6 sm:px-12 pt-20">
         <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-black">
           Eddigi
         </h1>
@@ -52,9 +54,22 @@ const Work = () => {
           munkáim:
         </h1>
       </div>
+
+      <div className="absolute top-23 sm:top-35 left-0 right-0 bottom-0">
+        <Lottie
+          options={{
+            animationData: animationData,
+            loop: true,
+            autoplay: true,
+          }}
+          height={200}
+          width={200}
+        />
+      </div>
+
       <div
         name="work"
-        className="w-full  min-h-screen text-black bg-white relative flex flex-col lg:flex-row items-center justify-center"
+        className="w-full min-h-screen text-black bg-white relative flex flex-col lg:flex-row items-center justify-center"
       >
         <div className="w-full max-w-[80%] lg:max-w-[80%] px-6 py-10">
           <Swiper
@@ -121,6 +136,7 @@ const Work = () => {
           </Swiper>
         </div>
       </div>
+
       <p className="absolute bottom-4 right-4 text-lg font-semibold text-gray-400 opacity-60">
         Munkáim
       </p>

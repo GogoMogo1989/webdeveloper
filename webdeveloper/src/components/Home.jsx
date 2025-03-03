@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-scroll";
 import { Helmet } from "react-helmet-async";
-import videoBackground from "../assets/background.webm";
+import videoBackground from "../assets/background.mp4";
 
 const Home = () => {
   const containerRef = useRef();
