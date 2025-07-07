@@ -1,6 +1,6 @@
-const API_URL = "http://localhost:3000/api/sendmail";
+/* const API_URL = "http://localhost:3000/api/sendmail"; */
 
-/* const API_URL = "https://ashencultureband.onrender.com/api/sendmail"; */
+const API_URL = "https://webpagerestapi.onrender.com/api/sendmail";
 
 export const sendMail = async (mailData) => {
   try {
