@@ -29,10 +29,10 @@ const Navbar = () => {
     ],
   };
 
-  const currentMenu = menuOptions[language] || menuOptions["hu"];
+  const currentMenu = menuOptions[language] || menuOptions["en"];
 
   return (
-    <div className="fixed w-full h-[80px] flex justify-between items-center text-gray-400 z-10">
+    <div className="fixed w-full h-[80px] flex justify-between items-center text-gray-400 z-20">
       <div className="fixed w-full h-[80px] flex justify-between items-center text-gray-400 z-10">
         <ul className="hidden md:flex space-x-6 justify-center w-full">
           {currentMenu.map((menuItem, index) => (
@@ -50,7 +50,7 @@ const Navbar = () => {
       <div onClick={handleClick} className="md:hidden z-10 pl-5">
         {nav ? <FaTimes /> : <FaBars />}
       </div>
-      <div className="absolute right-15 top-1/2 transform -translate-y-1/2 z-20 flex">
+      <div className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 flex">
         <button onClick={toggleLanguage} className="cursor-pointer text-2xl">
           <span className={`fi fi-${language === "hu" ? "hu" : "gb"}`}></span>
         </button>

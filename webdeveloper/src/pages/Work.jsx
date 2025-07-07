@@ -65,7 +65,7 @@ const Work = () => {
   const demoText = "Demo";
 
   return (
-    <div className="h-[210vh] relative">
+    <div className="h-[180vh] relative bg-white">
       <div className="w-full lg:max-w-[20%] px-6 sm:px-12 pt-20">
         <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-black">
           {headerTop}

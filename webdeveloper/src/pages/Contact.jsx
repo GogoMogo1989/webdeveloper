@@ -42,7 +42,7 @@ const Contact = () => {
   return (
     <div
       name="contact"
-      className="w-full h-[140vh] min-h-screen text-black bg-black pt-10 flex justify-center items-center p-4 relative"
+      className="w-full h-[100vh] min-h-screen text-black bg-black flex justify-center items-center p-4 relative"
     >
       <div className="w-full max-w-[1200px] flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-8">
         <div className="w-full lg:max-w-[50%] px-8 pt-20 space-y-8">
