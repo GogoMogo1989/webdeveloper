@@ -32,7 +32,7 @@ const Skills = () => {
   ];
 
   return (
-    <div name="technologies" className="w-full h-[120vh] relative">
+    <div name="technologies" className="w-full h-[120vh] relative" id="skills">
       <video
         autoPlay
         loop

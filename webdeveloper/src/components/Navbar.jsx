@@ -40,7 +40,12 @@ const Navbar = () => {
               key={index}
               className="text-gray-400 hover:text-[#1659c9] cursor-pointer"
             >
-              <Link to={menuItem.to} smooth={true} duration={500}>
+              <Link
+                to={menuItem.to}
+                smooth={true}
+                duration={500}
+                id={`nav-${menuItem.to}`}
+              >
                 {menuItem.title}
               </Link>
             </li>
@@ -65,9 +70,10 @@ const Navbar = () => {
           {currentMenu.map((menuItem, index) => (
             <li key={index} className="py-6 text-4xl text-black-gray-400">
               <Link
+                id={`nav-${menuItem.to}`} // egyedi id, nem ütközik a szekcióval
                 onClick={handleClick}
                 to={menuItem.to}
-                smooth={true}
+                smooth
                 duration={500}
               >
                 {menuItem.title}

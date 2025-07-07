@@ -190,6 +190,7 @@ const Home = () => {
       ref={containerRef}
       name="home"
       className="w-full h-screen relative overflow-hidden bg-black"
+      id="home"
     >
       <Helmet>
         <title>

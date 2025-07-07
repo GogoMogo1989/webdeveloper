@@ -70,7 +70,7 @@ const Work = () => {
   const demoText = "Demo";
 
   return (
-    <div className="h-[180vh] relative bg-white">
+    <div className="h-[180vh] relative bg-white" id="work">
       {!cookiesAccepted && (
         <CookieConsent onAccept={() => setCookiesAccepted(true)} />
       )}

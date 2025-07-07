@@ -86,6 +86,7 @@ export default function Services() {
     <div
       ref={containerRef}
       name="services"
+      id="services"
       className="pb-30 pt-30 services-section w-full min-h-screen bg-black text-white flex flex-col lg:flex-row  px-6 sm:px-12 relative"
     >
       <div className="section-title w-full lg:w-[40%] mb-8 lg:mb-0">
