@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -5,9 +6,13 @@ import "swiper/css/autoplay";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import { useLanguage } from "../context/languageContext";
+import CookieConsent from "../components/CookieConset";
 
 const Work = () => {
   const { language } = useLanguage();
+  const [cookiesAccepted, setCookiesAccepted] = useState(
+    () => localStorage.getItem("cookieConsent") === "true"
+  );
 
   const projects = [
     {
@@ -66,6 +71,9 @@ const Work = () => {
 
   return (
     <div className="h-[180vh] relative bg-white">
+      {!cookiesAccepted && (
+        <CookieConsent onAccept={() => setCookiesAccepted(true)} />
+      )}
       <div className="w-full lg:max-w-[20%] px-6 sm:px-12 pt-20">
         <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-black">
           {headerTop}
@@ -104,16 +112,24 @@ const Work = () => {
             {projects.map((project, index) => (
               <SwiperSlide key={index}>
                 <div className="w-full h-[400px] bg-cover bg-center rounded-md">
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src={project.iframeSrc}
-                    title={
-                      language === "hu" ? project.titleHu : project.titleEn
-                    }
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+                  {cookiesAccepted ? (
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={project.iframeSrc}
+                      title={
+                        language === "hu" ? project.titleHu : project.titleEn
+                      }
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-700 text-center p-4 rounded">
+                      {language === "hu"
+                        ? "Videó csak a sütik elfogadása után játszható le."
+                        : "Video can only be played after accepting cookies."}
+                    </div>
+                  )}
                 </div>
 
                 <div className="p-2 mt-2">
@@ -133,7 +149,7 @@ const Work = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {demoText}
+                        Demo
                       </a>
                     )}
                   </div>
