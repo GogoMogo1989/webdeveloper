@@ -1,4 +1,3 @@
-import React from "react";
 import HTML from "../assets/html.webp";
 import CSS from "../assets/css.webp";
 import Javascript from "../assets/javascript.webp";
@@ -12,8 +11,11 @@ import Postman from "../assets/Postman.webp";
 import Angular from "../assets/Angular.webp";
 import Typescript from "../assets/typescript.webp";
 import videoBackground2 from "../assets/background2.mp4";
+import { useLanguage } from "../context/languageContext";
 
 const Skills = () => {
+  const { language } = useLanguage();
+
   const skillsData = [
     { src: HTML, title: "HTML" },
     { src: CSS, title: "CSS" },
@@ -44,10 +46,7 @@ const Skills = () => {
       <div className="w-full lg:max-w-[50%] pt-20 px-6 sm:px-12 relative">
         <div className="text-left">
           <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-white">
-            Használt
-          </h1>
-          <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-[#1659c9]">
-            technológák:
+            {language === "hu" ? "Technológiák" : "Technologies"}
           </h1>
         </div>
       </div>
@@ -65,9 +64,6 @@ const Skills = () => {
           ))}
         </div>
       </div>
-      <p className="absolute bottom-4 right-4 text-lg font-semibold text-gray-400 opacity-60">
-        Technológiák
-      </p>
     </div>
   );
 };

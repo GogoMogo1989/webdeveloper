@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Designed from "../assets/designed.webp";
@@ -6,33 +6,44 @@ import Seo from "../assets/seo.webp";
 import Maintenance from "../assets/maintenance.webp";
 import Development from "../assets/development.webp";
 import { Link } from "react-scroll";
+import { useLanguage } from "../context/languageContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+  const { language } = useLanguage();
+
   const cardContant = [
     {
       img: Designed,
-      title: "Egyedi dizájn és funkcionalitás",
-      desc: "Minden projekt egyedi és személyre szabott!",
+      titleHu: "Egyedi dizájn és funkcionalitás",
+      descHu: "Minden projekt egyedi és személyre szabott!",
+      titleEn: "Unique Design and Functionality",
+      descEn: "Every project is unique and tailored to you!",
       to: "work",
     },
     {
       img: Development,
-      title: "Gyors, rezponzív weboldalak/appok",
-      desc: "Mobilon és asztali gépen is tökéletes az élmény!",
+      titleHu: "Gyors, rezponzív weboldalak/appok",
+      descHu: "Mobilon és asztali gépen is tökéletes az élmény!",
+      titleEn: "Fast, Responsive Websites/Apps",
+      descEn: "Perfect experience on mobile and desktop alike!",
       to: "work",
     },
     {
       img: Seo,
-      title: "SEO-optimalizált kód",
-      desc: "Segítek, hogy a Google is megtalálja az oldaladat!",
+      titleHu: "SEO-optimalizált kód",
+      descHu: "Segítek, hogy a Google is megtalálja az oldaladat!",
+      titleEn: "SEO-Optimized Code",
+      descEn: "Helping Google find your site with ease!",
       to: "contact",
     },
     {
       img: Maintenance,
-      title: "Biztonság és karbantartás",
-      desc: "Az oldalad mindig naprakész és védett lesz!",
+      titleHu: "Biztonság és karbantartás",
+      descHu: "Az oldalad mindig naprakész és védett lesz!",
+      titleEn: "Security and Maintenance",
+      descEn: "Your site stays up-to-date and protected!",
       to: "contact",
     },
   ];
@@ -42,20 +53,20 @@ const About = () => {
       gsap.fromTo(
         card,
         {
-          y: 80, // Kezdetben jobbról indul
-          opacity: 0, // Kezdetben átlátszó
+          y: 80,
+          opacity: 0,
         },
         {
-          y: 0, // Végállapot balra húzva
-          opacity: 1, // Végállapot teljesen látható
-          duration: 0.2, // Animáció hossza
-          stagger: 0.2, // Az animáció minden kártyánál eltolva történik
+          y: 0,
+          opacity: 1,
+          duration: 0.2,
+          stagger: 0.2,
           scrollTrigger: {
-            trigger: card, // A trigger az adott card lesz
-            start: "top 100%", // Amikor a kártya elérte a viewport alsó 80%-át
-            end: "top 50%", // Az animáció akkor fejeződik be, amikor a kártya teteje eléri a viewport tetejét
-            scrub: true, // Az animáció a scroll irányával összhangban történik
-            markers: false, // A markereket eltüntetheted, ha nem szükségesek
+            trigger: card,
+            start: "top 100%",
+            end: "top 50%",
+            scrub: true,
+            markers: false,
           },
         }
       );
@@ -70,16 +81,15 @@ const About = () => {
     >
       <div className="max-w-[100%] w-full text-center flex flex-col">
         <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-black">
-          Miért engem
+          {language === "hu" ? "Miért engem" : "Why choose me"}
         </h1>
         <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-[#1659c9]">
-          válassz?
+          {language === "hu" ? "válassz?" : "as your developer?"}
         </h1>
         <p className="mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-black py-4 max-w-[700px] font-bold text-center">
-          A mai digitális világban egy weboldal vagy egy mobil applikáció nem
-          csupán egy online névjegy – ez az első benyomásod az ügyfelek felé.
-          Abban hiszek, hogy minden vállalkozás egyedi, ezért nálam nincs helye
-          sablonmegoldásoknak!
+          {language === "hu"
+            ? "A mai digitális világban egy weboldal vagy egy mobil applikáció nem csupán egy online névjegy – ez az első benyomásod az ügyfelek felé. Abban hiszek, hogy minden vállalkozás egyedi, ezért nálam nincs helye sablonmegoldásoknak!"
+            : "In today's digital world, a website or mobile app is more than just an online business card — it's your first impression to clients. I believe every business is unique, so there’s no place for cookie-cutter solutions here!"}
         </p>
       </div>
 
@@ -92,27 +102,24 @@ const About = () => {
             >
               <img
                 src={card.img}
-                alt={card.title}
+                alt={language === "hu" ? card.titleHu : card.titleEn}
                 className="w-[50px] h-[50px] sm:w-[70px] sm:h-[70px] mb-3"
               />
               <h3 className="text-base sm:text-lg font-semibold mb-1 text-center">
-                {card.title}
+                {language === "hu" ? card.titleHu : card.titleEn}
               </h3>
               <p className="text-center text-gray-600 flex-grow text-xs sm:text-sm">
-                {card.desc}
+                {language === "hu" ? card.descHu : card.descEn}
               </p>
               <Link to={card.to} smooth={true} duration={500}>
                 <button className="button-33 px-1 py-[2px] sm:px-4 sm:py-2 text-[10px] sm:text-sm">
-                  Bővebben!
+                  {language === "hu" ? "Bővebben!" : "Learn more!"}
                 </button>
               </Link>
             </div>
           ))}
         </div>
       </div>
-      <p className="absolute bottom-4 right-4 text-lg font-semibold text-gray-400 opacity-60">
-        Rólam
-      </p>
     </div>
   );
 };
