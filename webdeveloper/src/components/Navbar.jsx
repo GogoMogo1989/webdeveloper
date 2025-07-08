@@ -45,6 +45,7 @@ const Navbar = () => {
                 smooth={true}
                 duration={500}
                 id={`nav-${menuItem.to}`}
+                href={menuItem.to}
               >
                 {menuItem.title}
               </Link>
@@ -70,11 +71,12 @@ const Navbar = () => {
           {currentMenu.map((menuItem, index) => (
             <li key={index} className="py-6 text-4xl text-black-gray-400">
               <Link
-                id={`nav-${menuItem.to}`} // egyedi id, nem ütközik a szekcióval
+                id={`nav-${menuItem.to}`}
                 onClick={handleClick}
                 to={menuItem.to}
                 smooth
                 duration={500}
+                href={menuItem.to}
               >
                 {menuItem.title}
               </Link>

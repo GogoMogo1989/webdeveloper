@@ -236,6 +236,7 @@ const Home = () => {
       <img
         src={stars}
         alt="Stars"
+        fetchpriority="high"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
       />
       <img
@@ -274,7 +275,7 @@ const Home = () => {
             ? "Professzionális weboldalak, webáruházak és mobilalkalmazások fejlesztése gyors és hatékony megoldásokkal!"
             : "Professional website, webshop, and mobile app development with fast and efficient solutions!"}
         </p>
-        <Link to="contact" smooth={true} duration={500}>
+        <Link href="contact" to="contact" smooth={true} duration={500}>
           <button className="button-33 px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-xl">
             {language === "hu"
               ? "Kérj ajánlatot most!"
