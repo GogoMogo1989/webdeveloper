@@ -243,6 +243,7 @@ const Home = () => {
         ref={planet1Ref}
         src={planet1}
         alt="Planet 1"
+        fetchpriority="high"
         className="absolute w-48 top-20 left-10 cursor-grab active:cursor-grabbing"
         style={{ willChange: "transform", touchAction: "none" }}
       />
@@ -250,6 +251,7 @@ const Home = () => {
         ref={planet2Ref}
         src={planet2}
         alt="Planet 2"
+        fetchpriority="high"
         className="absolute w-32 bottom-60 right-20 cursor-grab active:cursor-grabbing"
         style={{ willChange: "transform", touchAction: "none" }}
       />

@@ -111,7 +111,7 @@ const About = () => {
               <p className="text-center text-gray-600 flex-grow text-xs sm:text-sm">
                 {language === "hu" ? card.descHu : card.descEn}
               </p>
-              <Link to={card.to} smooth={true} duration={500}>
+              <Link href={card.to} to={card.to} smooth={true} duration={500}>
                 <button className="button-33 px-1 py-[2px] sm:px-4 sm:py-2 text-[10px] sm:text-sm">
                   {language === "hu" ? "Bővebben!" : "Learn more!"}
                 </button>
