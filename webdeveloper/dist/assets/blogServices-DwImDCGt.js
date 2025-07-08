@@ -1,1 +1,0 @@
-const o="http://localhost:3000/api/blog",r=async()=>{try{const t=await fetch(o);if(!t.ok)throw new Error("Hiba történt a blogok lekérésekor!");return await t.json()}catch(t){throw new Error(`getAllBlogs: ${t.message}`)}};export{r as g};
