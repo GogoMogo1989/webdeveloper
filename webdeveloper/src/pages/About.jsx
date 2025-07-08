@@ -5,7 +5,7 @@ import Designed from "../assets/designed.webp";
 import Seo from "../assets/seo.webp";
 import Maintenance from "../assets/maintenance.webp";
 import Development from "../assets/development.webp";
-import { Link } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 import { useLanguage } from "../context/languageContext";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -20,7 +20,7 @@ const About = () => {
       descHu: "Minden projekt egyedi és személyre szabott!",
       titleEn: "Unique Design and Functionality",
       descEn: "Every project is unique and tailored to you!",
-      to: "work",
+      to: "/blog/686cf59aef084d2e899a8915#up",
     },
     {
       img: Development,
@@ -28,7 +28,7 @@ const About = () => {
       descHu: "Mobilon és asztali gépen is tökéletes az élmény!",
       titleEn: "Fast, Responsive Websites/Apps",
       descEn: "Perfect experience on mobile and desktop alike!",
-      to: "work",
+      to: "/blog/686cf5d3ef084d2e899a8917#up",
     },
     {
       img: Seo,
@@ -36,7 +36,7 @@ const About = () => {
       descHu: "Segítek, hogy a Google is megtalálja az oldaladat!",
       titleEn: "SEO-Optimized Code",
       descEn: "Helping Google find your site with ease!",
-      to: "contact",
+      to: "/blog/686cf600ef084d2e899a8919#up",
     },
     {
       img: Maintenance,
@@ -44,7 +44,7 @@ const About = () => {
       descHu: "Az oldalad mindig naprakész és védett lesz!",
       titleEn: "Security and Maintenance",
       descEn: "Your site stays up-to-date and protected!",
-      to: "contact",
+      to: "blog/686cf648ef084d2e899a891c#up",
     },
   ];
 
@@ -111,11 +111,11 @@ const About = () => {
               <p className="text-center text-gray-600 flex-grow text-xs sm:text-sm">
                 {language === "hu" ? card.descHu : card.descEn}
               </p>
-              <Link href={card.to} to={card.to} smooth={true} duration={500}>
+              <RouterLink to={card.to}>
                 <button className="button-33 px-1 py-[2px] sm:px-4 sm:py-2 text-[10px] sm:text-sm">
                   {language === "hu" ? "Bővebben!" : "Learn more!"}
                 </button>
-              </Link>
+              </RouterLink>
             </div>
           ))}
         </div>

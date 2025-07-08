@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { FaBars, FaTimes, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 import { useLanguage } from "../context/languageContext";
 import "flag-icons/css/flag-icons.min.css";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const { language, toggleLanguage } = useLanguage();
+  const location = useLocation(); // <-- useLocation hook
+
   const handleClick = () => setNav(!nav);
 
-  const menuOptions = {
+  // Teljes menü (főoldal)
+  const fullMenuOptions = {
     hu: [
       { title: "Főoldal", to: "home" },
       { title: "Szolgáltatások", to: "services" },
@@ -18,6 +22,7 @@ const Navbar = () => {
       { title: "Technológiák", to: "technologies" },
       { title: "Munkáim", to: "work" },
       { title: "Kapcsolat", to: "contact" },
+      { title: "Blog", path: "blog" },
     ],
     en: [
       { title: "Main", to: "home" },
@@ -26,31 +31,62 @@ const Navbar = () => {
       { title: "Technologies", to: "technologies" },
       { title: "Work", to: "work" },
       { title: "Contacts", to: "contact" },
+      { title: "Blog", path: "/blog" },
     ],
   };
 
-  const currentMenu = menuOptions[language] || menuOptions["en"];
+  // Csökkentett menü (blog oldal)
+  const blogMenuOptions = {
+    hu: [
+      { title: "Főoldal", path: "/" },
+      { title: "Blog", path: "/blog" },
+    ],
+    en: [
+      { title: "Main", path: "/" },
+      { title: "Blog", path: "/blog" },
+    ],
+  };
+
+  // Ha az útvonal blog oldal (pl. /blog vagy /blog/valami), akkor blogMenu, különben teljes menü
+  const isBlogPage = location.pathname.startsWith("/blog");
+  const currentMenu = isBlogPage
+    ? blogMenuOptions[language] || blogMenuOptions["en"]
+    : fullMenuOptions[language] || fullMenuOptions["en"];
 
   return (
     <div className="fixed w-full h-[80px] flex justify-between items-center text-gray-400 z-20">
       <div className="fixed w-full h-[80px] flex justify-between items-center text-gray-400 z-10">
         <ul className="hidden md:flex space-x-6 justify-center w-full">
-          {currentMenu.map((menuItem, index) => (
-            <li
-              key={index}
-              className="text-gray-400 hover:text-[#1659c9] cursor-pointer"
-            >
-              <Link
-                to={menuItem.to}
-                smooth={true}
-                duration={500}
-                id={`nav-${menuItem.to}`}
-                href={menuItem.to}
-              >
-                {menuItem.title}
-              </Link>
-            </li>
-          ))}
+          {currentMenu.map((menuItem, index) => {
+            if (menuItem.path) {
+              return (
+                <li
+                  key={index}
+                  className="text-gray-600 hover:text-[#1659c9] cursor-pointer"
+                >
+                  <RouterLink to={menuItem.path}>{menuItem.title}</RouterLink>
+                </li>
+              );
+            }
+            if (menuItem.to) {
+              return (
+                <li
+                  key={index}
+                  className="text-gray-600 hover:text-[#1659c9] cursor-pointer"
+                >
+                  <ScrollLink
+                    to={menuItem.to}
+                    smooth={true}
+                    duration={500}
+                    id={`nav-${menuItem.to}`}
+                  >
+                    {menuItem.title}
+                  </ScrollLink>
+                </li>
+              );
+            }
+            return null;
+          })}
         </ul>
       </div>
       <div onClick={handleClick} className="md:hidden z-10 pl-5">
@@ -68,20 +104,36 @@ const Navbar = () => {
             nav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
           }`}
         >
-          {currentMenu.map((menuItem, index) => (
-            <li key={index} className="py-6 text-4xl text-black-gray-400">
-              <Link
-                id={`nav-${menuItem.to}`}
-                onClick={handleClick}
-                to={menuItem.to}
-                smooth
-                duration={500}
-                href={menuItem.to}
-              >
-                {menuItem.title}
-              </Link>
-            </li>
-          ))}
+          {currentMenu.map((menuItem, index) => {
+            if (menuItem.path) {
+              return (
+                <li
+                  key={index}
+                  className="text-gray-600 hover:text-[#1659c9] cursor-pointer"
+                >
+                  <RouterLink to={menuItem.path}>{menuItem.title}</RouterLink>
+                </li>
+              );
+            }
+            if (menuItem.to) {
+              return (
+                <li
+                  key={index}
+                  className="text-gray-600 hover:text-[#1659c9] cursor-pointer"
+                >
+                  <ScrollLink
+                    to={menuItem.to}
+                    smooth={true}
+                    duration={500}
+                    id={`nav-${menuItem.to}`}
+                  >
+                    {menuItem.title}
+                  </ScrollLink>
+                </li>
+              );
+            }
+            return null;
+          })}
         </ul>
       </div>
       <div className="hidden lg:flex fixed flex-col top-[35%] left-0">
@@ -102,7 +154,12 @@ const Navbar = () => {
             key="b"
             className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#6fc2b0]"
           >
-            <Link to="contact" smooth="true" duration={500} href="contact">
+            <ScrollLink
+              to="contact"
+              smooth="true"
+              duration={500}
+              href="contact"
+            >
               <p
                 className="flex justify-around items-center w-full text-white
                ml-10"
@@ -110,7 +167,7 @@ const Navbar = () => {
                 <span className="ml-2">Email</span>
                 <HiOutlineMail size={30} />
               </p>
-            </Link>
+            </ScrollLink>
           </li>
         </ul>
       </div>

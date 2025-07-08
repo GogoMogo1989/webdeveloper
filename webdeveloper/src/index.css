@@ -98,7 +98,7 @@
   bottom: 40px;
   transform: translateX(-50%);
   cursor: pointer;
-  z-index: 100;
+  z-index: 10;
 }
 
 .bullet {
