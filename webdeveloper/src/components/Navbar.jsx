@@ -34,7 +34,7 @@ const Navbar = () => {
     ],
   };
 
-  // Csökkentett menü (blog oldal)
+  // Reduced menu for blog pages
   const blogMenuOptions = {
     hu: [
       { title: "Főoldal", path: "/" },
@@ -46,7 +46,7 @@ const Navbar = () => {
     ],
   };
 
-  // Ha az útvonal blog oldal (pl. /blog vagy /blog/valami), akkor blogMenu, különben teljes menü
+  // Detect blog route (e.g. /blog or /blog/*)
   const isBlogPage = location.pathname.startsWith("/blog");
   const currentMenu = isBlogPage
     ? blogMenuOptions[language] || blogMenuOptions["en"]
@@ -54,6 +54,7 @@ const Navbar = () => {
 
   return (
     <div className="fixed w-full h-[80px] flex justify-between items-center text-gray-400 z-20">
+      {/* Desktop navigation */}
       <div className="fixed w-full h-[80px] flex justify-between items-center text-gray-400 z-10">
         <ul className="hidden md:flex space-x-6 justify-center w-full">
           {currentMenu.map((menuItem, index) => {
@@ -88,18 +89,23 @@ const Navbar = () => {
           })}
         </ul>
       </div>
+
+      {/* Mobile hamburger icon */}
       <div onClick={handleClick} className="md:hidden z-10 pl-5">
         {nav ? <FaTimes /> : <FaBars />}
       </div>
+
+      {/* Language toggle button */}
       <div className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 flex">
         <button onClick={toggleLanguage} className="cursor-pointer text-2xl">
           <span className={`fi fi-${language === "hu" ? "hu" : "gb"}`}></span>
         </button>
       </div>
 
+      {/* Mobile menu overlay */}
       <div>
         <ul
-          className={`absolute top-0 left-0 w-full h-screen bg-[rgb(11,9,9)] flex flex-col justify-center items-center text-gray-400 transition-all duration-500 ease-in-out transform ${
+          className={`absolute top-0 left-0 w-full h-screen bg-[rgb(11,9,9)] flex flex-col justify-center items-center text-gray-400 transition-all duration-500 ease-in-out transform space-y-8 ${
             nav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
           }`}
         >
@@ -108,7 +114,7 @@ const Navbar = () => {
               return (
                 <li
                   key={index}
-                  className="text-gray-600 hover:text-[#1659c9] cursor-pointer"
+                  className=" text-3xl text-gray-600 hover:text-[#1659c9] cursor-pointer"
                 >
                   <RouterLink to={menuItem.path}>{menuItem.title}</RouterLink>
                 </li>
@@ -118,7 +124,7 @@ const Navbar = () => {
               return (
                 <li
                   key={index}
-                  className="text-gray-600 hover:text-[#1659c9] cursor-pointer"
+                  className="text-3xl text-gray-600 hover:text-[#1659c9] cursor-pointer"
                 >
                   <ScrollLink
                     to={menuItem.to}
@@ -135,12 +141,10 @@ const Navbar = () => {
           })}
         </ul>
       </div>
+
       <div className="hidden lg:flex fixed flex-col top-[35%] left-0">
         <ul>
-          <li
-            key="a"
-            className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-blue-600"
-          >
+          <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-blue-600">
             <a
               className="flex justify-around items-center w-full text-white pl-1"
               href="https://www.linkedin.com/in/d%C3%A1vid-kov%C3%A1cs-farkas-733732241/"
@@ -149,20 +153,14 @@ const Navbar = () => {
               <FaLinkedin size={30} />
             </a>
           </li>
-          <li
-            key="b"
-            className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#6fc2b0]"
-          >
+          <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#6fc2b0]">
             <ScrollLink
               to="contact"
-              smooth="true"
+              smooth={true}
               duration={500}
               href="contact"
             >
-              <p
-                className="flex justify-around items-center w-full text-white
-               ml-10"
-              >
+              <p className="flex justify-around items-center w-full text-white ml-10">
                 <span className="ml-2">Email</span>
                 <HiOutlineMail size={30} />
               </p>
