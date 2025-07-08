@@ -1,6 +1,6 @@
-/* const API_URL = "https://centralpestserver.onrender.com/api/blog";
- */
-const API_URL = "http://localhost:3000/api/blog";
+const API_URL = "https://webpagerestapi.onrender.com/api/blog";
+
+/* const API_URL = "http://localhost:3000/api/blog"; */
 
 // Új blog létrehozása
 export const createBlog = async ({ name, desc }) => {

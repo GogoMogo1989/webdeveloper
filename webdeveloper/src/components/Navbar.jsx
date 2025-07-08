@@ -9,11 +9,10 @@ import "flag-icons/css/flag-icons.min.css";
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const { language, toggleLanguage } = useLanguage();
-  const location = useLocation(); // <-- useLocation hook
+  const location = useLocation();
 
   const handleClick = () => setNav(!nav);
 
-  // Teljes menü (főoldal)
   const fullMenuOptions = {
     hu: [
       { title: "Főoldal", to: "home" },

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getAllBlogs } from "../services/blogServices";
 import { useLanguage } from "../context/languageContext";
+import Suspense from "../pages/Suspense";
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -37,7 +38,7 @@ const BlogDetail = () => {
     fetchBlog();
   }, [id]);
 
-  if (loading) return <p>{language === "hu" ? "Betöltés..." : "Loading..."}</p>;
+  if (loading) return <Suspense />;
   if (error) return <p>{error}</p>;
   if (!blog)
     return (
