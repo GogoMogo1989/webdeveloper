@@ -21,7 +21,7 @@ const Navbar = () => {
       { title: "Technológiák", to: "technologies" },
       { title: "Munkáim", to: "work" },
       { title: "Kapcsolat", to: "contact" },
-      { title: "Blog", path: "blog" },
+      { title: "Blog", path: "/blog#up" },
     ],
     en: [
       { title: "Main", to: "home" },
@@ -30,19 +30,19 @@ const Navbar = () => {
       { title: "Technologies", to: "technologies" },
       { title: "Work", to: "work" },
       { title: "Contacts", to: "contact" },
-      { title: "Blog", path: "/blog" },
+      { title: "Blog", path: "/blog#up" },
     ],
   };
 
   // Reduced menu for blog pages
   const blogMenuOptions = {
     hu: [
-      { title: "Főoldal", path: "/" },
-      { title: "Blog", path: "/blog" },
+      { title: "Főoldal", path: "/#up" },
+      { title: "Blog", path: "/blog#up" },
     ],
     en: [
-      { title: "Main", path: "/" },
-      { title: "Blog", path: "/blog" },
+      { title: "Main", path: "/#up" },
+      { title: "Blog", path: "/blog#up" },
     ],
   };
 
@@ -103,44 +103,47 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu overlay */}
-      <div>
-        <ul
-          className={`absolute top-0 left-0 w-full h-screen bg-[rgb(11,9,9)] flex flex-col justify-center items-center text-gray-400 transition-all duration-500 ease-in-out transform space-y-8 ${
-            nav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
-          }`}
-        >
-          {currentMenu.map((menuItem, index) => {
-            if (menuItem.path) {
-              return (
-                <li
-                  key={index}
-                  className=" text-3xl text-gray-600 hover:text-[#1659c9] cursor-pointer"
+      <ul
+        className={`absolute top-0 left-0 w-full h-screen bg-[rgb(11,9,9)] flex flex-col justify-center items-center text-gray-400 transition-all duration-500 ease-in-out transform space-y-8 ${
+          nav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
+        }`}
+      >
+        {currentMenu.map((menuItem, index) => {
+          if (menuItem.path) {
+            return (
+              <li
+                key={index}
+                className="text-3xl text-gray-600 hover:text-[#1659c9] cursor-pointer"
+              >
+                {/* onClick bezárja a panelt */}
+                <RouterLink to={menuItem.path} onClick={() => setNav(false)}>
+                  {menuItem.title}
+                </RouterLink>
+              </li>
+            );
+          }
+          if (menuItem.to) {
+            return (
+              <li
+                key={index}
+                className="text-3xl text-gray-600 hover:text-[#1659c9] cursor-pointer"
+              >
+                <ScrollLink
+                  to={menuItem.to}
+                  smooth={true}
+                  duration={500}
+                  id={`nav-${menuItem.to}`}
+                  /* görgetés indításakor is zárjuk le */
+                  onClick={() => setNav(false)}
                 >
-                  <RouterLink to={menuItem.path}>{menuItem.title}</RouterLink>
-                </li>
-              );
-            }
-            if (menuItem.to) {
-              return (
-                <li
-                  key={index}
-                  className="text-3xl text-gray-600 hover:text-[#1659c9] cursor-pointer"
-                >
-                  <ScrollLink
-                    to={menuItem.to}
-                    smooth={true}
-                    duration={500}
-                    id={`nav-${menuItem.to}`}
-                  >
-                    {menuItem.title}
-                  </ScrollLink>
-                </li>
-              );
-            }
-            return null;
-          })}
-        </ul>
-      </div>
+                  {menuItem.title}
+                </ScrollLink>
+              </li>
+            );
+          }
+          return null;
+        })}
+      </ul>
 
       <div className="hidden lg:flex fixed flex-col top-[35%] left-0">
         <ul>
