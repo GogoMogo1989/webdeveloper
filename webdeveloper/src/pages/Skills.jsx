@@ -59,6 +59,7 @@ const Skills = () => {
                 src={skill.src}
                 alt={skill.title.toLowerCase()}
                 title={skill.title}
+                loading="lazy"
               />
             </div>
           ))}
