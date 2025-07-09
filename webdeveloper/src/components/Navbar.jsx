@@ -34,7 +34,6 @@ const Navbar = () => {
     ],
   };
 
-  // Reduced menu for blog pages
   const blogMenuOptions = {
     hu: [
       { title: "Főoldal", path: "/#up" },
@@ -46,8 +45,24 @@ const Navbar = () => {
     ],
   };
 
-  // Detect blog route (e.g. /blog or /blog/*)
-  const isBlogPage = location.pathname.startsWith("/blog");
+  // Ismert útvonalak
+  const knownRoutes = [
+    "/",
+    "/services",
+    "/about",
+    "/technologies",
+    "/work",
+    "/contact",
+    "/blog",
+  ];
+
+  const isKnownRoute = knownRoutes.some(
+    (route) =>
+      location.pathname === route || location.pathname.startsWith(route + "/")
+  );
+
+  const isBlogPage = location.pathname.startsWith("/blog") || !isKnownRoute;
+
   const currentMenu = isBlogPage
     ? blogMenuOptions[language] || blogMenuOptions["en"]
     : fullMenuOptions[language] || fullMenuOptions["en"];
