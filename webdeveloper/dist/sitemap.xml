@@ -1,8 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://kfdsolutions.hu/</loc>
-        <lastmod>2024-02-27</lastmod>
-        <priority>1.0</priority>
-    </url>
+<url>
+<loc>https://kfdsolutions.hu/</loc>
+<lastmod>2024-02-27</lastmod>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://kfdsolutions.hu/blog</loc>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://kfdsolutions.hu/blog/686e27134e6f4ed3ec38aaf7</loc>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://kfdsolutions.hu/blog/686e267a4e6f4ed3ec38aaf1</loc>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://kfdsolutions.hu/blog/686cf648ef084d2e899a891c</loc>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://kfdsolutions.hu/blog/686cf600ef084d2e899a8919</loc>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://kfdsolutions.hu/blog/686cf5d3ef084d2e899a8917</loc>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://kfdsolutions.hu/blog/686cf59aef084d2e899a8915</loc>
+<priority>0.6</priority>
+</url>
 </urlset>
