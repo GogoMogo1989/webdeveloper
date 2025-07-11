@@ -74,6 +74,7 @@ export default function UserFooter() {
                   smooth
                   duration={500}
                   className="transition duration-200 cursor-pointer hover:text-[#1659c9]"
+                  href={t.links[key]}
                 >
                   {t.links[key]}
                 </Link>
@@ -92,6 +93,7 @@ export default function UserFooter() {
                   smooth
                   duration={500}
                   className="transition duration-200 cursor-pointer hover:text-[#1659c9]"
+                  href={t.links[key]}
                 >
                   {t.links[key]}
                 </Link>
