@@ -68,16 +68,16 @@ export default function UserFooter() {
           <h3 className="text-xl font-semibold mb-4">{t.quickLinks}</h3>
           <ul className="text-sm space-y-2 flex flex-col">
             {linkOrder.slice(0, 2).map((key) => (
-              <Link
-                key={key}
-                to={key}
-                smooth
-                href={key}
-                duration={500}
-                className="transition duration-200 cursor-pointer hover:text-[#1659c9]"
-              >
-                {t.links[key]}
-              </Link>
+              <li key={key}>
+                <Link
+                  to={key}
+                  smooth
+                  duration={500}
+                  className="transition duration-200 cursor-pointer hover:text-[#1659c9]"
+                >
+                  {t.links[key]}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>
@@ -86,16 +86,16 @@ export default function UserFooter() {
           <h3 className="text-xl font-semibold mb-4">{t.sitemap}</h3>
           <ul className="text-sm space-y-2 flex flex-col">
             {linkOrder.map((key) => (
-              <Link
-                key={key}
-                to={key}
-                href={key}
-                smooth
-                duration={500}
-                className="transition duration-200 cursor-pointer hover:text-[#1659c9]"
-              >
-                {t.links[key]}
-              </Link>
+              <li key={key}>
+                <Link
+                  to={key}
+                  smooth
+                  duration={500}
+                  className="transition duration-200 cursor-pointer hover:text-[#1659c9]"
+                >
+                  {t.links[key]}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>

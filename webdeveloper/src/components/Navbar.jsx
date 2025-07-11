@@ -112,7 +112,13 @@ const Navbar = () => {
 
       {/* Language toggle button */}
       <div className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 flex">
-        <button onClick={toggleLanguage} className="cursor-pointer text-2xl">
+        <button
+          onClick={toggleLanguage}
+          className="cursor-pointer text-2xl"
+          aria-label={`Váltás ${
+            language === "hu" ? "angol" : "magyar"
+          } nyelvre`}
+        >
           <span className={`fi fi-${language === "hu" ? "hu" : "gb"}`}></span>
         </button>
       </div>
