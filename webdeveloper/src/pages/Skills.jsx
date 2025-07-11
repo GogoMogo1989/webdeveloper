@@ -1,15 +1,15 @@
-import HTML from "../assets/html.webp";
-import CSS from "../assets/css.webp";
-import Javascript from "../assets/javascript.webp";
-import Github from "../assets/github.webp";
+import HTML from "../assets/html (2).webp";
+import CSS from "../assets/css (2).webp";
+import Javascript from "../assets/javascript (2).webp";
+import Github from "../assets/github (2).webp";
 import Node from "../assets/node.webp";
-import React2 from "../assets/react.webp";
-import Tailwind from "../assets/tailwind.webp";
-import ReactNative from "../assets/react-native.webp";
-import MongoDB from "../assets/MongoDB.webp";
-import Postman from "../assets/Postman.webp";
-import Angular from "../assets/Angular.webp";
-import Typescript from "../assets/typescript.webp";
+import React2 from "../assets/react (2).webp";
+import Tailwind from "../assets/tailwind (2).webp";
+import ReactNative from "../assets/react-native (2).webp";
+import MongoDB from "../assets/MongoDB (2).webp";
+import Postman from "../assets/Postman (2).webp";
+import Angular from "../assets/Angular (2).webp";
+import Typescript from "../assets/typescript (2).webp";
 import videoBackground2 from "../assets/background2.mp4";
 import { useLanguage } from "../context/languageContext";
 
