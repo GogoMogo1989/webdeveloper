@@ -192,6 +192,16 @@ const Home = () => {
     }
   }, [showBubble]);
 
+  useGSAP(() => {
+    if (hitMessage) {
+      gsap.fromTo(
+        bubbleRef.current,
+        { x: 200, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+      );
+    }
+  }, [hitMessage]);
+
   return (
     <div
       ref={containerRef}
