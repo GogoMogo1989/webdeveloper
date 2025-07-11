@@ -105,9 +105,9 @@ const About = () => {
                 alt={language === "hu" ? card.titleHu : card.titleEn}
                 className="w-[50px] h-[50px] sm:w-[70px] sm:h-[70px] mb-3"
               />
-              <h3 className="text-base sm:text-lg font-semibold mb-1 text-center">
+              <h1 className="text-base sm:text-lg font-semibold mb-1 text-center">
                 {language === "hu" ? card.titleHu : card.titleEn}
-              </h3>
+              </h1>
               <p className="text-center text-gray-600 flex-grow text-xs sm:text-sm">
                 {language === "hu" ? card.descHu : card.descEn}
               </p>

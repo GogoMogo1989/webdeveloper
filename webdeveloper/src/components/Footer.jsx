@@ -65,7 +65,7 @@ export default function UserFooter() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         <div className="flex flex-col items-center text-center mb-8 md:mb-0">
-          <h3 className="text-xl font-semibold mb-4">{t.quickLinks}</h3>
+          <h1 className="text-xl font-semibold mb-4">{t.quickLinks}</h1>
           <ul className="text-sm space-y-2 flex flex-col">
             {linkOrder.slice(0, 2).map((key) => (
               <li key={key}>
