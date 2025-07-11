@@ -5,11 +5,11 @@ import Github from "../assets/github (3).webp";
 import Node from "../assets/node (2).webp";
 import React2 from "../assets/react (3).webp";
 import Tailwind from "../assets/tailwind (3).webp";
-import ReactNative from "../assets/react-native (3).webp";
+import ReactNative from "../assets/react-native (4).webp";
 import MongoDB from "../assets/MongoDB (3).webp";
 import Postman from "../assets/Postman (3).webp";
 import Angular from "../assets/Angular (3).webp";
-import Typescript from "../assets/typescript (2).webp";
+import Typescript from "../assets/typescript (4).webp";
 import videoBackground2 from "../assets/background2.mp4";
 import { useLanguage } from "../context/languageContext";
 
