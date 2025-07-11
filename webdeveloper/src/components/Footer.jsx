@@ -84,7 +84,7 @@ export default function UserFooter() {
         </div>
 
         <div className="flex flex-col items-center text-center">
-          <h3 className="text-xl font-semibold mb-4">{t.sitemap}</h3>
+          <h1 className="text-xl font-semibold mb-4">{t.sitemap}</h1>
           <ul className="text-sm space-y-2 flex flex-col">
             {linkOrder.map((key) => (
               <li key={key}>
