@@ -17,7 +17,7 @@ const Navbar = () => {
     hu: [
       { title: "Főoldal", to: "home" },
       { title: "Szolgáltatások", to: "services" },
-      { title: "Miért én?", to: "about" },
+      { title: "Miért engem válassz?", to: "about" },
       { title: "Technológiák", to: "technologies" },
       { title: "Munkáim", to: "work" },
       { title: "Kapcsolat", to: "contact" },

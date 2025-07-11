@@ -84,7 +84,7 @@ const About = () => {
           {language === "hu" ? "Miért engem" : "Why choose me"}
         </h1>
         <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-[#1659c9]">
-          {language === "hu" ? "válassz?" : "as your developer?"}
+          {language === "hu" ? "válassz fejlesztőként?" : "as your developer?"}
         </h1>
         <p className="mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-black py-4 max-w-[700px] font-bold text-center">
           {language === "hu"

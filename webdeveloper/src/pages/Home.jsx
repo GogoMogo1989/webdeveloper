@@ -19,6 +19,7 @@ const Home = () => {
   const planet2Tween = useRef(null);
   const [showBubble, setShowBubble] = useState(false);
   const bubbleRef = useRef(null);
+  const [hitMessage, setHitMessage] = useState("");
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -136,6 +137,12 @@ const Home = () => {
             duration: 0.8,
             ease: "power2.out",
             onComplete: () => {
+              setHitMessage(
+                language === "hu"
+                  ? "Gratulálunk! Most már tudod, hogy a KFD egyedi interakciókat is képes fejleszteni. 😉"
+                  : "Congrats! Now you know KFD can build unique interactive experiences too. 😉"
+              );
+
               planet.style.display = "none";
 
               setTimeout(() => {
@@ -274,8 +281,8 @@ const Home = () => {
         </h1>
         <p className="fade-in text-xs sm:text-sm md:text-base lg:text-lg text-white py-4 max-w-[700px] font-bold">
           {language === "hu"
-            ? "Professzionális weboldalak, webáruházak és mobilalkalmazások fejlesztése gyors és hatékony megoldásokkal!"
-            : "Professional website, webshop, and mobile app development with fast and efficient solutions!"}
+            ? "Webalkalmazás-fejlesztés KKV-k és startupok számára – ha a WordPress már nem elég."
+            : "Custom web app development for SMEs and startups – when WordPress just isn’t enough."}
         </p>
         <Link href="contact" to="contact" smooth={true} duration={500}>
           <button className="button-33 px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-xl">
@@ -289,23 +296,23 @@ const Home = () => {
         <div
           ref={bubbleRef}
           role="alert"
-          className="fixed bg-[#1a1919] shadow-lg rounded-xl px-6 py-5 max-w-xs z-[1000]"
+          className="fixed bg-[#1a1919] shadow-lg rounded-xl px-4 py-3 max-w-[240px] z-[1000]"
           style={{ right: "1rem", bottom: "6rem" }}
         >
           <button
             onClick={() => setShowBubble(false)}
-            className="absolute cursor-pointer top-2 right-2 text-white hover:text-gray-400 text-xl font-bold focus:outline-none"
+            className="absolute cursor-pointer top-0 right-1 text-white hover:text-gray-400 text-xl font-bold focus:outline-none"
             aria-label={language === "hu" ? "Bezárás" : "Close"}
           >
             ×
           </button>
           <video
             width="100%"
-            height="200"
+            height="140"
             autoPlay
             muted
             onEnded={() => setShowBubble(false)}
-            className="rounded-lg mb-3"
+            className="rounded-lg mb-2"
           >
             <source src={video} type="video/mp4" />
             {language === "hu"
@@ -313,11 +320,29 @@ const Home = () => {
               : "Your browser does not support the video tag"}
           </video>
 
-          <p className="text-white text-sm mt-2 text-center">
+          <p className="text-white text-xs mt-1 text-center">
             {language === "hu"
-              ? "Találd el a mozgó bolygókat!"
-              : "Hit the mooving planets!"}
+              ? "Találd el a mozgó bolygókat a nyereményért!"
+              : "Hit the moving planets for a surprise!"}
           </p>
+        </div>
+      )}
+
+      {hitMessage && (
+        <div
+          ref={bubbleRef}
+          role="alert"
+          className="fixed bg-[#1a1919] shadow-lg rounded-xl px-6 py-5 max-w-xs z-[1000] text-white"
+          style={{ right: "1rem", bottom: "6rem" }}
+        >
+          <button
+            onClick={() => setHitMessage("")}
+            className="absolute cursor-pointer top-2 right-2 text-white hover:text-gray-400 text-xl font-bold focus:outline-none"
+            aria-label={language === "hu" ? "Bezárás" : "Close"}
+          >
+            ×
+          </button>
+          <p className="text-sm mt-2 text-center">{hitMessage}</p>
         </div>
       )}
     </div>
