@@ -3,9 +3,9 @@ import { gsap } from "gsap";
 import { Link } from "react-scroll";
 import { Helmet } from "react-helmet-async";
 import { useLanguage } from "../context/languageContext";
-import planet1 from "../assets/planetone (3).webp";
-import planet2 from "../assets/planettwo (3).webp";
-import stars from "../assets/planetthree (3).webp";
+import planet1 from "../assets/planetone.webp";
+import planet2 from "../assets/planettwo.webp";
+import stars from "../assets/planetthree.webp";
 import { useGSAP } from "@gsap/react";
 import video from "../assets/howtousecannon.mp4";
 
