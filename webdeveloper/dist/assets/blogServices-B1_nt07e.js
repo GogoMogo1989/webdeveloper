@@ -1,0 +1,1 @@
+const t="https://webpagerestapi.onrender.com/api/blog",o=async()=>{try{const r=await fetch(t);if(!r.ok)throw new Error("Hiba történt a blogok lekérésekor!");return await r.json()}catch(r){throw new Error(`getAllBlogs: ${r.message}`)}};export{o as g};
