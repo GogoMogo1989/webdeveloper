@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Designed from "../assets/designed (3).webp";
 import Seo from "../assets/seo (3).webp";
-import Maintenance from "../assets/maintenance (3).webp";
+import Maintenance from "../assets/maintenance (5).webp";
 import Development from "../assets/development (3).webp";
 import { Link as RouterLink } from "react-router-dom";
 import { useLanguage } from "../context/languageContext";
