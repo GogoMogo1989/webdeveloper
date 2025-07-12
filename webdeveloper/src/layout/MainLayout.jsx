@@ -15,6 +15,20 @@ function LazySections() {
   const [load, setLoad] = useState(false);
 
   useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://www.googletagmanager.com/gtag/js?id=AW-17330617569";
+    script.async = true;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "AW-XXXX");
+  }, []);
+
+  useEffect(() => {
     const timeout = setTimeout(() => {
       setLoad(true);
     }, 1500);

@@ -17,11 +17,14 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
+          if (id.includes("node_modules/react")) {
+            return "react-vendor";
+          }
+          if (id.includes("node_modules/lodash")) {
+            return "lodash-vendor";
+          }
           if (id.includes("node_modules")) {
             return "vendor";
-          }
-          if (id.includes("swiper")) {
-            return "swiper";
           }
         },
       },
