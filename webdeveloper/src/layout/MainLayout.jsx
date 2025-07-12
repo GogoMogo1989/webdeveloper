@@ -17,7 +17,7 @@ function LazySections() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoad(true);
-    }, 1500); // 1.5 másodperc után betöltjük a többi részt
+    }, 1500);
 
     return () => clearTimeout(timeout);
   }, []);
