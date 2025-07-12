@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/kfd.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preconnect hint saját domainhez -->
+    <link rel="preconnect" href="https://kfdsolutions.hu" crossorigin />
 
     <!-- Google Ads -->
     <script
@@ -24,8 +27,7 @@
       });
     </script>
 
-    <title>KFD Solutions</title>
-
+    <!-- Preload fontos képek -->
     <link
       rel="preload"
       as="image"
@@ -34,13 +36,10 @@
       type="image/webp"
     />
 
-    <!-- Preload fontos JS fájlok -->
-    <link rel="preload" href="/assets/index-aNhxjoxi.js" as="script" />
-    <link rel="preload" href="/assets/MainLayout-V-uVWMAk.js" as="script" />
-    <link rel="preload" href="/assets/Navbar-t32rcM5z.js" as="script" />
-    <link rel="preload" href="/assets/Home-BN32o7tH.js" as="script" />
+    <!-- Kritikus CSS azonnali betöltése -->
+    <link rel="stylesheet" href="/assets/vendor-DsmqQrZD.css" />
 
-    <!-- CSS – non-blocking -->
+    <!-- Non-blocking CSS preload + onload deferred stylesheet -->
     <link
       rel="preload"
       href="/assets/index-hfvWrA32.css"
@@ -48,8 +47,8 @@
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript
-      ><link rel="stylesheet" href="/assets/index-hfvWrA32.css"
-    /></noscript>
+      ><link rel="stylesheet" href="/assets/index-hfvWrA32.css" />
+    </noscript>
 
     <link
       rel="preload"
@@ -58,17 +57,14 @@
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript
-      ><link rel="stylesheet" href="/assets/Work-BJ-T5p75.css"
-    /></noscript>
-    <link
-      rel="preload"
-      href="/assets/vendor-DsmqQrZD.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript
-      ><link rel="stylesheet" href="/assets/vendor-DsmqQrZD.css"
-    /></noscript>
+      ><link rel="stylesheet" href="/assets/Work-BJ-T5p75.css" />
+    </noscript>
+
+    <!-- Preload fontos JS fájlok -->
+    <link rel="preload" href="/assets/index-aNhxjoxi.js" as="script" />
+    <link rel="preload" href="/assets/MainLayout-V-uVWMAk.js" as="script" />
+    <link rel="preload" href="/assets/Navbar-t32rcM5z.js" as="script" />
+    <link rel="preload" href="/assets/Home-BN32o7tH.js" as="script" />
     <script type="module" crossorigin src="/assets/index-D_b8PaVX.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/vendor-9Bu3KQ8f.js">
     <link rel="stylesheet" crossorigin href="/assets/vendor-DsmqQrZD.css">
