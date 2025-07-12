@@ -31,33 +31,12 @@ function MainLayout() {
     <div id="up">
       <Suspense fallback={<SuspensePage />}>
         <Navbar />
-      </Suspense>
-
-      <Suspense fallback={<SuspensePage />}>
         <Home />
-      </Suspense>
-
-      <Suspense fallback={<SuspensePage />}>
         <Services />
-      </Suspense>
-
-      <Suspense fallback={<SuspensePage />}>
         <About />
-      </Suspense>
-
-      <Suspense fallback={<SuspensePage />}>
         <Skills />
-      </Suspense>
-
-      <Suspense fallback={<SuspensePage />}>
         <Work />
-      </Suspense>
-
-      <Suspense fallback={<SuspensePage />}>
         <Contact />
-      </Suspense>
-
-      <Suspense fallback={<SuspensePage />}>
         <Footer />
       </Suspense>
     </div>
