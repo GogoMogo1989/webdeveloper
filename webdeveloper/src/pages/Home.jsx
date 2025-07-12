@@ -19,7 +19,7 @@ const Home = () => {
   const planet2Tween = useRef(null);
   const [showBubble, setShowBubble] = useState(false);
   const bubbleRef = useRef(null);
-  const [hitMessage, setHitMessage] = useState("");
+  const [hitMessage, setHitMessage] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -137,11 +137,7 @@ const Home = () => {
             duration: 0.8,
             ease: "power2.out",
             onComplete: () => {
-              setHitMessage(
-                language === "hu"
-                  ? "Gratulálunk! Most már tudod, hogy a KFD egyedi interakciókat is képes fejleszteni. 😉"
-                  : "Congrats! Now you know KFD can build unique interactive experiences too. 😉"
-              );
+              setHitMessage(true);
 
               planet.style.display = "none";
 
@@ -199,6 +195,12 @@ const Home = () => {
         { x: 200, opacity: 0 },
         { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
       );
+
+      const timeout = setTimeout(() => {
+        setHitMessage(false);
+      }, 5000);
+
+      return () => clearTimeout(timeout);
     }
   }, [hitMessage]);
 
@@ -331,9 +333,10 @@ const Home = () => {
           </video>
 
           <p className="text-white text-xs mt-1 text-center">
+            🔫{" "}
             {language === "hu"
-              ? "Találd el a mozgó bolygókat a nyereményért!"
-              : "Hit the moving planets for a surprise!"}
+              ? "Találd el a mozgó bolygókat"
+              : "Hit the moving planets"}
           </p>
         </div>
       )}
@@ -346,13 +349,17 @@ const Home = () => {
           style={{ right: "1rem", bottom: "6rem" }}
         >
           <button
-            onClick={() => setHitMessage("")}
+            onClick={() => setHitMessage(false)}
             className="absolute cursor-pointer top-2 right-2 text-white hover:text-gray-400 text-xl font-bold focus:outline-none"
             aria-label={language === "hu" ? "Bezárás" : "Close"}
           >
             ×
           </button>
-          <p className="text-sm mt-2 text-center">{hitMessage}</p>
+          <p className="text-sm mt-2 text-start">
+            {language === "hu"
+              ? "Ilyen és ehhez hasonló egyedi megoldásokért keress meg bátran! 😉"
+              : "For custom solutions like this and more, feel free to reach out! 😉"}
+          </p>
         </div>
       )}
     </div>

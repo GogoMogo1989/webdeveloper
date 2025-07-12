@@ -88,8 +88,8 @@ const About = () => {
         </h1>
         <p className="mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-black py-4 max-w-[700px] font-bold text-center">
           {language === "hu"
-            ? "A mai digitális világban egy weboldal vagy egy mobil applikáció nem csupán egy online névjegy – ez az első benyomásod az ügyfelek felé. Abban hiszek, hogy minden vállalkozás egyedi, ezért nálam nincs helye sablonmegoldásoknak!"
-            : "In today's digital world, a website or mobile app is more than just an online business card — it's your first impression to clients. I believe every business is unique, so there’s no place for cookie-cutter solutions here!"}
+            ? "A mai digitális világban a sablonmegoldások már kevesek – a sikerhez személyre szabott, egyedi webalkalmazásokra van szükség. Én ebben segítek."
+            : "In today's digital world, template-based solutions are no longer enough — success requires custom, tailor-made web applications. That's where I come in."}
         </p>
       </div>
 

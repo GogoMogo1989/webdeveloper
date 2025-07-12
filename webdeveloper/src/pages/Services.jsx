@@ -13,13 +13,14 @@ export default function Services() {
 
   const services = [
     {
-      titleHu: "Webfejlesztés-",
+      titleHu: "Webalkalmazás-fejlesztés",
       descHu:
-        "Egyedi vállalati weboldalak és webshopok készítése, modern dizájnnal és reszponzív kialakítással. Felhasználóbarát felületek, gyors betöltési sebesség és optimalizált kódszerkezet biztosítása.",
-      titleEn: "Web Development-",
+        "Egyedi webalkalmazások tervezése és fejlesztése különleges vállalati igényekre szabva. Modern dizájn, reszponzív kialakítás, gyors működés és skálázható megoldások – mindezt a felhasználói élményre optimalizálva.",
+      titleEn: "Web Application Development",
       descEn:
-        "Creating unique corporate websites and webshops with modern design and responsive layout. User-friendly interfaces, fast loading speed, and optimized code structure.",
+        "Designing and developing custom web applications tailored to specific business needs. Modern design, responsive layout, fast performance, and scalable solutions – all optimized for a seamless user experience.",
     },
+
     {
       titleHu: "Mobilapplikáció fejlesztés-",
       descHu:
