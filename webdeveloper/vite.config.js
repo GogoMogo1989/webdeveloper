@@ -18,12 +18,33 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes("node_modules")) {
+            // Külön chunk-ok a nehezebb könyvtáraknak
+            if (id.includes("gsap")) {
+              return "vendor_gsap";
+            }
+            if (id.includes("lodash")) {
+              return "vendor_lodash";
+            }
+            if (id.includes("react")) {
+              return "vendor_react";
+            }
+            if (id.includes("swiper")) {
+              return "vendor_swiper";
+            }
+            if (id.includes("firebase")) {
+              return "vendor_firebase";
+            }
+            // Minden más node_modules könyvtárban lévő
             return "vendor";
           }
-          if (id.includes("swiper")) {
-            return "swiper";
+
+          // Külön chunk az útvonal alapján
+          if (id.includes("/src/pages/")) {
+            const matches = id.match(/\/src\/pages\/(.*?)\//);
+            return matches ? `page_${matches[1]}` : null;
           }
         },
+        chunkFileNames: "assets/[name]-[hash].js",
       },
     },
   },
