@@ -1,11 +1,9 @@
 import { defineConfig } from "vite";
-import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import viteImagemin from "vite-plugin-imagemin";
 
 export default defineConfig({
   plugins: [
-    tailwindcss(),
     react(),
     viteImagemin({
       webp: {
@@ -18,13 +16,16 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes("node_modules")) {
+            // külön chunkba rakja a node_modules-t
+            if (id.includes("swiper")) {
+              return "swiper";
+            }
             return "vendor";
-          }
-          if (id.includes("swiper")) {
-            return "swiper";
           }
         },
       },
     },
+    sourcemap: false, // gyorsabb build és kisebb fájlok
+    minify: "terser", // alapértelmezett, de explicit megadhatod
   },
 });
