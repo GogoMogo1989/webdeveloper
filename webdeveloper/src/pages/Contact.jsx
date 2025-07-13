@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { FaLinkedin } from "react-icons/fa";
 import { sendMail } from "../services/sendMailServices";
 import { useLanguage } from "../context/languageContext";
+import LinkedinIcon from "../Icons/Linkedin";
 
 const Contact = () => {
   const { language } = useLanguage();
@@ -84,7 +84,7 @@ const Contact = () => {
                   href="https://www.linkedin.com/in/d%C3%A1vid-kov%C3%A1cs-farkas-733732241/"
                   aria-label="LinkedIn"
                 >
-                  <FaLinkedin />
+                  <LinkedinIcon width="32" height="32" />
                 </a>
               </li>
             </ul>

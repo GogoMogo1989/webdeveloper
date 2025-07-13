@@ -1,7 +1,7 @@
 import { Link } from "react-scroll";
-import { FaLinkedin } from "react-icons/fa";
 import { useLanguage } from "../context/languageContext";
 import "flag-icons/css/flag-icons.min.css";
+import LinkedinIcon from "../Icons/Linkedin";
 
 export default function UserFooter() {
   const { language } = useLanguage();
@@ -57,7 +57,7 @@ export default function UserFooter() {
                 href="https://www.linkedin.com/in/d%C3%A1vid-kov%C3%A1cs-farkas-733732241/"
                 aria-label="LinkedIn"
               >
-                <FaLinkedin />
+                <LinkedinIcon />
               </a>
             </li>
           </ul>

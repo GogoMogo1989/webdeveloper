@@ -27,7 +27,7 @@
       });
     </script>
 
-    <!-- Preload fontos képek -->
+    <!-- Preload fontos kép -->
     <link
       rel="preload"
       as="image"
@@ -36,35 +36,7 @@
       type="image/webp"
     />
 
-    <!-- Kritikus CSS azonnali betöltése -->
-    <link rel="stylesheet" href="/assets/vendor-DsmqQrZD.css" />
-
-    <!-- Non-blocking CSS preload + onload deferred stylesheet -->
-    <link
-      rel="preload"
-      href="/assets/index-hfvWrA32.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript
-      ><link rel="stylesheet" href="/assets/index-hfvWrA32.css" />
-    </noscript>
-
-    <link
-      rel="preload"
-      href="/assets/Work-BJ-T5p75.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript
-      ><link rel="stylesheet" href="/assets/Work-BJ-T5p75.css" />
-    </noscript>
-
-    <!-- Preload fontos JS fájlok -->
-    <link rel="preload" href="/assets/index-aNhxjoxi.js" as="script" />
-    <link rel="preload" href="/assets/MainLayout-V-uVWMAk.js" as="script" />
-    <link rel="preload" href="/assets/Navbar-t32rcM5z.js" as="script" />
-    <link rel="preload" href="/assets/Home-BN32o7tH.js" as="script" />
+    <!-- Kritikus CSS (1x betöltés!) -->
     <link
       rel="preload"
       href="/assets/vendor-DsmqQrZD.css"
@@ -74,6 +46,33 @@
     <noscript
       ><link rel="stylesheet" href="/assets/vendor-DsmqQrZD.css"
     /></noscript>
+
+    <!-- Nem kritikus CSS (elhalasztva betöltve) -->
+    <link
+      rel="preload"
+      href="/assets/index-hfvWrA32.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link rel="stylesheet" href="/assets/index-hfvWrA32.css"
+    /></noscript>
+
+    <link
+      rel="preload"
+      href="/assets/Work-BJ-T5p75.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link rel="stylesheet" href="/assets/Work-BJ-T5p75.css"
+    /></noscript>
+
+    <!-- Preload JS fájlok -->
+    <link rel="modulepreload" href="/assets/index-aNhxjoxi.js" />
+    <link rel="modulepreload" href="/assets/MainLayout-V-uVWMAk.js" />
+    <link rel="modulepreload" href="/assets/Navbar-t32rcM5z.js" />
+    <link rel="modulepreload" href="/assets/Home-BN32o7tH.js" />
   </head>
 
   <body>

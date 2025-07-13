@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { FaBars, FaTimes, FaLinkedin } from "react-icons/fa";
-import { HiOutlineMail } from "react-icons/hi";
 import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { useLanguage } from "../context/languageContext";
 import "flag-icons/css/flag-icons.min.css";
+import LinkedinIcon from "../Icons/Linkedin";
+import EmailIcon from "../Icons/Email";
+import BarsIcon from "../Icons/Bars";
+import TimesIcon from "../Icons/Times";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -107,7 +109,7 @@ const Navbar = () => {
 
       {/* Mobile hamburger icon */}
       <div onClick={handleClick} className="md:hidden z-10 pl-5">
-        {nav ? <FaTimes /> : <FaBars />}
+        {nav ? <TimesIcon /> : <BarsIcon />}
       </div>
 
       {/* Language toggle button */}
@@ -174,7 +176,7 @@ const Navbar = () => {
               href="https://www.linkedin.com/in/d%C3%A1vid-kov%C3%A1cs-farkas-733732241/"
             >
               <span className="ml-2 pl-2">Linkedin</span>
-              <FaLinkedin size={30} />
+              <LinkedinIcon width="32" height="32" />
             </a>
           </li>
           <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#6fc2b0]">
@@ -184,9 +186,9 @@ const Navbar = () => {
               duration={500}
               href="contact"
             >
-              <p className="flex justify-around items-center w-full text-white ml-10">
-                <span className="ml-2">Email</span>
-                <HiOutlineMail size={30} />
+              <p className="mt-8 pl-2 flex justify-around items-center w-full text-white ml-10">
+                <span className="mb-8">Email</span>
+                <EmailIcon width={10} height={10} />
               </p>
             </ScrollLink>
           </li>
