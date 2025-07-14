@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import viteImagemin from "vite-plugin-imagemin";
+import { createHtmlPlugin } from "vite-plugin-html";
 
 export default defineConfig({
   plugins: [
@@ -10,6 +11,18 @@ export default defineConfig({
     viteImagemin({
       webp: {
         quality: 60,
+      },
+    }),
+    createHtmlPlugin({
+      inject: {
+        data: {
+          preloadTags: `
+<link rel="preload" as="style" href="/assets/index-CxC_ojBP.css" onload="this.rel='stylesheet';this.onload=null;">
+<link rel="preload" as="style" href="/assets/vendor_sw….css" onload="this.rel='stylesheet';this.onload=null;">
+<link rel="preload" as="style" href="/assets/vendor-ybeVSQkp.css" onload="this.rel='stylesheet';this.onload=null;">
+<noscript><link rel="stylesheet" href="/assets/index-CxC_ojBP.css"></noscript>
+          `,
+        },
       },
     }),
   ],
