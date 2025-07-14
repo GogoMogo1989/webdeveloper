@@ -1,10 +1,4 @@
-import { useState } from "react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/autoplay";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper";
+import React, { useState, useEffect, Suspense } from "react";
 import { useLanguage } from "../context/languageContext";
 import CookieConsent from "../components/CookieConset";
 
@@ -13,6 +7,14 @@ const Work = () => {
   const [cookiesAccepted, setCookiesAccepted] = useState(
     () => localStorage.getItem("cookieConsent") === "true"
   );
+
+  const [loadSwiper, setLoadSwiper] = useState(false);
+
+  const SwiperWrapper = React.lazy(() => import("../components/SwiperWrapper"));
+
+  useEffect(() => {
+    setLoadSwiper(true);
+  }, []);
 
   const projects = [
     {
@@ -67,7 +69,6 @@ const Work = () => {
 
   const headerTop = language === "hu" ? "Kiemelt" : "Featured";
   const headerBottom = language === "hu" ? "munkáim:" : "projects:";
-  const demoText = "Demo";
 
   return (
     <div className="h-[180vh] relative bg-white" id="work">
@@ -76,10 +77,10 @@ const Work = () => {
       )}
       <div className="w-full lg:max-w-[20%] px-6 sm:px-12 pt-20">
         <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-black">
-          {headerTop}
+          {language === "hu" ? "Kiemelt" : "Featured"}
         </h1>
         <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-[#1659c9] mb-20">
-          {headerBottom}
+          {language === "hu" ? "munkáim:" : "projects:"}
         </h1>
       </div>
 
@@ -88,75 +89,13 @@ const Work = () => {
         className="w-full min-h-screen text-black bg-white relative flex flex-col lg:flex-row items-center justify-center"
       >
         <div className="w-full max-w-[80%] lg:max-w-[80%] px-6 py-10">
-          <Swiper
-            spaceBetween={30}
-            loop={true}
-            pagination={{ clickable: true }}
-            grabCursor={true}
-            centeredSlides={true}
-            modules={[Autoplay, Navigation]}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-              waitForTransition: true,
-            }}
-            speed={1500}
-            navigation={true}
-            className="w-full"
-            breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-          >
-            {projects.map((project, index) => (
-              <SwiperSlide key={index}>
-                <div className="w-full h-[400px] bg-cover bg-center rounded-md">
-                  {cookiesAccepted ? (
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src={project.iframeSrc}
-                      title={
-                        language === "hu" ? project.titleHu : project.titleEn
-                      }
-                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-700 text-center p-4 rounded">
-                      {language === "hu"
-                        ? "Videó csak a sütik elfogadása után játszható le."
-                        : "Video can only be played after accepting cookies."}
-                    </div>
-                  )}
-                </div>
-
-                <div className="p-2 mt-2">
-                  <span className="text-sm text-gray-400 tracking-wide">
-                    {language === "hu" ? project.titleHu : project.titleEn}
-                  </span>
-                  <div className="pt-1">
-                    <p className="text-sm text-gray-400">
-                      {language === "hu"
-                        ? project.descriptionHu
-                        : project.descriptionEn}
-                    </p>
-                    {project.href && (
-                      <a
-                        href={project.href}
-                        className="text-sm text-gray-400 font-medium underline pl-1"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Demo
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          {loadSwiper ? (
+            <Suspense fallback={<div>Loading slider...</div>}>
+              <SwiperWrapper projects={projects} language={language} />
+            </Suspense>
+          ) : (
+            <div>A slider betöltése folyamatban...</div>
+          )}
         </div>
       </div>
     </div>

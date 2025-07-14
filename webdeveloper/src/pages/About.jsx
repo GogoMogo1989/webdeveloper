@@ -1,14 +1,10 @@
 import { useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLanguage } from "../context/languageContext";
 import Designed from "../assets/designed (3).webp";
 import Seo from "../assets/seo (3).webp";
 import Maintenance from "../assets/maintenance (5).webp";
 import Development from "../assets/development (3).webp";
 import { Link as RouterLink } from "react-router-dom";
-import { useLanguage } from "../context/languageContext";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   const { language } = useLanguage();
@@ -49,28 +45,46 @@ const About = () => {
   ];
 
   useEffect(() => {
-    gsap.utils.toArray(".card2").forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        {
-          y: 80,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.2,
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: card,
-            start: "top 100%",
-            end: "top 50%",
-            scrub: true,
-            markers: false,
-          },
-        }
-      );
-    });
+    let ctx;
+
+    // Dinamikus import
+    Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(
+      ([gsapModule, ScrollTriggerModule]) => {
+        const gsap = gsapModule.gsap || gsapModule.default || gsapModule;
+        const ScrollTrigger =
+          ScrollTriggerModule.ScrollTrigger ||
+          ScrollTriggerModule.default ||
+          ScrollTriggerModule;
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        ctx = gsap.context(() => {
+          gsap.utils.toArray(".card2").forEach((card, index) => {
+            gsap.fromTo(
+              card,
+              { y: 80, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.2,
+                stagger: 0.2,
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top 100%",
+                  end: "top 50%",
+                  scrub: true,
+                  markers: false,
+                },
+              }
+            );
+          });
+        });
+      }
+    );
+
+    return () => {
+      if (ctx) ctx.revert();
+    };
   }, []);
 
   return (

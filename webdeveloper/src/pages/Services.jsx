@@ -1,11 +1,9 @@
-import { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SplitText from "gsap/SplitText";
-import { useGSAP } from "@gsap/react";
+import { useRef, useEffect } from "react";
+/* import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SplitText from "gsap/SplitText"; */
 import { useLanguage } from "../context/languageContext";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+/* gsap.registerPlugin(ScrollTrigger, SplitText); */
 
 export default function Services() {
   const containerRef = useRef(null);
@@ -47,38 +45,64 @@ export default function Services() {
     },
   ];
 
-  useGSAP(() => {
-    if (!containerRef.current) return;
+  useEffect(() => {
+    let ctx;
+    let splitInstances = [];
+    let tween;
 
-    const splitInstances = [];
-    const allChars = [];
+    // Dinamikusan importáljuk GSAP-et és pluginokat
+    Promise.all([
+      import("gsap"),
+      import("gsap/ScrollTrigger"),
+      import("gsap/SplitText"),
+    ]).then(([gsapModule, ScrollTriggerModule, SplitTextModule]) => {
+      const gsap = gsapModule.gsap || gsapModule.default || gsapModule;
+      const ScrollTrigger =
+        ScrollTriggerModule.ScrollTrigger ||
+        ScrollTriggerModule.default ||
+        ScrollTriggerModule;
+      const SplitText =
+        SplitTextModule.SplitText || SplitTextModule.default || SplitTextModule;
 
-    containerRef.current.querySelectorAll(".split").forEach((el) => {
-      const split = new SplitText(el, { type: "words" });
-      splitInstances.push(split);
-      allChars.push(...split.chars);
+      // Regisztráljuk a pluginokat
+      gsap.registerPlugin(ScrollTrigger, SplitText);
+
+      if (!containerRef.current) return;
+
+      // Létrehozzuk a GSAP contextet, hogy tisztán lehessen takarítani
+      ctx = gsap.context(() => {
+        containerRef.current.querySelectorAll(".split").forEach((el) => {
+          const split = new SplitText(el, { type: "words" });
+          splitInstances.push(split);
+        });
+
+        // Összes char-ot kigyűjtjük
+        const allChars = splitInstances.flatMap((split) => split.chars);
+
+        tween = gsap.fromTo(
+          allChars,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.04,
+            duration: 0.5,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top 100%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }, containerRef);
     });
-    const tween = gsap.fromTo(
-      allChars,
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.04,
-        duration: 0.5,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
 
+    // Cleanup a komponens unmount-ján
     return () => {
+      if (ctx) ctx.revert();
       splitInstances.forEach((s) => s.revert());
-      tween.kill();
-      ScrollTrigger.getAll().forEach((st) => st.kill());
+      if (tween) tween.kill();
     };
   }, []);
 
