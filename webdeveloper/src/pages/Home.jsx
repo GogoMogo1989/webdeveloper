@@ -1,12 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
 import { Link } from "react-scroll";
 import { Helmet } from "react-helmet-async";
 import { useLanguage } from "../context/languageContext";
 import planet1 from "../assets/planetone (4).webp";
 import planet2 from "../assets/planettwo (4).webp";
 import stars from "../assets/planetthree (3).webp";
-import { useGSAP } from "@gsap/react";
 import video from "../assets/howtousecannon.mp4";
 
 const Home = () => {
@@ -19,157 +17,165 @@ const Home = () => {
   const planet2Tween = useRef(null);
   const [showBubble, setShowBubble] = useState(false);
   const bubbleRef = useRef(null);
+  const hitMessageRef = useRef(null);
   const [hitMessage, setHitMessage] = useState(false);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".fade-in", {
-        y: -50,
-        opacity: 0,
-        duration: 2,
-        stagger: 0.4,
-        force3D: true,
-      });
+    let ctx;
+    import("gsap").then(({ gsap }) => {
+      ctx = gsap.context(() => {
+        gsap.fromTo(
+          ".fade-in",
+          { y: -50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 2, stagger: 0.4, ease: "power1.out" }
+        );
 
-      const floatPlanet = (ref, x, y) =>
-        ref.current &&
-        gsap.to(ref.current, {
-          x,
-          y,
-          duration: 20,
-          ease: "power1.inOut",
-          repeat: -1,
-          yoyo: true,
-        });
+        const floatPlanet = (ref, x, y) =>
+          ref.current &&
+          gsap.to(ref.current, {
+            x,
+            y,
+            duration: 20,
+            ease: "power1.inOut",
+            repeat: -1,
+            yoyo: true,
+          });
 
-      planet1Tween.current = floatPlanet(planet1Ref, 100, -20);
-      planet2Tween.current = floatPlanet(planet2Ref, -80, 30);
-    }, containerRef);
+        planet1Tween.current = floatPlanet(planet1Ref, 100, -20);
+        planet2Tween.current = floatPlanet(planet2Ref, -80, 30);
+      }, containerRef);
+    });
 
-    return () => ctx.revert();
+    return () => ctx && ctx.revert();
   }, []);
 
   useEffect(() => {
     if (!cannonRef.current) return;
 
-    gsap.set(cannonRef.current, { rotation: 0 });
+    import("gsap").then(({ gsap }) => {
+      gsap.set(cannonRef.current, { rotation: 0 });
 
-    const aim = (x, y) => {
-      const rect = cannonRef.current.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const angle = (Math.atan2(y - cy, x - cx) * 180) / Math.PI + 90;
-      gsap.set(cannonRef.current, { rotation: angle });
-    };
+      const aim = (x, y) => {
+        const rect = cannonRef.current.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const angle = (Math.atan2(y - cy, x - cx) * 180) / Math.PI + 90;
+        gsap.set(cannonRef.current, { rotation: angle });
+      };
 
-    const onMouseMove = (e) => aim(e.clientX, e.clientY);
-    const onTouchMove = (e) => aim(e.touches[0].clientX, e.touches[0].clientY);
+      const onMouseMove = (e) => aim(e.clientX, e.clientY);
+      const onTouchMove = (e) =>
+        aim(e.touches[0].clientX, e.touches[0].clientY);
 
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("touchmove", onTouchMove);
-    return () => {
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("touchmove", onTouchMove);
-    };
+      window.addEventListener("mousemove", onMouseMove);
+      window.addEventListener("touchmove", onTouchMove);
+      return () => {
+        window.removeEventListener("mousemove", onMouseMove);
+        window.removeEventListener("touchmove", onTouchMove);
+      };
+    });
   }, []);
 
   const handleFire = () => {
     if (!cannonRef.current || !containerRef.current) return;
 
-    const rotationDeg = parseFloat(
-      gsap.getProperty(cannonRef.current, "rotation")
-    );
-    const angleRad = ((rotationDeg - 90) * Math.PI) / 180;
+    import("gsap").then(({ gsap }) => {
+      const rotationDeg = parseFloat(
+        gsap.getProperty(cannonRef.current, "rotation")
+      );
+      const angleRad = ((rotationDeg - 90) * Math.PI) / 180;
 
-    const cannonRect = cannonRef.current.getBoundingClientRect();
-    const containerRect = containerRef.current.getBoundingClientRect();
+      const cannonRect = cannonRef.current.getBoundingClientRect();
+      const containerRect = containerRef.current.getBoundingClientRect();
 
-    const startX = cannonRect.left + cannonRect.width / 2 - containerRect.left;
-    const startY = cannonRect.top + cannonRect.height / 2 - containerRect.top;
+      const startX =
+        cannonRect.left + cannonRect.width / 2 - containerRect.left;
+      const startY = cannonRect.top + cannonRect.height / 2 - containerRect.top;
 
-    const bullet = document.createElement("div");
-    Object.assign(bullet.style, {
-      position: "absolute",
-      left: `${startX}px`,
-      top: `${startY}px`,
-      width: "12px",
-      height: "12px",
-      backgroundColor: "white",
-      borderRadius: "50%",
-      pointerEvents: "none",
-      zIndex: "1000",
-      boxShadow: "0 0 10px 5px rgba(255, 0, 0, 0.7)",
-      transform: "translate(-50%, -50%)",
-    });
-    containerRef.current.appendChild(bullet);
+      const bullet = document.createElement("div");
+      Object.assign(bullet.style, {
+        position: "absolute",
+        left: `${startX}px`,
+        top: `${startY}px`,
+        width: "12px",
+        height: "12px",
+        backgroundColor: "white",
+        borderRadius: "50%",
+        pointerEvents: "none",
+        zIndex: "1000",
+        boxShadow: "0 0 10px 5px rgba(255, 0, 0, 0.7)",
+        transform: "translate(-50%, -50%)",
+      });
+      containerRef.current.appendChild(bullet);
 
-    const distance = 2000;
-    const endX = startX + Math.cos(angleRad) * distance;
-    const endY = startY + Math.sin(angleRad) * distance;
+      const distance = 2000;
+      const endX = startX + Math.cos(angleRad) * distance;
+      const endY = startY + Math.sin(angleRad) * distance;
 
-    const checkHit = () => {
-      const bulletRect = bullet.getBoundingClientRect();
-      const bulletCenter = {
-        x: bulletRect.left + bulletRect.width / 2,
-        y: bulletRect.top + bulletRect.height / 2,
-      };
-
-      [planet1Ref.current, planet2Ref.current].forEach((planet) => {
-        if (!planet || planet.style.display === "none") return;
-
-        const planetRect = planet.getBoundingClientRect();
-        const planetCenter = {
-          x: planetRect.left + planetRect.width / 2,
-          y: planetRect.top + planetRect.height / 2,
+      const checkHit = () => {
+        const bulletRect = bullet.getBoundingClientRect();
+        const bulletCenter = {
+          x: bulletRect.left + bulletRect.width / 2,
+          y: bulletRect.top + bulletRect.height / 2,
         };
 
-        const dist = Math.sqrt(
-          Math.pow(bulletCenter.x - planetCenter.x, 2) +
-            Math.pow(bulletCenter.y - planetCenter.y, 2)
-        );
+        [planet1Ref.current, planet2Ref.current].forEach((planet) => {
+          if (!planet || planet.style.display === "none") return;
 
-        if (dist < planetRect.width / 2) {
-          gsap.to(planet, {
-            x: "+=" + Math.cos(angleRad) * 100,
-            y: "+=" + Math.sin(angleRad) * 100,
-            scale: 0.2,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power2.out",
-            onComplete: () => {
-              setHitMessage(true);
+          const planetRect = planet.getBoundingClientRect();
+          const planetCenter = {
+            x: planetRect.left + planetRect.width / 2,
+            y: planetRect.top + planetRect.height / 2,
+          };
 
-              planet.style.display = "none";
+          const dist = Math.sqrt(
+            Math.pow(bulletCenter.x - planetCenter.x, 2) +
+              Math.pow(bulletCenter.y - planetCenter.y, 2)
+          );
 
-              setTimeout(() => {
-                planet.style.display = "block";
-                gsap.fromTo(
-                  planet,
-                  { opacity: 0, scale: 0.5 },
-                  {
-                    opacity: 1,
-                    scale: 1,
-                    duration: 1,
-                    ease: "elastic.out(1, 0.5)",
-                  }
-                );
-              }, 3000);
-            },
-          });
-          bullet.remove();
-        }
+          if (dist < planetRect.width / 2) {
+            gsap.to(planet, {
+              x: "+=" + Math.cos(angleRad) * 100,
+              y: "+=" + Math.sin(angleRad) * 100,
+              scale: 0.2,
+              opacity: 0,
+              duration: 0.8,
+              ease: "power2.out",
+              onComplete: () => {
+                setHitMessage(true);
+
+                planet.style.display = "none";
+
+                setTimeout(() => {
+                  planet.style.display = "block";
+                  gsap.fromTo(
+                    planet,
+                    { opacity: 0, scale: 0.5 },
+                    {
+                      opacity: 1,
+                      scale: 1,
+                      duration: 1,
+                      ease: "elastic.out(1, 0.5)",
+                    }
+                  );
+                }, 3000);
+              },
+            });
+            bullet.remove();
+          }
+        });
+      };
+
+      gsap.to(bullet, {
+        left: endX,
+        top: endY,
+        duration: 1.2,
+        ease: "power1.in",
+        onUpdate: checkHit,
+        onComplete: () => {
+          if (bullet.parentNode) bullet.remove();
+        },
       });
-    };
-
-    gsap.to(bullet, {
-      left: endX,
-      top: endY,
-      duration: 1.2,
-      ease: "power1.in",
-      onUpdate: checkHit,
-      onComplete: () => {
-        if (bullet.parentNode) bullet.remove();
-      },
     });
   };
 
@@ -178,23 +184,27 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  useGSAP(() => {
+  useEffect(() => {
     if (showBubble && bubbleRef.current) {
-      gsap.fromTo(
-        bubbleRef.current,
-        { x: 200, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
-      );
+      import("gsap").then(({ gsap }) => {
+        gsap.fromTo(
+          bubbleRef.current,
+          { x: 200, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+        );
+      });
     }
   }, [showBubble]);
 
-  useGSAP(() => {
+  useEffect(() => {
     if (hitMessage) {
-      gsap.fromTo(
-        bubbleRef.current,
-        { x: 200, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
-      );
+      import("gsap").then(({ gsap }) => {
+        gsap.fromTo(
+          hitMessageRef.current,
+          { x: 200, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+        );
+      });
 
       const timeout = setTimeout(() => {
         setHitMessage(false);
@@ -343,7 +353,7 @@ const Home = () => {
 
       {hitMessage && (
         <div
-          ref={bubbleRef}
+          ref={hitMessageRef}
           role="alert"
           className="fixed bg-[#1a1919] shadow-lg rounded-xl px-6 py-5 max-w-xs z-[1000] text-white"
           style={{ right: "1rem", bottom: "6rem" }}
