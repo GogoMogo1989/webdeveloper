@@ -1,5 +1,3 @@
-// SwiperWrapper.js
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import "swiper/css";
@@ -7,7 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
-const SwiperWrapper = ({ projects, language }) => {
+const SwiperWrapper = ({ projects, language, cookiesAccepted }) => {
   return (
     <Swiper
       spaceBetween={30}
@@ -33,14 +31,22 @@ const SwiperWrapper = ({ projects, language }) => {
       {projects.map((project, index) => (
         <SwiperSlide key={index}>
           <div className="w-full h-[400px] bg-cover bg-center rounded-md">
-            <iframe
-              width="100%"
-              height="100%"
-              src={project.iframeSrc}
-              title={language === "hu" ? project.titleHu : project.titleEn}
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            {cookiesAccepted ? (
+              <iframe
+                width="100%"
+                height="100%"
+                src={project.iframeSrc}
+                title={language === "hu" ? project.titleHu : project.titleEn}
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            ) : (
+              <div className="w-full h-full bg-gray-200 flex items-center justify-center text-sm text-gray-600">
+                {language === "hu"
+                  ? "A videó megtekintéséhez engedélyezd a sütiket."
+                  : "Please accept cookies to view the video."}
+              </div>
+            )}
           </div>
           <div className="p-2 mt-2">
             <span className="text-sm text-gray-400 tracking-wide">

@@ -91,7 +91,11 @@ const Work = () => {
         <div className="w-full max-w-[80%] lg:max-w-[80%] px-6 py-10">
           {loadSwiper ? (
             <Suspense fallback={<div>Loading slider...</div>}>
-              <SwiperWrapper projects={projects} language={language} />
+              <SwiperWrapper
+                projects={projects}
+                language={language}
+                cookiesAccepted={cookiesAccepted}
+              />
             </Suspense>
           ) : (
             <div>A slider betöltése folyamatban...</div>
