@@ -58,8 +58,8 @@ const BlogDetail = () => {
         <SwiperSlide key={blog._id}>
           <div className="min-h-screen bg-white text-black py-10 px-6 flex flex-col items-center">
             <div
-              className="fixed top-25 left-1/2 -translate-x-1/2 z-50 pointer-events-none select-none"
-              style={{ width: "420px", height: "330px" }}
+              className="fixed top-25 left-1/2 -translate-x-1/2 z-50 pointer-events-none select-none
+             w-[250px] h-[200px] sm:w-[420px] sm:h-[330px]"
             >
               <Lottie
                 animationData={swiperHint}
