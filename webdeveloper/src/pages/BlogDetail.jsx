@@ -56,9 +56,9 @@ const BlogDetail = () => {
     >
       {blogs.map((blog) => (
         <SwiperSlide key={blog._id}>
-          <div className="relative min-h-screen bg-white text-black py-10 px-6 flex flex-col items-center">
+          <div className="min-h-screen bg-white text-black py-10 px-6 flex flex-col items-center">
             <div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none select-none"
+              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none select-none"
               style={{ width: "420px", height: "330px" }}
             >
               <Lottie
