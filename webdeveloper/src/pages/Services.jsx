@@ -50,88 +50,81 @@ const Services = () => {
     let observer;
 
     const loadAnimations = async () => {
-      const [gsapModule, ScrollTriggerModule, SplitTextModule] =
-        await Promise.all([
-          import("gsap"),
-          import("gsap/ScrollTrigger"),
-          import("gsap/SplitText"),
-        ]);
+      const [gsapModule, ScrollTriggerModule] = await Promise.all([
+        import("gsap"),
+        import("gsap/ScrollTrigger"),
+      ]);
 
       const gsap = gsapModule.default || gsapModule;
       const ScrollTrigger = ScrollTriggerModule.default || ScrollTriggerModule;
-      const SplitText = SplitTextModule.default || SplitTextModule;
 
-      gsap.registerPlugin(ScrollTrigger, SplitText);
+      gsap.registerPlugin(ScrollTrigger);
 
       if (!containerRef.current) return;
 
       ctx = gsap.context(() => {
-        const titleEls =
-          containerRef.current.querySelectorAll(".section-title h2");
+        const titleSection =
+          containerRef.current.querySelector(".section-title");
+
         gsap.fromTo(
-          titleEls,
+          titleSection,
           { opacity: 0, y: 40 },
           {
             opacity: 1,
             y: 0,
             duration: 0.8,
             ease: "power3.out",
-            stagger: 0.15,
             scrollTrigger: {
-              trigger: containerRef.current.querySelector(".section-title"),
+              trigger: titleSection,
               start: "top 80%",
-              toggleActions: "play none none reverse",
-              markers: false, // debughoz true
+              end: "top 60%",
+              toggleActions: "play none none reverse", // jelenik meg → marad → visszagördít → eltűnik
+              markers: false,
             },
           }
         );
-        const tl = gsap.timeline();
 
-        services.forEach((_, index) => {
-          const title = containerRef.current.querySelectorAll("h3")[index];
-          const desc = containerRef.current.querySelectorAll("p")[index];
+        const serviceBlocks =
+          containerRef.current.querySelectorAll(".flex.flex-col");
 
-          const splitTitle = new SplitText(title, { type: "words,chars" });
-          const splitDesc = new SplitText(desc, { type: "words,chars" });
+        serviceBlocks.forEach((block, index) => {
+          const h3 = block.querySelector("h3");
+          const p = block.querySelector("p");
 
-          const charsTitle = splitTitle.words || splitTitle.chars;
-          const charsDesc = splitDesc.words || splitDesc.chars;
-
-          gsap.set(charsTitle, { opacity: 0, y: 20 });
-          gsap.set(charsDesc, { opacity: 0, y: 20 });
-
-          tl.to(charsTitle, {
-            opacity: 1,
-            y: 0,
-            stagger: 0.03,
-            duration: 0.5,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: title,
-              start: "top 80%",
-              end: "top 50%",
-              toggleActions: "play none reverse none",
-              markers: false,
-            },
-          });
-
-          tl.to(
-            charsDesc,
+          gsap.fromTo(
+            h3,
+            { opacity: 0, y: 30 },
             {
               opacity: 1,
               y: 0,
-              stagger: 0.03,
-              duration: 0.5,
-              ease: "power2.out",
+              duration: 0.6,
+              delay: index * 0.2,
               scrollTrigger: {
-                trigger: desc,
+                trigger: block,
                 start: "top 80%",
                 end: "top 50%",
-                toggleActions: "play none reverse none",
+                toggleActions: "play none none reverse",
                 markers: false,
               },
-            },
-            "-=0.01"
+            }
+          );
+
+          gsap.fromTo(
+            p,
+            { opacity: 0, y: 20 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              delay: index * 0.2 + 0.15, // picit később mint a h3
+              scrollTrigger: {
+                trigger: block,
+                start: "top 80%",
+                end: "top 50%",
+                toggleActions: "play none none reverse",
+                markers: false,
+              },
+            }
           );
         });
       }, containerRef);
