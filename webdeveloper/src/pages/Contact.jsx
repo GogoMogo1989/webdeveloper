@@ -61,19 +61,19 @@ const Contact = () => {
             </p>
 
             <ul className="list-none">
-              <li className="text-lg sm:text-base">
+              <li className="text-sm sm:text-base">
                 📧
                 <a
                   href="mailto:kovacsfarkasdavid@gmail.com"
-                  className="text-[#1659c9]"
+                  className="text-[#4ea8ff] underline"
                 >
                   kovacsfarkasdavid@gmail.com
                 </a>
               </li>
 
-              <li className="text-lg sm:text-base">
+              <li className="text-sm sm:text-base">
                 📞
-                <a href="tel:+36706320602" className="text-[#1659c9]">
+                <a href="tel:+36706320602" className="text-[#4ea8ff] underline">
                   +36 70 632 0602
                 </a>
               </li>
