@@ -41,7 +41,7 @@ const SwiperWrapper = ({ projects, language, cookiesAccepted }) => {
                 allowFullScreen
               ></iframe>
             ) : (
-              <div className="w-full h-full bg-gray-200 flex items-center justify-center text-sm text-gray-600">
+              <div className="w-full h-full bg-gray-200 flex items-center justify-center text-sm text-gray-700">
                 {language === "hu"
                   ? "A videó megtekintéséhez engedélyezd a sütiket."
                   : "Please accept cookies to view the video."}
@@ -49,11 +49,11 @@ const SwiperWrapper = ({ projects, language, cookiesAccepted }) => {
             )}
           </div>
           <div className="p-2 mt-2">
-            <span className="text-sm text-gray-400 tracking-wide">
+            <span className="text-sm text-gray-700 tracking-wide">
               {language === "hu" ? project.titleHu : project.titleEn}
             </span>
             <div className="pt-1">
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-500">
                 {language === "hu"
                   ? project.descriptionHu
                   : project.descriptionEn}
@@ -61,7 +61,7 @@ const SwiperWrapper = ({ projects, language, cookiesAccepted }) => {
               {project.href && (
                 <a
                   href={project.href}
-                  className="text-sm text-gray-400 font-medium underline pl-1"
+                  className="text-sm text-gray-700 font-medium underline pl-1"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
