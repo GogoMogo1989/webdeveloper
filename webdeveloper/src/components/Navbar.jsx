@@ -79,7 +79,12 @@ const Navbar = () => {
               return (
                 <li
                   key={index}
-                  className="text-gray-600 hover:text-[#1659c9] cursor-pointer"
+                  className="text-white
+                            cursor-pointer 
+                            transition-all 
+                            duration-200 
+                            hover:text-[#1659c9] 
+                            [text-shadow:_0_0_2px_black,_0_0_2px_black,_0_0_2px_black] [letter-spacing:0.09em]"
                 >
                   <RouterLink to={menuItem.path}>{menuItem.title}</RouterLink>
                 </li>
@@ -89,7 +94,13 @@ const Navbar = () => {
               return (
                 <li
                   key={index}
-                  className="text-gray-600 hover:text-[#1659c9] cursor-pointer"
+                  className="text-white
+                          cursor-pointer 
+                          transition-all 
+                          duration-200 
+                          hover:text-[#1659c9] 
+                          [text-shadow:_0_0_2px_black,_0_0_2px_black,_0_0_2px_black]
+                          [letter-spacing:0.09em]"
                 >
                   <ScrollLink
                     to={menuItem.to}

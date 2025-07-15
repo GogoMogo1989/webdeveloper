@@ -112,3 +112,7 @@
   box-shadow: 0 0 10px 5px rgba(255, 0, 0, 0.7);
   transform: translate(-50%, -50%);
 }
+
+.text-outline {
+  -webkit-text-stroke: 1px black;
+}
