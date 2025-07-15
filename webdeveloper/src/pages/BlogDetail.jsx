@@ -1,99 +1,102 @@
-import { useState, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCube } from "swiper";
 import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { getAllBlogs } from "../services/blogServices";
 import { useLanguage } from "../context/languageContext";
-import Suspense from "../pages/Suspense";
+import "swiper/css";
+import "swiper/css/effect-cube";
+import Lottie from "lottie-react";
+import swiperHint from "../assets/Swipe.json";
 
 const BlogDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [blog, setBlog] = useState(null);
-  const [prev, setPrev] = useState(null);
-  const [next, setNext] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const { language } = useLanguage();
+  const [blogs, setBlogs] = useState([]);
+  const [initialSlide, setInitialSlide] = useState(0);
 
   useEffect(() => {
-    const fetchBlog = async () => {
-      try {
-        const blogs = await getAllBlogs();
-        const current = blogs.find((b) => b._id === id);
-        if (!current) throw new Error("Nem található blog");
+    const fetchBlogs = async () => {
+      const result = await getAllBlogs();
+      setBlogs(result);
 
-        setBlog(current);
-
-        const currentIndex = blogs.findIndex((b) => b._id === id);
-        setPrev(blogs[currentIndex - 1] || null);
-        setNext(blogs[currentIndex + 1] || null);
-
-        setLoading(false);
-      } catch (err) {
-        console.error(err);
-        setError("Hiba történt a blog betöltése közben.");
-        setLoading(false);
-      }
+      const currentIndex = result.findIndex((b) => b._id === id);
+      if (currentIndex !== -1) setInitialSlide(currentIndex);
     };
 
-    fetchBlog();
+    fetchBlogs();
   }, [id]);
 
-  if (loading) return <Suspense />;
-  if (error) return <p>{error}</p>;
-  if (!blog)
-    return (
-      <p>{language === "hu" ? "Cikk nem található" : "Blog doesn't exist"}</p>
-    );
+  const handleSlideChange = (swiper) => {
+    const newBlog = blogs[swiper.activeIndex];
+    if (newBlog?._id !== id) {
+      navigate(`/blog/${newBlog._id}#up`);
+    }
+  };
+
+  if (!blogs.length) return null;
 
   return (
-    <div className="min-h-screen bg-white text-black py-10 px-6 flex flex-col items-center">
-      <div className="w-full max-w-[900px] bg-white shadow-lg rounded-lg p-8 mt-10">
-        <button
-          onClick={() => navigate("/blog#up")}
-          className="text-gray-600 mb-6 underline comic-text cursor-pointer hover:text-[#1659c9] transition-colors duration-300"
-        >
-          {language === "hu" ? "← Vissza a bloghoz" : "← Back to Blogs"}
-        </button>
+    <Swiper
+      modules={[EffectCube]}
+      effect="cube"
+      cubeEffect={{
+        shadow: false,
+        slideShadows: false,
+        shadowOffset: 20,
+        shadowScale: 0.94,
+      }}
+      spaceBetween={50}
+      slidesPerView={1}
+      onSlideChange={handleSlideChange}
+      initialSlide={initialSlide}
+      allowTouchMove={true}
+      className="mySwiper"
+    >
+      {blogs.map((blog) => (
+        <SwiperSlide key={blog._id}>
+          <div className="relative min-h-screen bg-white text-black py-10 px-6 flex flex-col items-center">
+            <div
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none select-none"
+              style={{ width: "420px", height: "330px" }}
+            >
+              <Lottie
+                animationData={swiperHint}
+                loop={false}
+                autoplay={true}
+                className="w-full h-full"
+                rendererSettings={{
+                  preserveAspectRatio: "xMidYMid slice",
+                  progressiveLoad: true,
+                }}
+              />
+            </div>
 
-        <h1 className="comic-text text-3xl sm:text-4xl font-bold text-center mb-4 text-black">
-          {blog.name}
-        </h1>
+            <div className="w-full max-w-[900px] bg-white shadow-lg rounded-lg p-8 mt-10">
+              <button
+                onClick={() => navigate("/blog#up")}
+                className="text-gray-600 mb-6 underline comic-text cursor-pointer hover:text-[#1659c9] transition-colors duration-300"
+              >
+                {language === "hu" ? "← Vissza a bloghoz" : "← Back to Blogs"}
+              </button>
 
-        <p className="regular-text text-sm text-gray-500 text-center mb-8">
-          {blog.date}
-        </p>
+              <h1 className="comic-text text-3xl sm:text-4xl font-bold text-center mb-4 text-black">
+                {blog.name}
+              </h1>
 
-        <p className="regular-text text-lg text-gray-800 leading-relaxed whitespace-pre-line">
-          {blog.desc}
-        </p>
+              <p className="regular-text text-sm text-gray-500 text-center mb-8">
+                {blog.date}
+              </p>
 
-        <div className="flex justify-between mt-12">
-          <button
-            onClick={() => navigate(`/blog/${prev?._id}#up`)}
-            disabled={!prev}
-            className={`button-33 px-4 py-2 text-sm sm:text-base rounded-lg transition-transform duration-300 ${
-              !prev
-                ? "opacity-50 cursor-not-allowed"
-                : "hover:scale-105 bg-purple-600 text-white"
-            }`}
-          >
-            {language === "hu" ? "Előző" : "Back"}
-          </button>
-
-          <button
-            onClick={() => navigate(`/blog/${next?._id}#up`)}
-            disabled={!next}
-            className={`button-33 px-4 py-2 text-sm sm:text-base rounded-lg transition-transform duration-300 ${
-              !next
-                ? "opacity-50 cursor-not-allowed"
-                : "hover:scale-105 bg-purple-600 text-white"
-            }`}
-          >
-            {language === "hu" ? "Következő" : "Next"}
-          </button>
-        </div>
-      </div>
-    </div>
+              <p className="regular-text text-lg text-gray-800 leading-relaxed whitespace-pre-line">
+                {blog.desc}
+              </p>
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
 
