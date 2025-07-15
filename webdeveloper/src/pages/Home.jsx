@@ -289,10 +289,62 @@ const Home = () => {
         ref={cannonRef}
         onClick={handleFire}
         viewBox="0 0 100 100"
-        className="cannon"
+        className="cannon cursor-pointer"
+        style={{
+          width: "130px", // nagyobb méret
+          height: "130px",
+          position: "absolute",
+          bottom: "2rem",
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 50,
+        }}
       >
-        <circle cx="50" cy="50" r="30" fill="#444" />
-        <rect x="45" y="5" width="10" height="45" rx="3" fill="#888" />
+        {/* Fő test - kerek űrhajó */}
+        <circle
+          cx="50"
+          cy="50"
+          r="30"
+          fill="#333"
+          stroke="#777"
+          strokeWidth="2"
+        />
+
+        {/* Ágyúcső elöl */}
+        <rect
+          x="47"
+          y="0"
+          width="6"
+          height="25"
+          rx="2"
+          fill="#888"
+          stroke="#aaa"
+          strokeWidth="1"
+        />
+
+        {/* Hátsó hajtóművek */}
+        <rect x="30" y="78" width="6" height="10" rx="1" fill="#555" />
+        <rect x="64" y="78" width="6" height="10" rx="1" fill="#555" />
+
+        {/* Lángok */}
+        <polygon points="33,88 31,96 35,96" fill="orange" />
+        <polygon points="67,88 65,96 69,96" fill="orange" />
+
+        {/* PUSH gomb középen */}
+        <g id="push-button" className="push-button">
+          <circle cx="50" cy="50" r="12" fill="red" />
+          <text
+            x="50"
+            y="54"
+            textAnchor="middle"
+            fill="white"
+            fontSize="8"
+            fontWeight="bold"
+            pointerEvents="none"
+          >
+            PUSH
+          </text>
+        </g>
       </svg>
 
       <div className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full relative">

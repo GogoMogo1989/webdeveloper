@@ -5,7 +5,7 @@ import { useLanguage } from "../context/languageContext";
 
 /* gsap.registerPlugin(ScrollTrigger, SplitText); */
 
-export default function Services() {
+const Services = () => {
   const containerRef = useRef(null);
   const { language } = useLanguage();
 
@@ -47,62 +47,111 @@ export default function Services() {
 
   useEffect(() => {
     let ctx;
-    let splitInstances = [];
-    let tween;
+    let observer;
 
-    // Dinamikusan importáljuk GSAP-et és pluginokat
-    Promise.all([
-      import("gsap"),
-      import("gsap/ScrollTrigger"),
-      import("gsap/SplitText"),
-    ]).then(([gsapModule, ScrollTriggerModule, SplitTextModule]) => {
-      const gsap = gsapModule.gsap || gsapModule.default || gsapModule;
-      const ScrollTrigger =
-        ScrollTriggerModule.ScrollTrigger ||
-        ScrollTriggerModule.default ||
-        ScrollTriggerModule;
-      const SplitText =
-        SplitTextModule.SplitText || SplitTextModule.default || SplitTextModule;
+    const loadAnimations = async () => {
+      const [gsapModule, ScrollTriggerModule, SplitTextModule] =
+        await Promise.all([
+          import("gsap"),
+          import("gsap/ScrollTrigger"),
+          import("gsap/SplitText"),
+        ]);
 
-      // Regisztráljuk a pluginokat
+      const gsap = gsapModule.default || gsapModule;
+      const ScrollTrigger = ScrollTriggerModule.default || ScrollTriggerModule;
+      const SplitText = SplitTextModule.default || SplitTextModule;
+
       gsap.registerPlugin(ScrollTrigger, SplitText);
 
       if (!containerRef.current) return;
 
-      // Létrehozzuk a GSAP contextet, hogy tisztán lehessen takarítani
       ctx = gsap.context(() => {
-        containerRef.current.querySelectorAll(".split").forEach((el) => {
-          const split = new SplitText(el, { type: "words" });
-          splitInstances.push(split);
-        });
-
-        // Összes char-ot kigyűjtjük
-        const allChars = splitInstances.flatMap((split) => split.chars);
-
-        tween = gsap.fromTo(
-          allChars,
-          { opacity: 0, y: 20 },
+        const titleEls =
+          containerRef.current.querySelectorAll(".section-title h2");
+        gsap.fromTo(
+          titleEls,
+          { opacity: 0, y: 40 },
           {
             opacity: 1,
             y: 0,
-            stagger: 0.04,
-            duration: 0.5,
-            ease: "power2.out",
+            duration: 0.8,
+            ease: "power3.out",
+            stagger: 0.15,
             scrollTrigger: {
-              trigger: containerRef.current,
-              start: "top 100%",
+              trigger: containerRef.current.querySelector(".section-title"),
+              start: "top 80%",
               toggleActions: "play none none reverse",
+              markers: false, // debughoz true
             },
           }
         );
-      }, containerRef);
-    });
+        const tl = gsap.timeline();
 
-    // Cleanup a komponens unmount-ján
+        services.forEach((_, index) => {
+          const title = containerRef.current.querySelectorAll("h3")[index];
+          const desc = containerRef.current.querySelectorAll("p")[index];
+
+          const splitTitle = new SplitText(title, { type: "words,chars" });
+          const splitDesc = new SplitText(desc, { type: "words,chars" });
+
+          const charsTitle = splitTitle.words || splitTitle.chars;
+          const charsDesc = splitDesc.words || splitDesc.chars;
+
+          gsap.set(charsTitle, { opacity: 0, y: 20 });
+          gsap.set(charsDesc, { opacity: 0, y: 20 });
+
+          tl.to(charsTitle, {
+            opacity: 1,
+            y: 0,
+            stagger: 0.03,
+            duration: 0.5,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: title,
+              start: "top 80%",
+              end: "top 50%",
+              toggleActions: "play none reverse none",
+              markers: false,
+            },
+          });
+
+          tl.to(
+            charsDesc,
+            {
+              opacity: 1,
+              y: 0,
+              stagger: 0.03,
+              duration: 0.5,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: desc,
+                start: "top 80%",
+                end: "top 50%",
+                toggleActions: "play none reverse none",
+                markers: false,
+              },
+            },
+            "-=0.01"
+          );
+        });
+      }, containerRef);
+    };
+
+    observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loadAnimations();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) observer.observe(containerRef.current);
+
     return () => {
-      if (ctx) ctx.revert();
-      splitInstances.forEach((s) => s.revert());
-      if (tween) tween.kill();
+      observer?.disconnect();
+      ctx?.revert();
     };
   }, []);
 
@@ -136,4 +185,6 @@ export default function Services() {
       </div>
     </div>
   );
-}
+};
+
+export default Services;
