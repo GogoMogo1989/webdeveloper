@@ -346,21 +346,19 @@ const Home = () => {
       </svg>
 
       <div className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full relative">
-        <h1 className="fade-in text-2xl sm:text-5xl md:text-6xl font-bold text-white">
+        <h1 className="fade-in text-2xl sm:text-5xl md:text-6xl font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
           {language === "hu"
             ? "Üdvözlünk a KFD Solutions-nál!"
             : "Welcome to KFD Solutions!"}
         </h1>
-        <p className="fade-in text-xs sm:text-sm md:text-base lg:text-lg text-white py-4 max-w-[700px] font-bold">
+        <p className="fade-in text-xs sm:text-sm md:text-base lg:text-lg text-white py-4 max-w-[700px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
           {language === "hu"
             ? "Webalkalmazás-fejlesztés KKV-k és startupok számára – ha a WordPress már nem elég."
             : "Custom web app development for SMEs and startups – when WordPress just isn’t enough."}
         </p>
         <Link href="contact" to="contact" smooth={true} duration={500}>
-          <button className="button-33 px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-xl">
-            {language === "hu"
-              ? "Kérj ajánlatot most!"
-              : "Request a Quote Now!"}
+          <button className="button-33 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 text-base sm:text-lg md:text-xl font-semibold rounded-full shadow-xl bg-blue-600 hover:bg-blue-700 text-white transition duration-300">
+            {language === "hu" ? "Ingyenes konzultáció" : "Free Consultation"}
           </button>
         </Link>
       </div>
