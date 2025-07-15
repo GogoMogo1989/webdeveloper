@@ -1,9 +1,5 @@
 import { useRef, useEffect } from "react";
-/* import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SplitText from "gsap/SplitText"; */
 import { useLanguage } from "../context/languageContext";
-
-/* gsap.registerPlugin(ScrollTrigger, SplitText); */
 
 const Services = () => {
   const containerRef = useRef(null);
@@ -11,37 +7,36 @@ const Services = () => {
 
   const services = [
     {
-      titleHu: "Webalkalmazás-fejlesztés",
+      titleHu: "Teljeskörű éttermi webalkalmazás-fejlesztés",
       descHu:
-        "Egyedi webalkalmazások tervezése és fejlesztése különleges vállalati igényekre szabva. Modern dizájn, reszponzív kialakítás, gyors működés és skálázható megoldások – mindezt a felhasználói élményre optimalizálva.",
-      titleEn: "Web Application Development",
+        "Modern és funkciógazdag webalkalmazások tervezése éttermek számára – beépített online rendelési rendszerrel, egyedi adminisztrációs felülettel és mobilapplikációval. Reszponzív dizájn, gyors működés és kiváló felhasználói élmény minden platformon.",
+      titleEn: "Comprehensive Restaurant Web Application Development",
       descEn:
-        "Designing and developing custom web applications tailored to specific business needs. Modern design, responsive layout, fast performance, and scalable solutions – all optimized for a seamless user experience.",
-    },
-
-    {
-      titleHu: "Mobilapplikáció fejlesztés-",
-      descHu:
-        "Android és iOS alkalmazások fejlesztése modern technológiával, natív és cross-platform megoldásokkal. Gyors, stabil és skálázható mobilalkalmazások, amelyek megfelelnek a legújabb UI/UX trendeknek.",
-      titleEn: "Mobile App Development-",
-      descEn:
-        "Developing Android and iOS apps using modern technology, with native and cross-platform solutions. Fast, stable, and scalable mobile applications that meet the latest UI/UX trends.",
+        "Designing feature-rich web applications for restaurants – complete with online ordering, custom admin panel, and a dedicated mobile app. Responsive design, high performance, and an outstanding user experience across all platforms.",
     },
     {
-      titleHu: "SEO és teljesítményoptimalizálás-",
+      titleHu: "Kozmetikai és szállodai rendszerek fejlesztése",
       descHu:
-        "Jobb helyezés a Google keresési találatai között, gyorsabb betöltési idők és hatékonyabb felhasználói élmény. Keresőoptimalizált tartalmak, mobilbarát megoldások és sebességoptimalizálás.",
-      titleEn: "SEO and Performance Optimization-",
+        "Személyre szabott online foglalási és ügyfélkezelési rendszerek kozmetikai szolgáltatók és szállodák számára. Teljeskörű adminisztráció, mobilalkalmazás integráció és modern, letisztult felhasználói felület.",
+      titleEn: "Beauty and Hotel Booking Systems Development",
       descEn:
-        "Better ranking in Google search results, faster load times, and more effective user experience. SEO-optimized content, mobile-friendly solutions, and speed optimization.",
+        "Tailored online booking and client management solutions for beauty businesses and hotels. Full-featured admin interface, mobile app integration, and a sleek, modern user experience.",
     },
     {
-      titleHu: "Karbantartás és támogatás-",
+      titleHu: "Webshop és mobilalkalmazás fejlesztés",
       descHu:
-        "Folyamatos frissítések, hibajavítások és technikai támogatás a zavartalan működés érdekében. Biztonsági mentések, szerverkarbantartás és gyors reakcióidő az esetleges problémák kezelésére.",
-      titleEn: "Maintenance and Support-",
+        "Reszponzív és skálázható webáruházak készítése egyedi igények szerint, integrált mobilalkalmazással. Kiemelkedő teljesítmény, keresőoptimalizálás és korszerű UI/UX megoldások a vásárlói élmény maximalizálásához.",
+      titleEn: "E-commerce and Mobile App Development",
       descEn:
-        "Continuous updates, bug fixes, and technical support to ensure smooth operation. Backups, server maintenance, and quick response time for any issues.",
+        "Developing responsive and scalable e-commerce platforms tailored to your needs, complete with an integrated mobile app. High performance, SEO optimization, and cutting-edge UI/UX for a superior shopping experience.",
+    },
+    {
+      titleHu: "Egyedi mobilalkalmazás-fejlesztés",
+      descHu:
+        "Android és iOS mobilapplikációk fejlesztése natív vagy cross-platform technológiákkal. Gyors, megbízható és felhasználóbarát alkalmazások, amelyek a legfrissebb technológiai és design trendeket követik.",
+      titleEn: "Custom Mobile App Development",
+      descEn:
+        "Developing Android and iOS mobile applications using native or cross-platform technologies. Fast, reliable, and user-centric apps that align with the latest technology and design trends.",
     },
   ];
 

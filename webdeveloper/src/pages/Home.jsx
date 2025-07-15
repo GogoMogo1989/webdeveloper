@@ -19,6 +19,7 @@ const Home = () => {
   const bubbleRef = useRef(null);
   const hitMessageRef = useRef(null);
   const [hitMessage, setHitMessage] = useState(false);
+  const [hasShownHitMessage, setHasShownHitMessage] = useState(false);
 
   useEffect(() => {
     let ctx;
@@ -142,7 +143,9 @@ const Home = () => {
               duration: 0.8,
               ease: "power2.out",
               onComplete: () => {
-                setHitMessage(true);
+                if (!hasShownHitMessage) {
+                  setHitMessage(true);
+                }
 
                 planet.style.display = "none";
 
@@ -197,7 +200,7 @@ const Home = () => {
   }, [showBubble]);
 
   useEffect(() => {
-    if (hitMessage) {
+    if (hitMessage && !hasShownHitMessage) {
       import("gsap").then(({ gsap }) => {
         gsap.fromTo(
           hitMessageRef.current,
@@ -208,11 +211,12 @@ const Home = () => {
 
       const timeout = setTimeout(() => {
         setHitMessage(false);
+        setHasShownHitMessage(true);
       }, 5000);
 
       return () => clearTimeout(timeout);
     }
-  }, [hitMessage]);
+  }, [hitMessage, hasShownHitMessage]);
 
   return (
     <div
@@ -291,7 +295,7 @@ const Home = () => {
         viewBox="0 0 100 100"
         className="cannon cursor-pointer"
         style={{
-          width: "130px", // nagyobb méret
+          width: "130px",
           height: "130px",
           position: "absolute",
           bottom: "2rem",
@@ -300,7 +304,6 @@ const Home = () => {
           zIndex: 50,
         }}
       >
-        {/* Fő test - kerek űrhajó */}
         <circle
           cx="50"
           cy="50"
@@ -309,8 +312,6 @@ const Home = () => {
           stroke="#777"
           strokeWidth="2"
         />
-
-        {/* Ágyúcső elöl */}
         <rect
           x="47"
           y="0"
@@ -322,15 +323,12 @@ const Home = () => {
           strokeWidth="1"
         />
 
-        {/* Hátsó hajtóművek */}
         <rect x="30" y="78" width="6" height="10" rx="1" fill="#555" />
         <rect x="64" y="78" width="6" height="10" rx="1" fill="#555" />
 
-        {/* Lángok */}
         <polygon points="33,88 31,96 35,96" fill="orange" />
         <polygon points="67,88 65,96 69,96" fill="orange" />
 
-        {/* PUSH gomb középen */}
         <g id="push-button" className="push-button">
           <circle cx="50" cy="50" r="12" fill="red" />
           <text
@@ -411,7 +409,10 @@ const Home = () => {
           style={{ right: "1rem", bottom: "6rem" }}
         >
           <button
-            onClick={() => setHitMessage(false)}
+            onClick={() => {
+              setHitMessage(false);
+              setHasShownHitMessage(true);
+            }}
             className="absolute cursor-pointer top-2 right-2 text-white hover:text-gray-400 text-xl font-bold focus:outline-none"
             aria-label={language === "hu" ? "Bezárás" : "Close"}
           >
