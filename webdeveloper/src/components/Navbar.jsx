@@ -70,7 +70,7 @@ const Navbar = () => {
     : fullMenuOptions[language] || fullMenuOptions["en"];
 
   return (
-    <div className="fixed w-full h-[80px] flex justify-between items-center text-gray-400 z-20">
+    <div className="fixed w-full h-[80px] flex justify-between items-center text-gray-400 z-100">
       {/* Desktop navigation */}
       <div className="fixed w-full h-[80px] flex justify-between items-center text-gray-400 z-10">
         <ul className="hidden md:flex space-x-6 justify-center w-full">

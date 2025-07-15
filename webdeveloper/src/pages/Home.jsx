@@ -277,7 +277,7 @@ const Home = () => {
         src={planet1}
         alt="Planet 1"
         fetchpriority="high"
-        className="absolute w-48 top-20 left-10 cursor-grab active:cursor-grabbing"
+        className="absolute w-48 top-20 left-10 "
         style={{ willChange: "transform", touchAction: "none" }}
       />
       <img
@@ -285,7 +285,7 @@ const Home = () => {
         src={planet2}
         alt="Planet 2"
         fetchpriority="high"
-        className="absolute w-32 bottom-60 right-20 cursor-grab active:cursor-grabbing"
+        className="absolute w-32 bottom-60 right-20"
         style={{ willChange: "transform", touchAction: "none" }}
       />
 
