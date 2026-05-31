@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 
 const Navbar = lazy(() => import("../components/Navbar"));
 const Home = lazy(() => import("../pages/Home"));
+const Bio = lazy(() => import("../pages/Bio"));
 const Services = lazy(() => import("../pages/Services"));
 const About = lazy(() => import("../pages/About"));
 const Skills = lazy(() => import("../pages/Skills"));
@@ -26,6 +27,7 @@ function LazySections() {
 
   return (
     <Suspense fallback={<SuspensePage />}>
+      <Bio />
       <Services />
       <About />
       <Skills />

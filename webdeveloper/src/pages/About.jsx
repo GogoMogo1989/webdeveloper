@@ -14,15 +14,15 @@ const About = () => {
       img: Designed,
       titleHu: "Egyedi dizájn és funkcionalitás",
       descHu: "Minden projekt egyedi és személyre szabott!",
-      titleEn: "Unique Design and Functionality",
+      titleEn: "Unique Design & Functionality",
       descEn: "Every project is unique and tailored to you!",
       to: "/blog/686cf59aef084d2e899a8915#up",
     },
     {
       img: Development,
-      titleHu: "Gyors, rezponzív weboldalak/appok",
+      titleHu: "Gyors, reszponzív weboldalak",
       descHu: "Mobilon és asztali gépen is tökéletes az élmény!",
-      titleEn: "Fast, Responsive Websites/Apps",
+      titleEn: "Fast, Responsive Websites",
       descEn: "Perfect experience on mobile and desktop alike!",
       to: "/blog/686cf5d3ef084d2e899a8917#up",
     },
@@ -31,14 +31,14 @@ const About = () => {
       titleHu: "SEO-optimalizált kód",
       descHu: "Segítek, hogy a Google is megtalálja az oldaladat!",
       titleEn: "SEO-Optimized Code",
-      descEn: "Helping Google find your site with ease!",
+      descEn: "I help Google find your site with ease!",
       to: "/blog/686cf600ef084d2e899a8919#up",
     },
     {
       img: Maintenance,
       titleHu: "Biztonság és karbantartás",
       descHu: "Az oldalad mindig naprakész és védett lesz!",
-      titleEn: "Security and Maintenance",
+      titleEn: "Security & Maintenance",
       descEn: "Your site stays up-to-date and protected!",
       to: "blog/686cf648ef084d2e899a891c#up",
     },
@@ -47,7 +47,6 @@ const About = () => {
   useEffect(() => {
     let ctx;
 
-    // Dinamikus import
     Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(
       ([gsapModule, ScrollTriggerModule]) => {
         const gsap = gsapModule.gsap || gsapModule.default || gsapModule;
@@ -59,19 +58,18 @@ const About = () => {
         gsap.registerPlugin(ScrollTrigger);
 
         ctx = gsap.context(() => {
-          gsap.utils.toArray(".card2").forEach((card, index) => {
+          gsap.utils.toArray(".card2").forEach((card) => {
             gsap.fromTo(
               card,
-              { y: 80, opacity: 0 },
+              { y: 60, opacity: 0 },
               {
                 y: 0,
                 opacity: 1,
-                duration: 0.2,
-                stagger: 0.2,
+                duration: 0.5,
                 scrollTrigger: {
                   trigger: card,
-                  start: "top 100%",
-                  end: "top 50%",
+                  start: "top 95%",
+                  end: "top 60%",
                   scrub: true,
                   markers: false,
                 },
@@ -91,43 +89,58 @@ const About = () => {
     <div
       name="about"
       id="about-section"
-      className="w-full h-[160vh] bg-white text-black flex flex-col justify-center items-center relative"
+      className="w-full min-h-screen py-28 bg-white text-black flex flex-col justify-center items-center relative"
     >
-      <div className="max-w-[100%] w-full text-center flex flex-col">
-        <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-black">
+      {/* Subtle background pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.025] pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, #1659c9 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+
+      <div className="relative w-full text-center flex flex-col px-6 mb-14">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-black leading-tight">
           {language === "hu" ? "Miért engem" : "Why choose me"}
         </h1>
-        <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-[#1659c9]">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold leading-tight" style={{ color: "#1659c9" }}>
           {language === "hu" ? "válassz fejlesztőként?" : "as your developer?"}
         </h1>
-        <p className="mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-black py-4 max-w-[700px] font-bold text-center">
+        <p className="mx-auto text-sm sm:text-base text-gray-500 py-5 max-w-[600px] leading-relaxed">
           {language === "hu"
-            ? "A mai digitális világban a sablonmegoldások már kevesek – a sikerhez személyre szabott, egyedi webalkalmazásokra van szükség. Én ebben segítek."
-            : "In today's digital world, template-based solutions are no longer enough — success requires custom, tailor-made web applications. That's where I come in."}
+            ? "A mai digitális világban a sablonmegoldások már kevesek – a sikerhez személyre szabott webalkalmazásokra van szükség."
+            : "In today's digital world, template solutions are no longer enough — success requires custom, tailor-made web applications."}
         </p>
       </div>
 
-      <div className="flex justify-center items-center space-x-8 mt-10 w-full px-10">
-        <div className="grid grid-cols-2 gap-4 sm:flex sm:flex-wrap sm:justify-center">
+      <div className="relative flex justify-center items-center w-full px-6">
+        <div className="grid grid-cols-2 gap-5 sm:flex sm:flex-wrap sm:justify-center sm:gap-6">
           {cardContant.map((card, index) => (
             <div
               key={index}
-              className="card card2 bg-white shadow-lg rounded-lg p-3 sm:p-4 flex flex-col items-center justify-between w-full sm:w-[30%] md:w-[22%] min-h-[250px] sm:min-h-[300px] hover:scale-105 duration-500"
+              className="about-card card2 p-6 flex flex-col items-center justify-between w-full sm:w-[220px] md:w-[230px] min-h-[280px]"
             >
-              <img
-                src={card.img}
-                alt={language === "hu" ? card.titleHu : card.titleEn}
-                className="w-[50px] h-[50px] sm:w-[70px] sm:h-[70px] mb-3"
-              />
-              <h1 className="text-base sm:text-lg font-semibold mb-1 text-center">
+              <div
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 flex-shrink-0"
+                style={{ background: "rgba(22, 89, 201, 0.07)" }}
+              >
+                <img
+                  src={card.img}
+                  alt={language === "hu" ? card.titleHu : card.titleEn}
+                  className="w-9 h-9 object-contain"
+                />
+              </div>
+              <h2 className="text-base font-semibold mb-2 text-center text-gray-900 leading-snug">
                 {language === "hu" ? card.titleHu : card.titleEn}
-              </h1>
-              <p className="text-center text-gray-600 flex-grow text-xs sm:text-sm">
+              </h2>
+              <p className="text-center text-gray-500 flex-grow text-sm leading-relaxed">
                 {language === "hu" ? card.descHu : card.descEn}
               </p>
-              <RouterLink to={card.to}>
-                <button className="button-33 px-1 py-[2px] sm:px-4 sm:py-2 text-[10px] sm:text-sm">
-                  {language === "hu" ? "Bővebben!" : "Learn more!"}
+              <RouterLink to={card.to} className="mt-5 w-full">
+                <button className="button-33 w-full text-sm py-2 px-3">
+                  {language === "hu" ? "Bővebben" : "Learn more"}
                 </button>
               </RouterLink>
             </div>

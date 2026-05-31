@@ -32,9 +32,9 @@ const Work = () => {
       titleHu: "Program Budapest App",
       titleEn: "Program Budapest App",
       descriptionHu:
-        "Ez a projekt nagyon közel áll hozzám, életem első önálló mobilapplikációja, amit felkérésre készítettem. Az alkalmazás a különböző programok, éttermek, kávézók és pubok szűrését teszi lehetővé név, típus, konyha és sok más kritérium alapján. Üzleti igényként megfogalmazódott a QR‑kód olvasás akciókhoz, valamint a 'közelben' funkció, ami a Google Maps segítségével mutatja a közeli eseményeket és helyeket.",
+        "Ez a projekt nagyon közel áll hozzám, életem első önálló mobilapplikációja, amit felkérésre készítettem. Az alkalmazás a különböző programok, éttermek, kávézók és pubok szűrését teszi lehetővé név, típus, konyha és sok más kritérium alapján.",
       descriptionEn:
-        "This project is close to my heart – my very first solo mobile app, built on commission. Users can filter programs, restaurants, cafés and pubs by name, type, cuisine and more. Business requirements included QR‑code scanning for promos and a 'nearby' feature that shows events and venues around you via Google Maps.",
+        "This project is close to my heart – my very first solo mobile app, built on commission. Users can filter programs, restaurants, cafés and pubs by name, type, cuisine and more.",
     },
     {
       iframeSrc: "https://www.youtube.com/embed/Wu0I6sEoDZQ?autoplay=1&mute=1",
@@ -42,9 +42,9 @@ const Work = () => {
       titleHu: "Italian Pizza Customer",
       titleEn: "Italian Pizza Customer",
       descriptionHu:
-        "Ez az oldal egy bemutató platform azok számára, akik szeretnének termékeket online vásárolni készpénzzel vagy bankkártyával. A vásárlást könnyedén és gyorsan intézheted, minden tranzakcióról email visszaigazolást küldünk. Regisztrálhatsz a gyorsabb vásárlásért, de vendégként is rendelhetsz. A cél: megmutatni, hogyan egyszerűsíthető az online vásárlás, és hogyan tehető elérhetővé a gyors rendelés mindenki számára.",
+        "Ez az oldal egy bemutató platform azok számára, akik szeretnének termékeket online vásárolni készpénzzel vagy bankkártyával. A vásárlást könnyedén és gyorsan intézheted, minden tranzakcióról email visszaigazolást küldünk.",
       descriptionEn:
-        "A showcase webshop for those who want to buy products online with cash or card. Checkout is quick and easy, and every transaction triggers an email confirmation. You can register for faster future orders, or buy as a guest. The goal is to demonstrate how online shopping can be simplified and made accessible to all.",
+        "A showcase webshop for those who want to buy products online with cash or card. Checkout is quick and easy, and every transaction triggers an email confirmation.",
     },
     {
       iframeSrc: "https://www.youtube.com/embed/u8j23NNbW8s?autoplay=1&mute=1",
@@ -52,45 +52,56 @@ const Work = () => {
       titleHu: "Italian Pizza Admin",
       titleEn: "Italian Pizza Admin",
       descriptionHu:
-        "Ez az adminisztrációs felület az Italian Pizza oldal kezelésére szolgál. Könnyedén módosíthatod, törölheted vagy hozzáadhatod a termékeket; frissítheted a kínálatot, kezelheted a rendelések státuszát. Teljes kontrollt ad a webshop működtetése felett, hogy gördülékenyen és hatékonyan kezeld az online rendeléseket.",
+        "Ez az adminisztrációs felület az Italian Pizza oldal kezelésére szolgál. Könnyedén módosíthatod, törölheted vagy hozzáadhatod a termékeket; frissítheted a kínálatot, kezelheted a rendelések státuszát.",
       descriptionEn:
-        "This admin dashboard controls the Italian Pizza site. You can edit, delete or add products, update the menu, and manage order statuses. It provides full control over the webshop to keep operations smooth and efficient.",
+        "This admin dashboard controls the Italian Pizza site. You can edit, delete or add products, update the menu, and manage order statuses.",
     },
     {
       iframeSrc: "https://www.youtube.com/embed/yoVXrvB-f4Y?autoplay=1&mute=1",
       titleHu: "Italian Pizza App",
       titleEn: "Italian Pizza App",
       descriptionHu:
-        "A Italian Pizza mobilalkalmazás kényelmes és gyors módja annak, hogy bárhol és bármikor rendelhess pizzát. Felhasználóbarát felület, gyors vásárlás bankkártyával vagy készpénzzel, email visszaigazolás minden rendelésről. Regisztrációval mentheted kedvenceidet, de regisztráció nélkül is vásárolhatsz.",
+        "A Italian Pizza mobilalkalmazás kényelmes és gyors módja annak, hogy bárhol és bármikor rendelhess pizzát. Felhasználóbarát felület, gyors vásárlás bankkártyával vagy készpénzzel.",
       descriptionEn:
-        "The Italian Pizza mobile app lets you order pizza anytime, anywhere. A user‑friendly interface, quick checkout with card or cash, and email confirmations for every order. Register to save favourites – or order without an account if you prefer.",
+        "The Italian Pizza mobile app lets you order pizza anytime, anywhere. A user-friendly interface, quick checkout with card or cash, and email confirmations for every order.",
     },
   ];
 
-  const headerTop = language === "hu" ? "Kiemelt" : "Featured";
-  const headerBottom = language === "hu" ? "munkáim:" : "projects:";
-
   return (
-    <div className="h-[180vh] relative bg-white" id="work">
+    <div className="relative bg-white" id="work" style={{ minHeight: "100vh" }}>
       {!cookiesAccepted && (
         <CookieConsent onAccept={() => setCookiesAccepted(true)} />
       )}
-      <div className="w-full lg:max-w-[20%] px-6 sm:px-12 pt-20">
-        <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-black">
+
+      {/* Section header */}
+      <div className="w-full px-6 sm:px-12 pt-24 pb-10">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-black leading-tight">
           {language === "hu" ? "Kiemelt" : "Featured"}
         </h1>
-        <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-[#1659c9] mb-20">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold leading-tight mb-2" style={{ color: "#1659c9" }}>
           {language === "hu" ? "munkáim:" : "projects:"}
         </h1>
+        <p className="text-sm text-gray-500 max-w-[500px] mt-3 leading-relaxed">
+          {language === "hu"
+            ? "Valódi projektek, amelyeket az igényekre szabva terveztem és fejlesztettem."
+            : "Real-world projects designed and built to meet specific client needs."}
+        </p>
       </div>
 
+      {/* Swiper */}
       <div
         name="work"
-        className="w-full min-h-screen text-black bg-white relative flex flex-col lg:flex-row items-center justify-center"
+        className="w-full bg-white relative flex flex-col items-center justify-center pb-20"
       >
-        <div className="w-full max-w-[80%] lg:max-w-[80%] px-6 py-10">
+        <div className="w-full max-w-[90%] lg:max-w-[85%] px-4">
           {loadSwiper ? (
-            <Suspense fallback={<div>Loading slider...</div>}>
+            <Suspense
+              fallback={
+                <div className="flex items-center justify-center h-64 text-gray-400 text-sm">
+                  {language === "hu" ? "Betöltés..." : "Loading..."}
+                </div>
+              }
+            >
               <SwiperWrapper
                 projects={projects}
                 language={language}
@@ -98,7 +109,9 @@ const Work = () => {
               />
             </Suspense>
           ) : (
-            <div>A slider betöltése folyamatban...</div>
+            <div className="flex items-center justify-center h-64 text-gray-400 text-sm">
+              {language === "hu" ? "Betöltés..." : "Loading..."}
+            </div>
           )}
         </div>
       </div>

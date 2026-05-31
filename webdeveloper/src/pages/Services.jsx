@@ -58,8 +58,7 @@ const Services = () => {
       if (!containerRef.current) return;
 
       ctx = gsap.context(() => {
-        const titleSection =
-          containerRef.current.querySelector(".section-title");
+        const titleSection = containerRef.current.querySelector(".section-title");
 
         gsap.fromTo(
           titleSection,
@@ -73,49 +72,27 @@ const Services = () => {
               trigger: titleSection,
               start: "top 80%",
               end: "top 60%",
-              toggleActions: "play none none reverse", // jelenik meg → marad → visszagördít → eltűnik
+              toggleActions: "play none none reverse",
               markers: false,
             },
           }
         );
 
-        const serviceBlocks =
-          containerRef.current.querySelectorAll(".flex.flex-col");
+        const serviceBlocks = containerRef.current.querySelectorAll(".service-item");
 
         serviceBlocks.forEach((block, index) => {
-          const h3 = block.querySelector("h3");
-          const p = block.querySelector("p");
-
           gsap.fromTo(
-            h3,
+            block,
             { opacity: 0, y: 30 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.6,
-              delay: index * 0.2,
+              duration: 0.7,
+              delay: index * 0.1,
               scrollTrigger: {
                 trigger: block,
-                start: "top 80%",
-                end: "top 50%",
-                toggleActions: "play none none reverse",
-                markers: false,
-              },
-            }
-          );
-
-          gsap.fromTo(
-            p,
-            { opacity: 0, y: 20 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              delay: index * 0.2 + 0.15, // picit később mint a h3
-              scrollTrigger: {
-                trigger: block,
-                start: "top 80%",
-                end: "top 50%",
+                start: "top 82%",
+                end: "top 55%",
                 toggleActions: "play none none reverse",
                 markers: false,
               },
@@ -148,26 +125,42 @@ const Services = () => {
       ref={containerRef}
       name="services"
       id="services"
-      className="pb-30 pt-30 services-section w-full min-h-screen bg-black text-white flex flex-col lg:flex-row  px-6 sm:px-12 relative"
+      className="pb-32 pt-32 w-full min-h-screen flex flex-col lg:flex-row px-6 sm:px-12 relative"
+      style={{ background: "#06080f" }}
     >
-      <div className="section-title w-full lg:w-[40%] mb-8 lg:mb-0">
-        <h2 className="split text-2xl sm:text-5xl font-bold">
+      {/* Left: section title */}
+      <div className="section-title w-full lg:w-[38%] mb-12 lg:mb-0">
+        <h2 className="text-3xl sm:text-5xl font-bold text-white leading-tight">
           {language === "hu" ? "Szolgáltatások" : "Services"}
         </h2>
-        <h2 className="split text-2xl sm:text-5xl font-bold text-[#1659c9]">
+        <h2 className="text-3xl sm:text-5xl font-bold leading-tight" style={{ color: "#1659c9" }}>
           {language === "hu" ? "amiket nyújtok" : "I offer"}
         </h2>
+        <p className="mt-6 text-sm text-white/45 leading-relaxed max-w-[300px]">
+          {language === "hu"
+            ? "Minden projekt egyedi megközelítést igényel – ezt szállítom."
+            : "Every project deserves a tailored approach – that's what I deliver."}
+        </p>
       </div>
 
-      <div className="w-full lg:w-[60%] flex flex-col gap-8 pr-0 lg:pr-10">
+      {/* Right: service list */}
+      <div className="w-full lg:w-[62%] flex flex-col pr-0 lg:pr-6">
         {services.map((service, index) => (
-          <div key={index} className="flex flex-col">
-            <h3 className="split text-xl sm:text-2xl font-semibold">
-              {language === "hu" ? service.titleHu : service.titleEn}
-            </h3>
-            <p className="split text-sm sm:text-lg mt-2 leading-relaxed">
-              {language === "hu" ? service.descHu : service.descEn}
-            </p>
+          <div key={index} className="service-item flex flex-col group">
+            {index > 0 && <div className="gradient-divider my-8" />}
+            <div className="flex items-start gap-5">
+              <span className="service-num" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div className="flex-1 pt-1">
+                <h3 className="text-xl sm:text-2xl font-semibold text-white transition-colors duration-300 group-hover:text-[#4ea8ff]">
+                  {language === "hu" ? service.titleHu : service.titleEn}
+                </h3>
+                <p className="text-sm sm:text-base mt-3 leading-relaxed text-white/55">
+                  {language === "hu" ? service.descHu : service.descEn}
+                </p>
+              </div>
+            </div>
           </div>
         ))}
       </div>
