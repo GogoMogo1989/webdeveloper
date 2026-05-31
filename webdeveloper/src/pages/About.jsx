@@ -4,8 +4,6 @@ import Designed from "../assets/designed (3).webp";
 import Seo from "../assets/seo (3).webp";
 import Maintenance from "../assets/maintenance (5).webp";
 import Development from "../assets/development (3).webp";
-import { Link as RouterLink } from "react-router-dom";
-
 const About = () => {
   const { language } = useLanguage();
 
@@ -13,34 +11,30 @@ const About = () => {
     {
       img: Designed,
       titleHu: "Egyedi dizájn és funkcionalitás",
-      descHu: "Minden projekt egyedi és személyre szabott!",
+      descHu: "Nem sablonokat használok – minden oldalt az adott projekt igényeire szabok. Az UI letisztult, modern és a célközönségedhez igazított, miközben a funkcionalitás pontosan azt nyújtja, amire szükséged van.",
       titleEn: "Unique Design & Functionality",
-      descEn: "Every project is unique and tailored to you!",
-      to: "/blog/686cf59aef084d2e899a8915#up",
+      descEn: "No templates — every site is built specifically for your project. Clean, modern UI tailored to your audience, with functionality that delivers exactly what you need.",
     },
     {
       img: Development,
       titleHu: "Gyors, reszponzív weboldalak",
-      descHu: "Mobilon és asztali gépen is tökéletes az élmény!",
+      descHu: "Az oldalak optimalizált kóddal készülnek, hogy mobilon, tableten és asztali gépen egyaránt villámgyorsan töltődjenek. A lassú oldal látogatókat veszít – ez nálam nem fordul elő.",
       titleEn: "Fast, Responsive Websites",
-      descEn: "Perfect experience on mobile and desktop alike!",
-      to: "/blog/686cf5d3ef084d2e899a8917#up",
+      descEn: "Sites are built with optimised code to load fast on mobile, tablet and desktop. Slow sites lose visitors — that won't happen with me.",
     },
     {
       img: Seo,
       titleHu: "SEO-optimalizált kód",
-      descHu: "Segítek, hogy a Google is megtalálja az oldaladat!",
+      descHu: "A technikai SEO az alaptól épül be: szemantikus HTML, helyes meta adatok, gyors betöltés és strukturált tartalom. Segítek, hogy a Google megtalálja és előre sorolja az oldaladat.",
       titleEn: "SEO-Optimized Code",
-      descEn: "I help Google find your site with ease!",
-      to: "/blog/686cf600ef084d2e899a8919#up",
+      descEn: "Technical SEO is built in from the ground up: semantic HTML, correct meta tags, fast loading and structured content — so Google can find and rank your site.",
     },
     {
       img: Maintenance,
       titleHu: "Biztonság és karbantartás",
-      descHu: "Az oldalad mindig naprakész és védett lesz!",
+      descHu: "Az átadás nem a vége – igény esetén gondoskodom a folyamatos frissítésekről, hibajavításokról és a biztonságos üzemeltetésről, hogy az oldalad mindig megbízhatóan működjön.",
       titleEn: "Security & Maintenance",
-      descEn: "Your site stays up-to-date and protected!",
-      to: "blog/686cf648ef084d2e899a891c#up",
+      descEn: "Handover isn't the end — I can handle ongoing updates, bug fixes and secure operation so your site keeps running reliably.",
     },
   ];
 
@@ -58,24 +52,22 @@ const About = () => {
         gsap.registerPlugin(ScrollTrigger);
 
         ctx = gsap.context(() => {
-          gsap.utils.toArray(".card2").forEach((card) => {
-            gsap.fromTo(
-              card,
-              { y: 60, opacity: 0 },
-              {
-                y: 0,
-                opacity: 1,
-                duration: 0.5,
-                scrollTrigger: {
-                  trigger: card,
-                  start: "top 95%",
-                  end: "top 60%",
-                  scrub: true,
-                  markers: false,
-                },
-              }
-            );
-          });
+          gsap.fromTo(
+            ".card2",
+            { y: 50, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.45,
+              stagger: 0.1,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: ".card2",
+                start: "top 78%",
+                toggleActions: "play none none reverse",
+              },
+            }
+          );
         });
       }
     );
@@ -120,7 +112,7 @@ const About = () => {
           {cardContant.map((card, index) => (
             <div
               key={index}
-              className="about-card card2 p-6 flex flex-col items-center justify-between w-full sm:w-[220px] md:w-[230px] min-h-[280px]"
+              className="about-card card2 p-6 flex flex-col items-center w-full sm:w-[230px] md:w-[240px]"
             >
               <div
                 className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 flex-shrink-0"
@@ -138,11 +130,6 @@ const About = () => {
               <p className="text-center text-gray-500 flex-grow text-sm leading-relaxed">
                 {language === "hu" ? card.descHu : card.descEn}
               </p>
-              <RouterLink to={card.to} className="mt-5 w-full">
-                <button className="button-33 w-full text-sm py-2 px-3">
-                  {language === "hu" ? "Bővebben" : "Learn more"}
-                </button>
-              </RouterLink>
             </div>
           ))}
         </div>

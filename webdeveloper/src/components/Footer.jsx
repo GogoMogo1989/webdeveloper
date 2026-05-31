@@ -90,14 +90,23 @@ export default function UserFooter() {
             <ul className="flex flex-col gap-3">
               {navLinks.map((key) => (
                 <li key={key}>
-                  <Link
-                    to={key}
-                    smooth
-                    duration={500}
-                    className="text-sm text-white/50 hover:text-white transition-colors duration-200 cursor-pointer"
-                  >
-                    {t.links[key]}
-                  </Link>
+                  {key === "blog" ? (
+                    <RouterLink
+                      to="/blog"
+                      className="text-sm text-white/50 hover:text-white transition-colors duration-200"
+                    >
+                      {t.links[key]}
+                    </RouterLink>
+                  ) : (
+                    <Link
+                      to={key}
+                      smooth
+                      duration={500}
+                      className="text-sm text-white/50 hover:text-white transition-colors duration-200 cursor-pointer"
+                    >
+                      {t.links[key]}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

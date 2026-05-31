@@ -67,9 +67,13 @@ const Navbar = () => {
                 key={index}
                 className="nav-link text-white/70 hover:text-white text-sm font-medium tracking-wide cursor-pointer transition-colors duration-200"
               >
-                <ScrollLink to={item.to} smooth={true} duration={500} id={`nav-${item.to}`}>
-                  {item.title}
-                </ScrollLink>
+                {item.href ? (
+                  <RouterLink to={item.href}>{item.title}</RouterLink>
+                ) : (
+                  <ScrollLink to={item.to} smooth={true} duration={500} id={`nav-${item.to}`}>
+                    {item.title}
+                  </ScrollLink>
+                )}
               </li>
             ))}
           </ul>
@@ -121,14 +125,20 @@ const Navbar = () => {
               key={index}
               className="text-xl font-semibold text-white/60 hover:text-white cursor-pointer transition-colors duration-200 tracking-wide"
             >
-              <ScrollLink
-                to={item.to}
-                smooth={true}
-                duration={500}
-                onClick={() => setNav(false)}
-              >
-                {item.title}
-              </ScrollLink>
+              {item.href ? (
+                <RouterLink to={item.href} onClick={() => setNav(false)}>
+                  {item.title}
+                </RouterLink>
+              ) : (
+                <ScrollLink
+                  to={item.to}
+                  smooth={true}
+                  duration={500}
+                  onClick={() => setNav(false)}
+                >
+                  {item.title}
+                </ScrollLink>
+              )}
             </li>
           ))}
         </ul>
