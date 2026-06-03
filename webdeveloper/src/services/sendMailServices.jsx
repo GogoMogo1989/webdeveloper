@@ -1,5 +1,5 @@
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
-const ACCESS_KEY = "4bbbaef3-860e-46c2-b4b6-ed59378fbb6e";
+const ACCESS_KEY = "b14a5538-4a74-445f-b6b5-560dc3c2b8f5";
 
 export const sendMail = async ({ name, email, text }) => {
   try {
