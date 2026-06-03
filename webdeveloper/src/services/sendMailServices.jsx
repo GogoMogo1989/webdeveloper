@@ -1,21 +1,25 @@
-/* const API_URL = "http://localhost:3000/api/sendmail"; */
+const WEB3FORMS_URL = "https://api.web3forms.com/submit";
+const ACCESS_KEY = "4bbbaef3-860e-46c2-b4b6-ed59378fbb6e";
 
-const API_URL = "https://webpagerestapi.onrender.com/api/sendmail";
-
-export const sendMail = async (mailData) => {
+export const sendMail = async ({ name, email, text }) => {
   try {
-    const response = await fetch(`${API_URL}/sendmail`, {
+    const response = await fetch(WEB3FORMS_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(mailData),
+      body: JSON.stringify({
+        access_key: ACCESS_KEY,
+        name,
+        email,
+        message: text,
+      }),
     });
 
     const result = await response.json();
 
-    if (!response.ok) {
-      throw new Error(result.error || "Ismeretlen hiba");
+    if (!result.success) {
+      throw new Error(result.message || "Ismeretlen hiba");
     }
 
     return result;
