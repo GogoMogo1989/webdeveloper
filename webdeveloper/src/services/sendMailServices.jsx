@@ -19,6 +19,8 @@ export const sendMail = async ({ name, email, text }) => {
 
     const result = await response.json();
 
+    console.log("📧 Web3Forms válasz:", result);
+
     if (!result.success) {
       throw new Error(result.message || "Ismeretlen hiba");
     }
