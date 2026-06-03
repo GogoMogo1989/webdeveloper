@@ -10,6 +10,7 @@ export const sendMail = async ({ name, email, text }) => {
       },
       body: JSON.stringify({
         access_key: ACCESS_KEY,
+        subject: `Új üzenet a portfolióból – ${name}`,
         name,
         email,
         message: text,
