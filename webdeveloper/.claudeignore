@@ -1,0 +1,9 @@
+node_modules/
+dist/
+public/
+package-lock.json
+README.md
+.npmrc
+eslint.config.js
+vite.config.js
+index.html
