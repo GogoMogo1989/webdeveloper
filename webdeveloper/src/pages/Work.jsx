@@ -18,6 +18,66 @@ const Work = () => {
 
   const projects = [
     {
+      iframeSrc: "https://www.youtube.com/embed/DgpTFa7qHSg?autoplay=1&mute=1",
+      href: "https://kalyawebstart.hu",
+      titleHu: "Kalya Webstart",
+      titleEn: "Kalya Webstart",
+      descriptionHu:
+        "Egy teljes körű SaaS platform, amelyet éttermek és vendéglátóhelyek számára fejlesztettem. Stripe-alapú online kártyás fizetés, valós idejű rendeléskezelés, GPS-alapú kiszállítási zóna, hűségprogram, kuponrendszer, étlapkezelő adminfelület és automatikus számlázás – mindezt egyetlen integrált rendszerbe építve.",
+      descriptionEn:
+        "A full-stack SaaS platform built for restaurants and food businesses. Stripe-powered card payments, real-time order management, GPS-based delivery zoning, loyalty programme, coupon system, menu admin dashboard and automated invoicing – all wired into one integrated system.",
+    },
+    {
+      iframeSrc: "https://www.youtube.com/embed/GcrQ0w2JW30?autoplay=1&mute=1",
+      href: "https://kalya.hu",
+      titleHu: "Kalya – Rendelési platform",
+      titleEn: "Kalya – Ordering platform",
+      descriptionHu:
+        "A Kalya ügyféloldala: egy modern, SEO-optimalizált marketing- és rendelési weboldal, ahol az étkezők böngészhetik a közelben lévő éttermeket GPS-alapú szűréssel, leadhatják rendelésüket, nyomon követhetik annak státuszát, és kezelhetik profiljukat. Az oldal Stripe-integrációval, hűségprogrammal, allergénszűrővel és teljesen reszponzív dizájnnal rendelkezik.",
+      descriptionEn:
+        "The customer-facing side of Kalya: a modern, SEO-optimised marketing and ordering site where diners can browse nearby restaurants with GPS-based filtering, place orders, track their status and manage their profile. Features Stripe integration, a loyalty programme, allergen filters and a fully responsive design.",
+    },
+    {
+      iframeSrc: "https://www.youtube.com/embed/yLn9Yd3-YjQ?autoplay=1&mute=1",
+      titleHu: "Kalya – Étterem adminfelület",
+      titleEn: "Kalya – Restaurant admin panel",
+      descriptionHu:
+        "A Kalya platform éttermi oldala: egy teljes körű adminisztrációs felület, amelyen az éttermek kezelhetik étlapjukat, beállíthatják az árazást, allergéneket és kiegészítőket, nyomon követhetik és frissíthetik a beérkező rendelések státuszát, konfigurálhatják a nyitvatartást, a kiszállítási zónát, a kuponokat, a hűségprogramot és a fizetési módokat.",
+      descriptionEn:
+        "The restaurant-side of the Kalya platform: a full admin dashboard where venues manage their menu, set pricing, allergens and extras, track and update incoming order statuses, and configure opening hours, delivery zones, coupons, loyalty programmes and payment methods.",
+    },
+    {
+      iframeSrc: "https://www.youtube.com/embed/C5g9EBCwu2M?autoplay=1&mute=1",
+      hrefIos: "https://apps.apple.com/hu/app/kalya/id6751894726",
+      hrefAndroid: "https://play.google.com/store/apps/details?id=com.gogomogo1989.kalya",
+      titleHu: "Kalya – Mobilapp",
+      titleEn: "Kalya – Mobile app",
+      descriptionHu:
+        "A Kalya saját mobilalkalmazása iOS-re és Androidra. A felhasználók böngészhetik a közeli éttermeket, étlapokat nézhetnek, rendelést adhatnak le, nyomon követhetik a kiszállítást, és kezelhetik profiljukat — mindezt natív, gördülékeny felületen. Az app React Native alapú, Stripe fizetéssel és valós idejű rendelésfrissítéssel.",
+      descriptionEn:
+        "Kalya's own mobile app for iOS and Android. Users can browse nearby restaurants, explore menus, place orders, track delivery and manage their profile — all through a native, fluid interface. Built with React Native, featuring Stripe payments and real-time order updates.",
+    },
+    {
+      iframeSrc: "https://www.youtube.com/embed/mBPXJpLvnTQ?autoplay=1&mute=1",
+      href: "https://centralpest.hu",
+      titleHu: "Central Pest – Szabaduló szoba",
+      titleEn: "Central Pest – Escape room",
+      descriptionHu:
+        "Egy budapesti szabaduló szoba teljes körű foglalási és fizetési rendszere. A látogatók böngészhetik a szobákat, valós idejű időpontfoglalást végezhetnek, és online fizethetnek Stripe-on keresztül. A rendszer automatikus számlázással, e-mail visszaigazolással és adminisztrációs felülettel rendelkezik a foglalások kezeléséhez.",
+      descriptionEn:
+        "A full booking and payment system for a Budapest escape room. Visitors can browse rooms, make real-time reservations and pay online via Stripe. The system includes automated invoicing, email confirmations and an admin dashboard for managing bookings.",
+    },
+    {
+      iframeSrc: "https://www.youtube.com/embed/iMUjwj43ozc?autoplay=1&mute=1",
+      href: "https://ktguitarstudio.hu",
+      titleHu: "KT Guitar Studio",
+      titleEn: "KT Guitar Studio",
+      descriptionHu:
+        "Egy gitáriskolának készített bemutatkozó weboldal, ahol a hangsúly a vizuális megjelenésen és a könnyed navigáción van. Letisztult, reszponzív dizájn, átgondolt tipográfia és igényes képhasználat — bizonyíték arra, hogy egy egyszerű statikus oldal is lehet profi és meggyőző.",
+      descriptionEn:
+        "A presentation website for a guitar school, where the focus is on visual appeal and effortless navigation. Clean responsive design, considered typography and polished imagery — proof that a simple static site can still look professional and convincing.",
+    },
+    {
       iframeSrc: "https://www.youtube.com/embed/eLr0_iJfrfw?autoplay=1&mute=1",
       href: "https://zsandi.netlify.app/",
       titleHu: "Zsandi Beauty",
