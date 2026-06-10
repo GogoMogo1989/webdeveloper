@@ -21,6 +21,7 @@ const Navbar = () => {
       { title: "Miért engem?", to: "about" },
       { title: "Technológiák", to: "technologies" },
       { title: "Munkáim", to: "work" },
+      { title: "Árak", to: "pricing" },
       { title: "Kapcsolat", to: "contact" },
     ],
     en: [
@@ -30,6 +31,7 @@ const Navbar = () => {
       { title: "Why me?", to: "about" },
       { title: "Technologies", to: "technologies" },
       { title: "Work", to: "work" },
+      { title: "Pricing", to: "pricing" },
       { title: "Contact", to: "contact" },
     ],
   };

@@ -8,6 +8,7 @@ const Services = lazy(() => import("../pages/Services"));
 const About = lazy(() => import("../pages/About"));
 const Skills = lazy(() => import("../pages/Skills"));
 const Work = lazy(() => import("../pages/Work"));
+const Pricing = lazy(() => import("../pages/Pricing"));
 const Contact = lazy(() => import("../pages/Contact"));
 const Footer = lazy(() => import("../components/Footer"));
 import SuspensePage from "../pages/Suspense";
@@ -32,6 +33,7 @@ function LazySections() {
       <About />
       <Skills />
       <Work />
+      <Pricing />
       <Contact />
       <Footer />
     </Suspense>
